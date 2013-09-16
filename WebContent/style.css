@@ -1,0 +1,79 @@
+body {
+   font-family: verdana,arial,sans-serif;
+   font-size: 12px;
+   line-height: 150%;
+   background-color: #ffffff;
+   margin-top: 0px;
+   margin-left: 0px;
+   margin-right: auto;
+   height: 100%;
+}
+
+img {
+	vertical-align: middle;
+	border: none;
+	padding: 3px;
+}
+
+#header-bar {
+   background-color: #003366;
+   color: #ffffff;
+   padding: 5px;
+   border-top: 3px solid #990000;
+}
+
+#header-bar a {
+	color: #ffffff;
+}
+
+#header-banner {
+	background-color: #eeeeee;
+	padding-left: 10px;
+	padding-top: 15px;
+	padding-bottom: 10px;
+	border-bottom: 1px solid #dddddd;
+	height: 45px;
+}
+
+section {
+	width: 1050px;
+	height: auto;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+
+
+footer{
+	font-size: 9px;
+	text-align: center;
+}
+
+table.gridtable {
+	font-family: verdana,arial,sans-serif;
+	font-size:12px;
+	color:#333333;
+	border-width: 1px;
+	border-color: #666666;
+	border-collapse: collapse;
+}
+table.gridtable th {
+	border-width: 1px;
+	padding: 15px;
+	border-style: solid;
+	border-color: #666666;
+	background-color: #dedede;
+}
+table.gridtable td {
+	border-width: 1px;
+	padding: 15px;
+	border-style: solid;
+	border-color: #666666;
+	background-color: #ffffff;
+}
+
+.message{
+	color: #006633;
+	font-weight: bold;
+}
+

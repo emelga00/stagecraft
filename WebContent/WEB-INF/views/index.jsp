@@ -15,7 +15,7 @@
 <body>
 	<a href="">Admin</a>
 	<table class="gridtable">
-		<tr><th>Student ID</th><th>First Name</th><th>Last Name</th><th>City</th><th>State</th><th>Age</th></tr>
+		<tr><th>Student ID Test</th><th>First Name</th><th>Last Name</th><th>City</th><th>State</th><th>Age</th></tr>
 		
 		<tr>
 			<td><something></td>

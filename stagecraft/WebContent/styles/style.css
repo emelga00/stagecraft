@@ -1,0 +1,315 @@
+/*Generic globals ===================================================================*/
+html, body {
+	text-align: center;
+	padding:0;
+	margin:0;
+	--font-family: Verdana, Geneva, sans-serif;
+	--font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+	--font-family: Tahoma, Geneva, sans-serif;
+	--font-family: Arial, Helvetica, sans-serif;
+	--font-family: "Trebuchet MS", Helvetica, sans-serif;
+	--font-family: "Comic Sans MS", cursive, sans-serif;
+	--font-family: Impact, Charcoal, sans-serif;
+	font-family: Calibri, Candara, Segoe, "Segoe UI", Optima, Arial, sans-serif;
+	font-size: 17px;
+	color: black;
+	background-color: rgb(91,155,213);
+}
+
+
+/*layout template items==============================================================*/
+#container {
+	background-color: white;
+	width: 90%;
+	min-width: 1000px;
+	min-height: 700px;
+	padding: 5px;
+	margin-left: auto;
+	margin-right: auto;
+	margin-bottom: 20px;
+	/*CSS3 -- won't show in IE8-*/
+	border-bottom-left-radius: 1.75em 1.75em;
+	border-bottom-right-radius: 1.75em 1.75em;
+	box-shadow: 5px 15px 25px 1px #111111;
+}
+#clearfooter {
+	--
+}
+#header {
+	text-align: left;
+}
+#content{
+	--text-align: center;
+	min-height: 500px;
+	margin-left: auto;
+	margin-right: auto;
+	padding-top: 10px;
+	overflow: auto;
+	margin-bottom: 25px;
+}
+#footer{
+	border-top: 2px dotted silver;
+	width: 900px;
+	font-size: 1em;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+/*header template====================================================================*/
+#headcontent {
+	width: 950px;
+	padding:0;
+	border-left: 1px solid silver;
+	border-right: 1px solid silver;
+	border-bottom: 1px solid silver;
+	border-bottom-right-radius: 15px;
+	border-bottom-left-radius: 15px;
+	box-shadow: 1px 2px 5px 1px #bbbbbb;
+	margin-left: auto;
+	margin-right: auto;
+}
+#topcontent {
+	width: 925px; 
+	height: 5px;
+	margin-left: auto;
+	margin-right: auto;
+	font-size: 0.85em;
+}
+.header {
+	--
+}
+#logoHolder {
+	margin-top: 10px;
+}
+#logo {
+	border: none;
+}
+#linkicons {
+	border: none;
+	float:right;
+}
+.datetime {
+	float: right;
+}
+.topline {
+	--
+}
+
+
+/*========== alpha menu ==========*/
+#alphalist { 
+	width: 950px;
+	text-align: center;
+}
+#letterNav {
+	width: 800px;
+	margin-left: auto;
+	margin-right: auto;
+}
+.alpha{
+	text-decoration: none;
+	padding: 3px 3px;
+	display: block;
+	border-right: 2px solid rgb(55,125,180);
+	border-bottom: 2px solid black;
+	color: black;
+	/*CSS3 -- won't show in IE8-*/
+	border-bottom-left-radius: 4px;
+	border-bottom-right-radius: 4px;
+}
+.alpha2{
+	text-decoration: none;
+	padding: 3px 3px;
+	display: block;
+	border-left: 2px solid rgb(55,125,180);
+	border-bottom: 2px solid black;
+	color: black;
+	/*CSS3 -- won't show in IE8-*/
+	border-bottom-left-radius: 4px;
+	border-bottom-right-radius: 4px;
+}
+
+
+
+/*content page=======================================================================*/
+#status {
+	padding-bottom: 10px;
+	color: red;
+}
+.centerIt {
+	text-align: center;
+}
+.leftIt {
+	text-align: left;
+}
+.rightIt {
+	text-align: right;
+}
+.boldIt {
+	font-weight: bold;
+}
+.emphIt {
+	font-style: italic;
+}
+
+
+/*======= menu page tables =======*/
+.menuTable {
+	margin-left: auto;
+	margin-right: auto;
+}
+/*======= list view tables =======*/
+#listHolder {
+	text-align: center;
+}
+.listTable {
+	width: 95%;
+	font-size: 0.875em;
+	border-collapse: collapse;
+	text-align: left;
+	margin-left: auto;
+	margin-right: auto;
+	margin-bottom: 30px;
+	/*CSS3 -- won't show in IE8-*/
+	box-shadow: 1px 2px 5px 1px #aaaaaa;
+}
+.listTable th {
+	background-color: rgb(91,155,213);
+	padding: 5px;
+	text-align: center;
+	color: #ffffff;
+}
+.listTable td {
+	padding-top: 7px;
+	padding-bottom: 7px;
+	padding-left: 5px;
+	padding-right: 5px;
+}
+.infoOnly {
+	background-color: rgb(235,235,235);
+}
+.oddRow {
+	background-color: rgb(238,238,238);
+}
+.evenRow {
+	background-color: rgb(245,245,245);
+}
+.idText {
+	color: silver;
+}
+.child {
+	display: none;
+}
+
+/*========== form tables =========*/
+.formTable {
+	width: 100%;
+	/*CSS3 -- won't show in IE8-*/
+	--box-shadow: 1px 2px 5px 1px #aaaaaa;
+	--background-color: rgb(245,245,245);
+}
+.formTable td {
+	width: 33.3%;
+	padding-top: 5px;
+	padding-bottom: 5px;
+}
+.formLabelBox{
+	background-color: rgb(238,238,238);
+}
+.formTable select{
+	width: 144px;
+	height: 20px;
+}
+span[title]{
+    background:lightgrey;
+    color:grey;
+}
+/*==========    forms    =========*/
+#loginForm {
+	width: 30%;
+	display:inline-block;
+	margin-right: 15px;
+	vertical-align:top;
+}
+#inputForm {
+	text-align: center;
+	margin-left: auto;
+	margin-right: auto;
+}
+#reg {
+	padding: 15px;
+	text-align: center;
+	margin-left: 5px;
+}
+#inputForm form {
+	
+	margin-left: auto;
+	margin-right: auto;
+}
+#homePage {
+	width:60%;
+	margin-left: 15px;
+	display:inline-block;
+	vertical-align:top;
+}
+#homePage img{
+	padding:0;
+}
+#homePage p{
+	text-shadow: 1px 1px 1px gray;
+	text-align:left;
+	font-weight: 500;
+}
+#mainPage {
+	width:955px;
+	margin-left: auto;
+	margin-right: auto;
+}
+#forPass a{
+	font-size:16px;
+}
+#forPass a:link {
+		color: rgb(55,125,180);
+		
+	}
+
+#forPass a:visited {
+		color: rgb(55,125,180)
+	}
+
+#forPass a:active {
+		background-color: lightgray;
+		text-decoration:none;
+	}
+
+#forPass a:hover {
+		color:darkblue;
+		text-decoration:none;
+	}
+
+#noreg {
+	font-size:16px;
+}
+#logtext {
+	font-size:16px;
+	text-align:right;
+}
+.formControls {
+	padding: 15px;
+}
+#topControls {
+	margin-bottom: 10px;
+}
+.formTable input[type^="text"], input[type^="pass"] {
+	width: 140px;
+}
+.formDesc input[type^="text"]  {
+	width: 300px;
+}
+.formInst {
+	padding-left: 10px;
+	font-style: italic;
+	text-align: left;
+	color: gray;
+	font-size: 0.9em;
+}

@@ -19,34 +19,33 @@ String urlMapping = (String)session.getAttribute("urlMapping");
    <head>
       <title>Enterprise Java - Group1 Project</title>
       <link rel="stylesheet" href="<%=request.getContextPath()%>/styles/style.css" type="text/css"></link>
+      <link rel="stylesheet" href="<%=request.getContextPath()%>/styles/loginbox.css" type="text/css"></link>
    </head>
    
    <body>
-   
-       <div id="container">
-       
-       
-           <div id="clearfooter">
+   <div id="login">
+   		<jsp:include page="/WEB-INF/includes/loginbox.jsp" />
+   </div>
+   <div id="container">
+  
+		<div id="header">
+			<!-- Header  -->
+			<%
+				if(urlMapping.equals("/CAClientListView")||urlMapping.equals("/CAInfoListView")||
+				urlMapping.equals("/CACredentialsListView")||urlMapping.equals("/ClientViewerList")||
+				urlMapping.equals("/HrEmployeeListView")||urlMapping.equals("/HrSystemUserListView")){
+			%>
+			<jsp:include page="/WEB-INF/includes/header2.jsp" />
+				<%
+				} else {
+				%>
+			<jsp:include page="/WEB-INF/includes/header.jsp" />
+				<%
+				}
+				%>
+		</div><!-- END header-->
 		       
-		       
-				<div id="header">
-			    	<!-- Header  -->
-					<%
-						if(urlMapping.equals("/CAClientListView")||urlMapping.equals("/CAInfoListView")||
-						urlMapping.equals("/CACredentialsListView")||urlMapping.equals("/ClientViewerList")||
-						urlMapping.equals("/HrEmployeeListView")||urlMapping.equals("/HrSystemUserListView")){
-					%>
-						<jsp:include page="/WEB-INF/includes/header2.jsp" />
-					<%
-					} else {
-					%>
-						<jsp:include page="/WEB-INF/includes/header.jsp" />
-					<%
-					}
-					%>
-				</div><!-- END header-->
-		       
-		       
+		       	
 				<div id="content">
 		            <!-- Page Content -->
 		        	<jsp:include page="<%=nextView%>"  />
@@ -55,18 +54,17 @@ String urlMapping = (String)session.getAttribute("urlMapping");
 			       
 			</div><!-- END clearfooter-->
 		       
-		       
+		    
    			<div id="clearfooter2">
    			</div><!-- END clearfooter2-->
-      
-       
-			<div id="footer">
+
+       <div id="footer">
 		        	<!-- Footer -->
 		        	<jsp:include page="/WEB-INF/includes/footer.jsp" />
-			</div><!-- END footer-->
-
-
+			</div><!-- END footer--> 
        </div><!-- END container-->
+       
+       
        
    </body>
    

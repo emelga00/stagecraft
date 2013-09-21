@@ -1,36 +1,31 @@
 /*Generic globals ===================================================================*/
+@import url(http://fonts.googleapis.com/css?family=Bree+Serif);
 html, body {
 	text-align: center;
 	padding:0;
 	margin:0;
-	--font-family: Verdana, Geneva, sans-serif;
-	--font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
-	--font-family: Tahoma, Geneva, sans-serif;
-	--font-family: Arial, Helvetica, sans-serif;
-	--font-family: "Trebuchet MS", Helvetica, sans-serif;
-	--font-family: "Comic Sans MS", cursive, sans-serif;
-	--font-family: Impact, Charcoal, sans-serif;
-	font-family: Calibri, Candara, Segoe, "Segoe UI", Optima, Arial, sans-serif;
-	font-size: 17px;
-	color: black;
-	background-color: rgb(91,155,213);
+	background-color: gray;
+	background-image:url(../images/red.jpg);
 }
-
-
 /*layout template items==============================================================*/
 #container {
 	background-color: white;
 	width: 90%;
-	min-width: 1000px;
+	max-width:1200px;
+	min-width: 800px;
 	min-height: 700px;
 	padding: 5px;
 	margin-left: auto;
 	margin-right: auto;
+	margin-top: 10px;
 	margin-bottom: 20px;
 	/*CSS3 -- won't show in IE8-*/
-	border-bottom-left-radius: 1.75em 1.75em;
-	border-bottom-right-radius: 1.75em 1.75em;
-	box-shadow: 5px 15px 25px 1px #111111;
+	background: #f3f3f3;
+	border: 1px solid #fff;
+	border-radius: 5px;
+	box-shadow: 0 1px 3px rgba(0,0,0,0.5);
+	-moz-box-shadow: 0 1px 3px rgba(0,0,0,0.5);
+	-webkit-box-shadow: 0 1px 3px rgba(0,0,0,0.5);
 }
 #clearfooter {
 	--
@@ -38,6 +33,41 @@ html, body {
 #header {
 	text-align: left;
 }
+/*NAV Menu items ====================================================================*/
+nav	{
+	background-color: #f3f3f3;
+	
+	margin: 0;
+	padding: 0;
+	list-style-type: none;
+	height: 80px;
+	width: auto;
+	margin: auto;
+}
+nav li {
+	float: left;
+	list-style-type: none;
+}
+nav a{
+	background-image: url(navi_bg_divider.png);
+	background-repeat: no-repeat;
+	background-position: right;
+	padding-right: 32px;
+	padding-left: 32px;
+	display: block;
+	line-height: 80px;
+	text-decoration: none;
+	font-family: Georgia, "Times New Roman", Times, serif;
+	font-size: 21px;
+	color: #371C1C;
+}
+nav a:link {color: #371C1C; text-decoration: none; }
+nav a:active {color: pink; text-decoration: none; }
+nav a:visited {color: #371C1C; text-decoration: none; }
+nav a:hover {
+	color: #FFF;
+}
+/*=========================================================================*/
 #content{
 	--text-align: center;
 	min-height: 500px;
@@ -48,23 +78,18 @@ html, body {
 	margin-bottom: 25px;
 }
 #footer{
-	border-top: 2px dotted silver;
-	width: 900px;
+	width: 500px;
 	font-size: 1em;
 	margin-left: auto;
 	margin-right: auto;
+	background: #d4dedf;
+	border-top: 1px solid #fff;
 }
 
 /*header template====================================================================*/
 #headcontent {
-	width: 950px;
+	width: 800px;
 	padding:0;
-	border-left: 1px solid silver;
-	border-right: 1px solid silver;
-	border-bottom: 1px solid silver;
-	border-bottom-right-radius: 15px;
-	border-bottom-left-radius: 15px;
-	box-shadow: 1px 2px 5px 1px #bbbbbb;
 	margin-left: auto;
 	margin-right: auto;
 }
@@ -76,10 +101,19 @@ html, body {
 	font-size: 0.85em;
 }
 .header {
-	--
+
 }
 #logoHolder {
-	margin-top: 10px;
+	font-family: 'Bree Serif', serif;
+	font-weight: 300;
+	font-size: 48px;
+	line-height:34px;
+	color: #414848;
+	text-shadow: 1px 1px 0 rgba(256,256,256,1.0);
+	width: 400px;
+	margin-left: auto;
+	margin-right: auto;
+	margin-bottom: 10px;
 }
 #logo {
 	border: none;
@@ -225,12 +259,7 @@ span[title]{
     color:grey;
 }
 /*==========    forms    =========*/
-#loginForm {
-	width: 30%;
-	display:inline-block;
-	margin-right: 15px;
-	vertical-align:top;
-}
+
 #inputForm {
 	text-align: center;
 	margin-left: auto;
@@ -312,4 +341,42 @@ span[title]{
 	text-align: left;
 	color: gray;
 	font-size: 0.9em;
+}
+* {
+	margin: 0;
+	padding: 0;
+	border: none;
+	outline: none;
+}
+
+#login {
+	/* Center wrapper perfectly */
+	width: 300px;
+	height: 400px;
+	margin: 70px auto;
+}
+
+.download {
+	display: block;
+	position: absolute;
+	float: right;
+	right: 25px;
+	bottom: 25px;
+	padding: 5px;
+	
+	font-weight: bold;
+	font-size: 11px;
+	text-align: right;
+	text-decoration: none;
+	color: rgba(0,0,0,0.5);
+	text-shadow: 1px 1px 0 rgba(256,256,256,0.5);
+}
+
+.download:hover {
+	color: rgba(0,0,0,0.75);
+	text-shadow: 1px 1px 0 rgba(256,256,256,0.5);
+}
+
+.download:focus {
+	bottom: 24px;
 }

@@ -14,66 +14,29 @@
 	}
 %>
 
-<img src="images/logo.png" ></img><br>
-<hr style="width:60%; height: 12px; border: 0; box-shadow: inset 0 12px 12px -12px rgba(0,0,0,0.5);">
+
 <div id="main" >
 <div id="homePage" >
-<img src="images/introTitle.png" ></img>
 <p>
-The Republican criticism of Attorney General Eric Holder and the Justice Department -- first, over the failed Fast and Furious gun-tracking operation and now, the subpoena of reporters phone and email records -- is growing to include outcry from liberal media outlets and Democrats. 
-</p>
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin malesuada felis at est commodo vestibulum. 
+Quisque eu consectetur tellus. Aenean scelerisque porttitor quam, in dictum sem blandit et. Cras pellentesque 
+scelerisque arcu, eu placerat sem eleifend ac. Mauris sit amet felis accumsan, dignissim lectus et, iaculis 
+nisi. Nam sollicitudin purus nec sem consectetur condimentum. Donec vulputate velit in dapibus blandit. Nam 
+venenatis nunc id egestas tempus.</p>
 <p>
-It seems to me clear that the actions of the department have in fact impaired the First Amendment, Rep. Zoe Lofgren, D-Calif., said earlier this month. Reporters who might have previously believed that a confidential source would speak to them would no longer have that level of confidence.
-</p>
+Pellentesque quis fermentum odio, quis suscipit turpis. Pellentesque in consectetur ante, ut volutpat sapien. 
+Phasellus imperdiet elit volutpat mauris vestibulum eleifend id semper nisi. Lorem ipsum dolor sit amet, 
+consectetur adipiscing elit. Integer tempor sollicitudin lacus et mollis. Sed interdum elementum dignissim. 
+Nunc hendrerit vitae tellus et fringilla. Sed imperdiet erat et enim blandit feugiat. Curabitur vel sapien augue. 
+Donec ipsum nulla, sodales non dui ac, scelerisque adipiscing erat. Class aptent taciti sociosqu ad litora 
+torquent per conubia nostra, per inceptos himenaeos. Etiam ornare tellus felis, at semper orci iaculis nec. 
+Vivamus molestie suscipit nisi, eu gravida libero iaculis et. Duis nec lectus urna.</p>
 <p>
-The Republican criticism of Attorney General Eric Holder and the Justice Department -- first, over the failed Fast and Furious gun-tracking operation and now, the subpoena of reporters phone and email records -- is growing to include outcry from liberal media outlets and Democrats. 
-</p>
+Morbi faucibus gravida elit, ac commodo massa dictum vel. In sed quam vestibulum, volutpat quam id, ornare augue. 
+Sed nisi sapien, molestie vitae eleifend non, venenatis sed magna. Quisque accumsan pretium augue, vel adipiscing 
+dolor fermentum id. Sed suscipit eleifend lorem, quis cursus tellus dignissim nec. Morbi nec leo non eros auctor 
+consequat. Nullam et viverra odio. Nulla facilisi. Quisque eu libero eu nisl suscipit viverra. Sed scelerisque odio 
+ut sollicitudin congue. Sed semper risus nisl, quis pellentesque lorem fringilla at. Aliquam erat volutpat.</p>
 </div>
 
-<div id="loginForm" >
-<img src="images/login.png" ></img>
-<div id="status"><%=status%></div>
-
-<div id="inputForm">
-	<form action="Authenticate" method="post">
-		<table class="formTable">
-			
-			<tr>
-				<td id="logtext">Email</td>
-				<td><input type="text" name="username" /></td>
-				<td></td>
-			</tr>
-			<tr>
-				<td class="rightIt"></td>
-				<td></td>
-				<td></td>
-			</tr>
-			<tr>
-				<td id="logtext">Password</td>
-				<td><input type="password" name="password" /></td>
-				<td></td>
-			</tr>
-			<tr>
-				<td colspan="3"></td>
-			</tr>
-		</table>
-		<div class="formControls">
-			<input class="jBtn" type="submit" name="submit" value="Login" />
-		</div>
-	</form>
-</div>
-<div id="forPass" >
-<a href="Login" >Forgot Password</a>
-</div>
-<div id="reg">
-	<a  href="User_Add">Register</a>
-</div>	
-<div id="noreg">
-New to WorldOfStagecraft?<br>
-</div>
-</div>
-</div>
-<div>
-<br><br>
-<iframe width="560" height="315" src="//www.youtube.com/embed/ytFSehs2Rxw" frameborder="0" allowfullscreen></iframe>
 </div>

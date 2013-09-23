@@ -26,6 +26,8 @@ html, body {
 	box-shadow: 0 1px 3px rgba(0,0,0,0.5);
 	-moz-box-shadow: 0 1px 3px rgba(0,0,0,0.5);
 	-webkit-box-shadow: 0 1px 3px rgba(0,0,0,0.5);
+	
+	----something;
 }
 #clearfooter {
 	--

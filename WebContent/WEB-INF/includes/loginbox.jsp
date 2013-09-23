@@ -10,7 +10,7 @@
 		session.removeAttribute("status");
 	}
 %>
-div id="status"><%=status%></div>
+<div id="status"><%=status%></div>
 <div id="login">
 	<form name="login-form" class="login-form" action="Authenticate" method="post">
 		<div class="header">

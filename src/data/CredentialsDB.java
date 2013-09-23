@@ -20,7 +20,7 @@ public class CredentialsDB {
 		 	Credentials credentials=null;
 		 	
 		 	PreparedStatement statement=null;
-			String preparedSQL = "";
+			String preparedSQL = "SELECT * FROM Credential WHERE Email = ? and Pass = ?";
 			
 		    try{
 		    	connection=DBConnector.getConnection();

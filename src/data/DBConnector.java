@@ -31,7 +31,7 @@ public class DBConnector {
 		 
 		try {
 		    Class.forName("com.mysql.jdbc.Driver"); 
-		    conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/justbringme?user=root&password=Security_Pr0bs12!@");
+		    conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/stagecraft?user=root&password=Security_Pr0bs12!@");
 		}
 		catch (SQLException ex) {
 		    System.out.println("Error: " + ex);

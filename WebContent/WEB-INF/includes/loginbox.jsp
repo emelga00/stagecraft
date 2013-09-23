@@ -1,6 +1,6 @@
 <%@ page import="java.util.Date, java.text.*,beans.*" %>
 <div id="login">
-	<form name="login-form" class="login-form" action="" method="post">
+	<form name="login-form" class="login-form" action="Authenticate" method="post">
 		<div class="header">
 		<h1>Login</h1>
 		</div>

@@ -1,22 +1,6 @@
 <?xml version="1.0" encoding="ISO-8859-1" ?>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1" import="beans.*,data.*"%>
-
-<%
-/*****************
- * modified: BAC
- ****************/
-	String status = (String) session.getAttribute("status");
-	if(status==null){
-		status="<br>";
-	}else{
-		session.removeAttribute("status");
-	}
-%>
-
-
-<div id="main" >
-<div id="homePage" >
 <p>
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin malesuada felis at est commodo vestibulum. 
 Quisque eu consectetur tellus. Aenean scelerisque porttitor quam, in dictum sem blandit et. Cras pellentesque 
@@ -37,6 +21,3 @@ Sed nisi sapien, molestie vitae eleifend non, venenatis sed magna. Quisque accum
 dolor fermentum id. Sed suscipit eleifend lorem, quis cursus tellus dignissim nec. Morbi nec leo non eros auctor 
 consequat. Nullam et viverra odio. Nulla facilisi. Quisque eu libero eu nisl suscipit viverra. Sed scelerisque odio 
 ut sollicitudin congue. Sed semper risus nisl, quis pellentesque lorem fringilla at. Aliquam erat volutpat.</p>
-</div>
-
-</div>

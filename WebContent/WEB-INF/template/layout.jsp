@@ -17,18 +17,14 @@ String urlMapping = (String)session.getAttribute("urlMapping");
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 
    <head>
-      <title>Enterprise Java - Group1 Project</title>
+      <title>World of Stagecraft</title>
       <link rel="stylesheet" href="<%=request.getContextPath()%>/styles/style.css" type="text/css"></link>
       <link rel="stylesheet" href="<%=request.getContextPath()%>/styles/loginbox.css" type="text/css"></link>
    </head>
    
    <body>
-   <div id="login">
-   		<jsp:include page="/WEB-INF/includes/loginbox.jsp" />
-   </div>
-   <div id="container">
-  
-		<div id="header">
+   <div id="wrapper">
+        <header>
 			<!-- Header  -->
 			<%
 				if(urlMapping.equals("/CAClientListView")||urlMapping.equals("/CAInfoListView")||
@@ -43,30 +39,23 @@ String urlMapping = (String)session.getAttribute("urlMapping");
 				<%
 				}
 				%>
-		</div><!-- END header-->
-		       
-		       	
-				<div id="content">
-		            <!-- Page Content -->
-		        	<jsp:include page="<%=nextView%>"  />
-				</div><!-- END content-->
-			       
-			       
-			</div><!-- END clearfooter-->
-		       
-		    
-   			<div id="clearfooter2">
-   			</div><!-- END clearfooter2-->
-
-       <div id="footer">
+		</header><!-- END header-->
+        <div class="clear"></div>
+        <aside>
+            <jsp:include page="/WEB-INF/includes/loginbox.jsp" />
+        </aside>
+        <div id="section">
+            <div id="page">
+                <!-- Page Content -->
+                <jsp:include page="<%=nextView%>"  />
+            </div><!-- END content-->
+        </div>
+		<div class="clear"></div>	       
+        <footer>
 		        	<!-- Footer -->
 		        	<jsp:include page="/WEB-INF/includes/footer.jsp" />
-			</div><!-- END footer--> 
-       </div><!-- END container-->
-       
-       
-       
+			</footer><!-- END footer--> 
+   </div><!-- END wrapper--> 
    </body>
-   
 </html>
 

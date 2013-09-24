@@ -1,385 +1,337 @@
-/*Generic globals ===================================================================*/
 @import url(http://fonts.googleapis.com/css?family=Bree+Serif);
 html, body {
 	text-align: center;
-	padding:0;
+	
 	margin:0;
 	background-color: gray;
-	background-image:url(../images/red.jpg);
+	background-image:url(red.jpg);
+    background-repeat:no-repeat;
+    background-size:100% 100%;
 }
-/*layout template items==============================================================*/
-#container {
-	background-color: white;
-	width: 90%;
-	max-width:1200px;
-	min-width: 800px;
-	min-height: 700px;
-	padding: 5px;
-	margin-left: auto;
-	margin-right: auto;
+.clear {
+    clear: both;
+}
+p {
+    padding: 0 40 0 40;
+}
+/***********************************
+ * layout template items           *
+ ***********************************/
+#wrapper {
+        width: 1200px;
+        min-width: 800px;
+        margin-right: auto;
+        margin-left: auto;
+        margin-top: 0px;
+}
+/***********************************
+ * header                          *
+ ***********************************/
+header     {
+    float:left;
+	--text-align: center;
+    width: 800px;
+    margin-left: 10px;
+    
+}
+#logo       {
+    padding-top: 20px;
+    padding-bottom: 20px;
+    font-family: 'Bree Serif', serif;
+    font-weight: 500;
+	font-size: 50px;
+	color: #fbf7e4;
+	text-shadow: 0px 5px 10px rgba(0,0,0,0.50);  
+}
+/***********************************
+ * NAV Menu                        *
+ ***********************************/
+nav {
+    
+   
+}
+nav menu{
+    list-style: none;
+	width: 100%;
+	float: right;
+    margin: 0px;
+}
+nav li      {
+    float: left;
+}
+nav a{
+	padding: 10px 50px;
+	font-family: 'Bree Serif', serif;
+	font-weight: 300;
+	font-size: 18px;
+	color: #fbf7e4;
+	text-shadow: 0px 1px 0 rgba(0,0,0,0.25);
+	background: #424242;
+	border: 1px solid #d3ceaa;
+    border-bottom: 0px;
+	border-radius: 3px;
+	cursor: pointer;
+	webkit-box-shadow: inset 0px 0px 2px 0px rgba(211,206,170,.75);
+    -moz-box-shadow: inset 0px 0px 2px 0px rgba(211,206,170,.75);
+    box-shadow: inset 0px 0px 2px 0px rgba(211,206,170,.75);
+}
+nav a:link      {text-decoration: none; }
+nav a:visited   {text-decoration: none; }
+nav a:hover     {
+    background: #8e001c;
+	border: 1px solid rgba(256,256,256,0.75);
+	box-shadow: inset 0 1px 3px rgba(0,0,0,0.5);
+	-moz-box-shadow: inset 0 1px 3px rgba(0,0,0,0.5);
+	-webkit-box-shadow: inset 0 1px 3px rgba(0,0,0,0.5);
+}
+nav a:focus     {
+    background: #dfe9ec;color: #414848;
+    box-shadow: inset 0 1px 2px rgba(0,0,0,0.25);
+    -moz-box-shadow: inset 0 1px 2px rgba(0,0,0,0.25);
+    -webkit-box-shadow: inset 0 1px 2px rgba(0,0,0,0.25);
+}   
+/*=========================================================================*/
+#section         {
+    float: left;
+	--text-align: center;
+    position-left: relative;
+    position-right: relative;
+	overflow: auto;
+    width: 800px;
+    min-height: 500px;
+	padding-right: 0px;
+	margin-left: 20px;
+	margin-right: 0px;
 	margin-top: 10px;
-	margin-bottom: 20px;
-	/*CSS3 -- won't show in IE8-*/
+	margin-bottom: -5px;
+	background: #f3f3f3;
+	border: 1px solid #fff;
+	box-shadow: 0 1px 3px rgba(0,0,0,0.75);
+	-moz-box-shadow: 0 1px 3px rgba(0,0,0,0.75);
+	-webkit-box-shadow: 0 1px 3px rgba(0,0,0,0.75);
+    
+}
+#page   {
+}
+/*********************
+LOGIN-BOX BODY STYLING
+**********************/
+aside {
+    margin-right: 10px;
+    margin-top:  20px;  
+    margin-left: 1px;
+    float:right;
+}
+/*******************
+LOGIN FORM
+*******************/
+.login-form {
+	width: 300px;
+	margin: 0;
+	margin-left: 10px;
 	background: #f3f3f3;
 	border: 1px solid #fff;
 	border-radius: 5px;
 	box-shadow: 0 1px 3px rgba(0,0,0,0.5);
 	-moz-box-shadow: 0 1px 3px rgba(0,0,0,0.5);
 	-webkit-box-shadow: 0 1px 3px rgba(0,0,0,0.5);
-	
-	----something;
-	----somethingelse;
 }
-#clearfooter {
-	--
+/*******************
+LOGIN-BOX HEADER
+*******************/
+.login-form .login-header {
+	padding: 3px 30px 20px 30px;
 }
-#header {
-	text-align: left;
-}
-/*NAV Menu items ====================================================================*/
-nav	{
-	background-color: #f3f3f3;
-	
-	margin: 0;
-	padding: 0;
-	list-style-type: none;
-	height: 80px;
-	width: auto;
-	margin: auto;
-}
-nav li {
-	float: left;
-	list-style-type: none;
-}
-nav a{
-	background-image: url(navi_bg_divider.png);
-	background-repeat: no-repeat;
-	background-position: right;
-	padding-right: 32px;
-	padding-left: 32px;
-	display: block;
-	line-height: 80px;
-	text-decoration: none;
-	font-family: Georgia, "Times New Roman", Times, serif;
-	font-size: 21px;
-	color: #371C1C;
-}
-nav a:link {color: #371C1C; text-decoration: none; }
-nav a:active {color: pink; text-decoration: none; }
-nav a:visited {color: #371C1C; text-decoration: none; }
-nav a:hover {
-	color: #FFF;
-}
-/*=========================================================================*/
-#content{
-	--text-align: center;
-	min-height: 500px;
-	margin-left: auto;
-	margin-right: auto;
-	padding-top: 10px;
-	overflow: auto;
-	margin-bottom: 25px;
-}
-#footer{
-	width: 500px;
-	font-size: 1em;
-	margin-left: auto;
-	margin-right: auto;
-	background: #d4dedf;
-	border-top: 1px solid #fff;
-}
-
-/*header template====================================================================*/
-#headcontent {
-	width: 800px;
-	padding:0;
-	margin-left: auto;
-	margin-right: auto;
-}
-#topcontent {
-	width: 925px; 
-	height: 5px;
-	margin-left: auto;
-	margin-right: auto;
-	font-size: 0.85em;
-}
-.header {
-
-}
-#logoHolder {
+.login-form .login-header h1 {
 	font-family: 'Bree Serif', serif;
 	font-weight: 300;
-	font-size: 48px;
+	font-size: 28px;
 	line-height:34px;
 	color: #414848;
 	text-shadow: 1px 1px 0 rgba(256,256,256,1.0);
-	width: 400px;
-	margin-left: auto;
-	margin-right: auto;
 	margin-bottom: 10px;
 }
-#logo {
-	border: none;
+.login-form .login-header span {
+	font-size: 11px;
+	line-height: 16px;
+	color: #678889;
+	text-shadow: 1px 1px 0 rgba(256,256,256,1.0);
 }
-#linkicons {
-	border: none;
-	float:right;
+/*******************
+LOGIN-BOX CONTENT
+*******************/
+.login-form .login-content {
+	padding: 0 30px 25px 30px;
 }
-.datetime {
-	float: right;
+/* Input field */
+.login-form .login-content .input {
+	width: 188px;
+	padding: 15px 25px;
+	font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+	font-weight: 400;
+	font-size: 14px;
+	color: #9d9e9e;
+	text-shadow: 1px 1px 0 rgba(256,256,256,1.0);
+	background: #fff;
+	border: 1px solid #fff;
+	border-radius: 5px;
+	box-shadow: inset 0 1px 3px rgba(0,0,0,0.50);
+	-moz-box-shadow: inset 0 1px 3px rgba(0,0,0,0.50);
+	-webkit-box-shadow: inset 0 1px 3px rgba(0,0,0,0.50);
 }
-.topline {
-	--
+/* Second input field */
+.login-form .login-content .password, .login-form .content .pass-icon {
+	margin-top: 25px;
 }
-
-
-/*========== alpha menu ==========*/
-#alphalist { 
-	width: 950px;
-	text-align: center;
+.login-form .login-content .input:hover {
+	background: #fbf7e4;
+	color: #414848;
 }
-#letterNav {
-	width: 800px;
-	margin-left: auto;
-	margin-right: auto;
+.login-form .login-content .input:focus {
+	background: #fbf7e4;
+	color: #414848;
+	box-shadow: inset 0 1px 2px rgba(0,0,0,0.25);
+	-moz-box-shadow: inset 0 1px 2px rgba(0,0,0,0.25);
+	-webkit-box-shadow: inset 0 1px 2px rgba(0,0,0,0.25);
 }
-.alpha{
-	text-decoration: none;
-	padding: 3px 3px;
-	display: block;
-	border-right: 2px solid rgb(55,125,180);
-	border-bottom: 2px solid black;
-	color: black;
-	/*CSS3 -- won't show in IE8-*/
-	border-bottom-left-radius: 4px;
-	border-bottom-right-radius: 4px;
-}
-.alpha2{
-	text-decoration: none;
-	padding: 3px 3px;
-	display: block;
-	border-left: 2px solid rgb(55,125,180);
-	border-bottom: 2px solid black;
-	color: black;
-	/*CSS3 -- won't show in IE8-*/
-	border-bottom-left-radius: 4px;
-	border-bottom-right-radius: 4px;
-}
-
-
-
-/*content page=======================================================================*/
-#status {
-	padding-bottom: 10px;
-	color: red;
-}
-.centerIt {
-	text-align: center;
-}
-.leftIt {
-	text-align: left;
-}
-.rightIt {
-	text-align: right;
-}
-.boldIt {
-	font-weight: bold;
-}
-.emphIt {
-	font-style: italic;
-}
-
-
-/*======= menu page tables =======*/
-.menuTable {
-	margin-left: auto;
-	margin-right: auto;
-}
-/*======= list view tables =======*/
-#listHolder {
-	text-align: center;
-}
-.listTable {
-	width: 95%;
-	font-size: 0.875em;
-	border-collapse: collapse;
-	text-align: left;
-	margin-left: auto;
-	margin-right: auto;
-	margin-bottom: 30px;
-	/*CSS3 -- won't show in IE8-*/
-	box-shadow: 1px 2px 5px 1px #aaaaaa;
-}
-.listTable th {
-	background-color: rgb(91,155,213);
-	padding: 5px;
-	text-align: center;
-	color: #ffffff;
-}
-.listTable td {
-	padding-top: 7px;
-	padding-bottom: 7px;
-	padding-left: 5px;
-	padding-right: 5px;
-}
-.infoOnly {
-	background-color: rgb(235,235,235);
-}
-.oddRow {
-	background-color: rgb(238,238,238);
-}
-.evenRow {
-	background-color: rgb(245,245,245);
-}
-.idText {
-	color: silver;
-}
-.child {
-	display: none;
-}
-
-/*========== form tables =========*/
-.formTable {
-	width: 100%;
-	/*CSS3 -- won't show in IE8-*/
-	--box-shadow: 1px 2px 5px 1px #aaaaaa;
-	--background-color: rgb(245,245,245);
-}
-.formTable td {
-	width: 33.3%;
-	padding-top: 5px;
-	padding-bottom: 5px;
-}
-.formLabelBox{
-	background-color: rgb(238,238,238);
-}
-.formTable select{
-	width: 144px;
-	height: 20px;
-}
-span[title]{
-    background:lightgrey;
-    color:grey;
-}
-/*==========    forms    =========*/
-
-#inputForm {
-	text-align: center;
-	margin-left: auto;
-	margin-right: auto;
-}
-#reg {
-	padding: 15px;
-	text-align: center;
-	margin-left: 5px;
-}
-#inputForm form {
-	
-	margin-left: auto;
-	margin-right: auto;
-}
-#homePage {
-	width:60%;
-	margin-left: 15px;
-	display:inline-block;
-	vertical-align:top;
-}
-#homePage img{
-	padding:0;
-}
-#homePage p{
-	text-shadow: 1px 1px 1px gray;
-	text-align:left;
-	font-weight: 500;
-}
-#mainPage {
-	width:955px;
-	margin-left: auto;
-	margin-right: auto;
-}
-#forPass a{
-	font-size:16px;
-}
-#forPass a:link {
-		color: rgb(55,125,180);
-		
-	}
-
-#forPass a:visited {
-		color: rgb(55,125,180)
-	}
-
-#forPass a:active {
-		background-color: lightgray;
-		text-decoration:none;
-	}
-
-#forPass a:hover {
-		color:darkblue;
-		text-decoration:none;
-	}
-
-#noreg {
-	font-size:16px;
-}
-#logtext {
-	font-size:16px;
-	text-align:right;
-}
-.formControls {
-	padding: 15px;
-}
-#topControls {
-	margin-bottom: 10px;
-}
-.formTable input[type^="text"], input[type^="pass"] {
-	width: 140px;
-}
-.formDesc input[type^="text"]  {
-	width: 300px;
-}
-.formInst {
-	padding-left: 10px;
-	font-style: italic;
-	text-align: left;
-	color: gray;
-	font-size: 0.9em;
-}
-* {
-	margin: 0;
-	padding: 0;
-	border: none;
-	outline: none;
-}
-
-#login {
-	/* Center wrapper perfectly */
-	width: 300px;
-	height: 400px;
-	margin: 70px auto;
-}
-
-.download {
+/*  animation i gotta fix
+.user-icon, .pass-icon {
+	width: 46px;
+	height: 47px;
 	display: block;
 	position: absolute;
+	left: 0px;
+	padding-right: 2px;
+	z-index: -1;
+	-moz-border-radius-topleft: 5px;
+	-moz-border-radius-bottomleft: 5px;
+	-webkit-border-top-left-radius: 5px;
+	-webkit-border-bottom-left-radius: 5px;
+}
+.user-icon {
+	top:153px; /* Positioning fix for slide-in, got lazy to think up of simpler method.
+	background: rgba(65,72,72,0.75) url("") no-repeat center;	
+}
+.pass-icon {
+	top:201px;
+	background: rgba(65,72,72,0.75) url("") no-repeat center;
+}
+.content input:focus + div{
+	left: -46px;
+}
+/* Animation
+.input, .user-icon, .pass-icon, .button, .register .password{
+	transition: all 0.5s ease;
+	-moz-transition: all 0.5s ease;
+	-webkit-transition: all 0.5s ease;
+	-o-transition: all 0.5s ease;
+	-ms-transition: all 0.5s ease;
+}
+*/
+/*******************
+LOGIN-BOX FOOTER
+*******************/
+.login-form .login-footer {
+	padding: 25px 30px 40px 30px;
+	overflow: auto;
+	background: #d3ceaa;
+	border-top: 1px solid #fbf7e4;
+	box-shadow: inset 0 1px 0 rgba(0,0,0,0.15);
+	-moz-box-shadow: inset 0 1px 0 rgba(0,0,0,0.15);
+	-webkit-box-shadow: inset 0 1px 0 rgba(0,0,0,0.15);
+}
+/*******************
+LOGIN BUTTON
+*******************/
+.login-form .login-footer .button {
+	float:right;
+	padding: 11px 25px;
+	font-family: 'Bree Serif', serif;
+	font-weight: 300;
+	font-size: 18px;
+	color: #fbf7e4;
+	text-shadow: 0px 1px 0 rgba(0,0,0,0.25);
+	background: 8e001c;
+	border: 1px solid #8e001c;
+	border-radius: 5px;
+	cursor: pointer;
+	box-shadow: inset 0 0 2px rgba(256,256,256,0.75);
+	-moz-box-shadow: inset 0 0 2px rgba(256,256,256,0.75);
+	-webkit-box-shadow: inset 0 0 2px rgba(256,256,256,0.75);
+}
+.login-form .login-footer .button:hover {
+	background: #424242;
+	border: 1px solid rgba(256,256,256,0.75);
+	box-shadow: inset 0 1px 3px rgba(0,0,0,0.5);
+	-moz-box-shadow: inset 0 1px 3px rgba(0,0,0,0.5);
+	-webkit-box-shadow: inset 0 1px 3px rgba(0,0,0,0.5);
+}
+.login-form .login-footer .button:focus {
+	position: relative;
+	bottom: -1px;
+	background: #424242;
+	box-shadow: inset 0 1px 6px rgba(256,256,256,0.75);
+	-moz-box-shadow: inset 0 1px 6px rgba(256,256,256,0.75);
+	-webkit-box-shadow: inset 0 1px 6px rgba(256,256,256,0.75);
+}
+/**********************************
+LOGIN-BOX REGISTER/PASSWORD BUTTON
+***********************************/
+.login-form .login-footer .register, .login-form .login-footer .password{
+	display: block;
 	float: right;
-	right: 25px;
-	bottom: 25px;
-	padding: 5px;
-	
-	font-weight: bold;
-	font-size: 11px;
-	text-align: right;
-	text-decoration: none;
-	color: rgba(0,0,0,0.5);
-	text-shadow: 1px 1px 0 rgba(256,256,256,0.5);
+	padding: 10px;
+	margin-right: 20px;
+	background: none;
+	border: none;
+	cursor: pointer;
+	font-family: 'Bree Serif', serif;
+	font-weight: 300;
+	font-size: 18px;
+	color: #414848;
+	text-shadow: 0px 1px 0 rgba(256,256,256,0.5);
+}
+.login-form .login-footer .register, .login-form .login-footer .password:hover {
+	color: #8e001c;
+}
+.login-form .login-footer .register, .login-form .aside-footer .password:focus {
+	position: relative;
+	bottom: -1px;
+}
+/***************************
+ * FOOTER                  *
+ ***************************/
+footer{
+    width:          800px;
+    float:          left;
+    text-align:     center;
+	min-width:      auto;
+	margin-left:    20px;
+	margin-right:   auto;
+    padding-top:    30px;
+    padding-bottom: 30px;
+	font-size:      1em;
+	background:     #d3ceaa;
+	border-top:     1px solid #fff;
+    border: 1px solid #fff;
+	border-radius: 5px;
+	box-shadow: 0 1px 3px rgba(0,0,0,0.5);
+	-moz-box-shadow: 0 1px 3px rgba(0,0,0,0.5);
+	-webkit-box-shadow: 0 1px 3px rgba(0,0,0,0.5);
 }
 
-.download:hover {
-	color: rgba(0,0,0,0.75);
-	text-shadow: 1px 1px 0 rgba(256,256,256,0.5);
+.video-container {
+    position: relative;
+    padding-bottom: 56.25%;
+    padding-top: 30px; height: 0; overflow: hidden;
 }
-
-.download:focus {
-	bottom: 24px;
+ 
+.video-container iframe,
+.video-container object,
+.video-container embed {
+    position: absolute;
+    top: 0;
+    left: 80;
+    width: 80%;
+    height: 80%;
 }

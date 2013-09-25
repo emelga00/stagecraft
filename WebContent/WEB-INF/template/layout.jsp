@@ -19,7 +19,6 @@ String urlMapping = (String)session.getAttribute("urlMapping");
    <head>
       <title>World of Stagecraft</title>
       <link rel="stylesheet" href="<%=request.getContextPath()%>/styles/style.css" type="text/css"></link>
-      <link rel="stylesheet" href="<%=request.getContextPath()%>/styles/loginbox.css" type="text/css"></link>
    </head>
    
    <body>
@@ -52,9 +51,8 @@ String urlMapping = (String)session.getAttribute("urlMapping");
         </div>
 		<div class="clear"></div>	       
         <footer>
-		        	<!-- Footer -->
-		        	<jsp:include page="/WEB-INF/includes/footer.jsp" />
-			</footer><!-- END footer--> 
+			<jsp:include page="/WEB-INF/includes/footer.jsp" />
+		</footer><!-- END footer--> 
    </div><!-- END wrapper--> 
    </body>
 </html>

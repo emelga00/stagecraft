@@ -1,4 +1,16 @@
 <%@ page import="java.util.Date, java.text.*,beans.*" %>
+<%
+/*****************
+ * modified: BAC
+ ****************/
+	String status = (String) session.getAttribute("status");
+	if(status==null){
+		status="<br>";
+	}else{
+		session.removeAttribute("status");
+	}
+%>
+<div id="status"><%=status%></div>
 <div id="login">
 	<form name="login-form" class="login-form" action="Authenticate" method="post">
 		<div class="header">

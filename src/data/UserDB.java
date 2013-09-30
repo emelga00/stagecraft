@@ -266,7 +266,7 @@ public class UserDB {
 		int status = 0;
 		Connection connection;
 
-		String preparedSQL = "";
+		String preparedSQL = "INSERT INTO user (First_Name, Last_Name, Phone, Address, City, State, Zip, Date) VALUES(?,?,?,?,?,?,?,?) ";
 		PreparedStatement statement = null;	
 		try{
 			connection = DBConnector.getConnection();
@@ -278,7 +278,6 @@ public class UserDB {
 			statement.setString(5, user.getCity());
 			statement.setString(6, user.getState());
 			statement.setString(7, user.getZIP());
-			
 			statement.setString(8, user.getDate());
 			status = statement.executeUpdate();
 			statement.close();

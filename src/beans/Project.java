@@ -1,6 +1,6 @@
 package beans;
 
-public class Projects 
+public class Project 
 {
 	private int    projID;
 	private String Name;

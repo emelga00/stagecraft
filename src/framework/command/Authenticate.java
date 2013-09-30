@@ -27,9 +27,10 @@ public class Authenticate implements Command {
 			
 		//** 2. Check For Valid UserName and Password Combination ******
 		Credentials currentUser = CredentialsDB.authenticate(username, password);
-				
+		int currentValid = (int) currentUser.getValid();		
+		
 		//** 3. Directs users to respective landing page ******
-		if(currentUser!=null){
+		if(currentUser!=null && currentValid==0){
 			String 	currentRole = (String) currentUser.getRole();
 			String 	currentUsername = (String) currentUser.getEmail();
 			int		currentUserID	= (int) currentUser.getUserID();
@@ -48,6 +49,9 @@ public class Authenticate implements Command {
 				nextView="ModUserView";
 				session.setAttribute("homepage", "ModUserView");
 			}
+		}
+		else if(currentUser!=null && currentValid==1){
+			session.setAttribute("status","You Must First Validate Your Email");
 		}
 		else{
 			session.setAttribute("status","Invalid Username/Password Combination");

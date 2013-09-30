@@ -29,6 +29,7 @@
     <url-pattern>/Cred_PostAdd</url-pattern>
     <url-pattern>/User_Add</url-pattern>
     <url-pattern>/User_PostAdd</url-pattern>
+    <url-pattern>/SendValidation</url-pattern>
 
   </servlet-mapping>
 </web-app>

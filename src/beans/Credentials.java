@@ -9,6 +9,7 @@ public class Credentials {
 	private String email;
 	private String pass;
 	private String role;
+	private int valid;
 	private int userID;
 	private String userName;
 	//from credentialDB
@@ -35,6 +36,12 @@ public class Credentials {
 	}
 	public void setRole(String role) {
 		this.role = role;
+	}
+	public int getValid() {
+		return valid;
+	}
+	public void setValid(int valid) {
+		this.valid = valid;
 	}
 	public int getUserID() {
 		return userID;

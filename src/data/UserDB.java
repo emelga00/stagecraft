@@ -213,7 +213,7 @@ public class UserDB {
 			user = new User();
 			Connection connection;
 		 	PreparedStatement statement = null;
-			String preparedSQL = "";
+			String preparedSQL = " ";
 			
 		    try{
 		    	connection = DBConnector.getConnection();

@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="ISO-8859-1" ?>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1" import="beans.*,data.*"%>
+    
+<h1>What is the Global Performance Space?</h1><br>    
 <p>
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin malesuada felis at est commodo vestibulum. 
 Quisque eu consectetur tellus. Aenean scelerisque porttitor quam, in dictum sem blandit et. Cras pellentesque 

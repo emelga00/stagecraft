@@ -38,7 +38,7 @@ body{
 }
 #header a{
 	color: #424242;
-   
+    
     --border: 2px solid green;
 	text-decoration: none;
 	font-family: 'Bree Serif', serif;
@@ -52,16 +52,24 @@ body{
     float: left;
 }
 #header li{  
-    --border: 3px solid orange;
+    --border: 1px solid orange;
+    height: 60px;
+    width: 80px;
     background: #dddddd;
     border-left: 1px solid #424242;
-    padding: 22px 10px;
 	cursor: pointer;
 	-webkit-box-shadow: outline 0px 0px 2px 0px rgba(211,206,170,.75);
     -moz-box-shadow: outline 0px 0px 2px 0px rgba(211,206,170,.75);
     box-shadow: outline 0px 0px 2px 0px rgba(211,206,170,.75);    
 }
-nav li:hover,nav a:hover{
+#nav a{
+	text-align: center;
+	height: 60px;
+    width: 80px;
+    padding-top: 22px;
+	--border: 1px solid brown;
+}
+#nav li:hover,nav a:hover{
     background: #f3f3f3;
     color: black; 
 }
@@ -112,7 +120,7 @@ li{
     box-shadow:         7px 7px 5px rgba(50, 50, 50, 0.75);
 }
 #page{
-    padding: 30px;
+    padding: 40px;
 }
 /***************************
  * FOOTER                  *

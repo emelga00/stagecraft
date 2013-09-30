@@ -24,6 +24,7 @@ public class Controller extends HttpServlet {
 		requests.add(new RequestEntry("/Login","Forward",new Login(),"public", ""));
 		requests.add(new RequestEntry("/Logout","Redirect",new Logout(),"public", ""));
 		requests.add(new RequestEntry("/Authenticate","Redirect",new Authenticate(),"public", ""));
+		requests.add(new RequestEntry("/SendValidation","Redirect",new SendValidation(),"public", ""));
 		//--------------Role Menus--------------------------
 		requests.add(new RequestEntry("/AdminView","Forward",new AdminView(),"protected", "admin"));
 		requests.add(new RequestEntry("/ModUserView","Forward",new ModUserView(),"protected", "moderator"));

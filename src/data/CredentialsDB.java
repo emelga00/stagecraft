@@ -35,6 +35,7 @@ public class CredentialsDB {
 					credentials.setPass(rs.getString(3));
 					credentials.setUserID(rs.getInt(4));
 					credentials.setRole(rs.getString(5));
+					credentials.setValid(rs.getInt(6));
 				}	
 				rs.close();		
 				statement.close();

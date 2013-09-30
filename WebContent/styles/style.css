@@ -1,5 +1,6 @@
 @import url(http://fonts.googleapis.com/css?family=Bree+Serif);
 @import url(http://fonts.googleapis.com/css?family=Amaranth);
+
 p {
     padding: 5px 20px;
 }
@@ -16,22 +17,26 @@ h1 {
 .clear {
     clear: both;
 }
+body{
+    background-color: #8e001c;
+    background-image:url(red.jpg) no-repeat center center fixed;
+}
 #wrapper {
         width: 100%;
 }
-header, a, img, li, footer{
+#header, a, img, li, footer{
 	transition: all .5s;
 	-moz-transition: all .5s; /* Firefox 4 */
 	-webkit-transition: all .5s; /* Safari and Chrome */
 	-o-transition: all .5s; /* Opera */
 }
-header{
+#header{
 	background: #dddddd;
     height: 60px;
 	width: 100%;  
     border-bottom: 20px solid #33332d;
 }
-header a{
+#header a{
 	color: #424242;
    
     --border: 2px solid green;
@@ -40,14 +45,14 @@ header a{
 	text-transform: uppercase;
     float: left; 
 }
-header a:hover{
+#header a:hover{
 
 }
-header ul{
+#header ul{
     --border: 5px solid red;
     float: left;
 }
-header li{  
+#header li{  
     --border: 3px solid orange;
     background: #dddddd;
     border-left: 1px solid #424242;
@@ -95,7 +100,7 @@ li{
     margin: 18px 5px;   
 }
 /*=========================================================================*/
-section         {
+#section         {
     width: 70%;
     max-width: 1000px;
     min-height: 700px;
@@ -113,16 +118,17 @@ section         {
 /***************************
  * FOOTER                  *
  ***************************/
-footer{
+#footer{
     width:          100%;
     color:          #f3f3f3;
 	background:     #33332d;
     text-align:     center;
     padding:        30px 0;
-	--border:       1px solid #aaaaaa;
-	font-family: 	'Bree Serif', serif;
+	--border:         1px solid #aaaaaa;
+	font-family: 'Bree Serif', serif;
 	text-transform: uppercase;
 }
+
 p.login.button,
 p.signin.button{
 	text-align: right;

@@ -24,7 +24,7 @@ String urlMapping = (String)session.getAttribute("urlMapping");
    
    <body>
    <div id="wrapper">
-        <header>
+        <div id="header">
 			<%
 				if(urlMapping.equals("/CAClientListView")||urlMapping.equals("/CAInfoListView")||
 				urlMapping.equals("/CACredentialsListView")||urlMapping.equals("/ClientViewerList")||
@@ -38,18 +38,18 @@ String urlMapping = (String)session.getAttribute("urlMapping");
 				<%
 				}
 				%>
-		</header><!-- END header-->
+		</div><!-- END header-->
         <div class="clear"></div>
-        <section>
+        <div id="section">
             <div id="page">
                 <!-- Page Content -->
                 <jsp:include page="<%=nextView%>"  />
             </div><!-- END content-->
-        </section>
+        </div>
 		<div class="clear"></div>	       
-        <footer>
+        <div id="footer">
 			<jsp:include page="/WEB-INF/includes/footer.jsp" />
-		</footer><!-- END footer--> 
+		</div><!-- END footer--> 
    </div><!-- END wrapper--> 
    </body>
 </html>

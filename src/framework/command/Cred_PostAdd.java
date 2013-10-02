@@ -36,16 +36,23 @@ public class Cred_PostAdd  implements Command{
 				if(email.indexOf(var1) == -1 ||email.indexOf(var2) == -1){
 					status = "Invalid E-Mail. Try Again!";
 					session.setAttribute("status", status);
-					return "CredentialAdd";
+					return "Credential_Add";
 				}
 				if (!pass1.equals(pass2)){
 					session.setAttribute("email", email);
 					status = "Passwords did not match. Try Again!";
 					session.setAttribute("status", status);
-					return "CredentialAdd";
+					return "Credential_Add";
 				}
 				int userID = Integer.parseInt((String)request.getParameter("userID"));
-				System.out.println(userID);
+				
+				Credentials checkEmail = CredentialsDB.checkCred(email);
+				
+				if (checkEmail.getEmail()==null){
+					status = "This Email Address Is Already Registered!";
+					session.setAttribute("status", status);
+					return "Credential_Add";
+				}
 				String uuid = UUID.randomUUID().toString();
 
 				//** 2. Instantiate a Credentials Bean and Load the Info from the Form ******

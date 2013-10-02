@@ -20,6 +20,20 @@ String urlMapping = (String)session.getAttribute("urlMapping");
       <link rel="stylesheet" href="<%=request.getContextPath()%>/styles/style.css" type="text/css"></link>
 	  <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/styles/reset.css" type="text/css"></link>
 	  <script src="http://code.jquery.com/jquery-latest.js"></script>
+	  
+	  <%
+	    //add the javascript references for the multifile upload on the add project page
+      if (urlMapping.equals("/AddProject"))
+      {
+    %>
+        <script src="<%=request.getContextPath()%>/javascript/jquery.js" type="text/javascript"></script>
+        <script src="<%=request.getContextPath()%>/javascript/jquery.form.js" type="text/javascript" language="javascript"></script>
+        <script src="<%=request.getContextPath()%>/javascript/jquery.MetaData.js" type="text/javascript" language="javascript"></script>
+        <script src="<%=request.getContextPath()%>/javascript/jquery.MultiFile.js" type="text/javascript" language="javascript"></script>
+        <script src="<%=request.getContextPath()%>/javascript/jquery.blockUI.js" type="text/javascript" language="javascript"></script>
+    <%
+      }
+	  %>
    </head>
    
    <body>

@@ -23,7 +23,7 @@
 		{status="";}
 	User client = (User)session.getAttribute("client");
 	int cliID = client.getUser_ID();
-	String clientID = cliID+"";
+	String userID = cliID+"";
 	String clientName = client.getLast_Name() + ", "+ client.getFirst_Name();
 %>
 
@@ -48,7 +48,7 @@
 				<td class="rightIt">Client</td>
 				<td>
 					<input type="text" name="clientIDDisp" value="<%=clientName%>" disabled="disabled" />
-					<input type="hidden" name="clientID" value="<%=clientID%>" />
+					<input type="hidden" name="userID" value="<%=userID%>" />
 				</td>
 				<td></td>
 				<td></td>

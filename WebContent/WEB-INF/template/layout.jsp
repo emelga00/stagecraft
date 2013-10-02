@@ -43,6 +43,7 @@ String urlMapping = (String)session.getAttribute("urlMapping");
         <div id="section">
             <div id="page">
                 <!-- Page Content -->
+                <jsp:include page="/WEB-INF/includes/loginbox.jsp" />
                 <jsp:include page="<%=nextView%>"  />
             </div><!-- END content-->
         </div>

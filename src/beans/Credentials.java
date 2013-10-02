@@ -10,6 +10,7 @@ public class Credentials {
 	private String pass;
 	private String role;
 	private int valid;
+	private String regKey;
 	private int userID;
 	private String userName;
 	//from credentialDB
@@ -42,6 +43,12 @@ public class Credentials {
 	}
 	public void setValid(int valid) {
 		this.valid = valid;
+	}
+	public String getRegKey() {
+		return regKey;
+	}
+	public void setRegKey(String regKey) {
+		this.regKey = regKey;
 	}
 	public int getUserID() {
 		return userID;

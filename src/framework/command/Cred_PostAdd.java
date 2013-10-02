@@ -4,6 +4,8 @@
 
 package framework.command;
 
+import java.util.UUID;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -42,17 +44,22 @@ public class Cred_PostAdd  implements Command{
 					session.setAttribute("status", status);
 					return "CredentialAdd";
 				}
-				int clientID = Integer.parseInt((String)request.getParameter("clientID"));
+				int userID = Integer.parseInt((String)request.getParameter("userID"));
+				System.out.println(userID);
+				String uuid = UUID.randomUUID().toString();
+
 				//** 2. Instantiate a Credentials Bean and Load the Info from the Form ******
 				Credentials cred = new Credentials();
 				cred.setEmail(email);
 				cred.setPass(pass1);
-				cred.setUserID(clientID);
+				cred.setUserID(userID);
 				cred.setRole("user");
-				
+				cred.setValid(1);
+				cred.setRegKey(uuid);
 				//** 3. Add the Bean to the Database ****
 				int results = CredentialsDB.addCred(cred);
 				if(results > 0) {
+					session.setAttribute("creds", cred);
 					status = "Credentials added......";
 					
 					
@@ -69,6 +76,6 @@ public class Cred_PostAdd  implements Command{
 				session.setAttribute("status", status);
 		
 		
-		return "Login";
+		return "SendValidation";
 	}
 }

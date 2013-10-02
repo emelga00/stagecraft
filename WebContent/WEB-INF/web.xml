@@ -25,7 +25,7 @@
     <url-pattern>/AdminView</url-pattern>
     <url-pattern>/ModUserView</url-pattern>
     <url-pattern>/StandardUserView</url-pattern>
-    <url-pattern>/CredentialAdd</url-pattern>
+    <url-pattern>/Credential_Add</url-pattern>
     <url-pattern>/Cred_PostAdd</url-pattern>
     <url-pattern>/User_Add</url-pattern>
     <url-pattern>/User_PostAdd</url-pattern>

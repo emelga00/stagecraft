@@ -154,7 +154,7 @@ public class CredentialsDB {
 			Connection connection; 
 			    
 			   
-				String preparedSQL = "";
+				String preparedSQL = "INSERT INTO credential (Email, Pass, User_ID, Role, Validated, RegKey) VALUES(?,?,?,?,?,?) ";
 				PreparedStatement statement=null;	
 				try{
 					connection=DBConnector.getConnection();
@@ -163,6 +163,8 @@ public class CredentialsDB {
 					statement.setString(2, cred.getPass());
 					statement.setInt(3, cred.getUserID());
 					statement.setString(4, cred.getRole());
+					statement.setInt(5, cred.getValid());
+					statement.setString(6, cred.getRegKey());
 					status = statement.executeUpdate();
 					statement.close();
 					connection.close();

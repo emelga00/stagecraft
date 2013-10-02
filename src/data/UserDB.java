@@ -213,7 +213,7 @@ public class UserDB {
 			user = new User();
 			Connection connection;
 		 	PreparedStatement statement = null;
-			String preparedSQL = " ";
+			String preparedSQL = "Select * From user Where First_Name = ? And Last_Name= ? And Phone= ? And Address= ? And City= ? And State= ? And ZIP= ? And Date= ?";
 			
 		    try{
 		    	connection = DBConnector.getConnection();
@@ -237,6 +237,7 @@ public class UserDB {
 					user.setCity(rs.getString(6));
 					user.setState(rs.getString(7));
 					user.setZIP(rs.getString(8));
+					user.setDate(rs.getString(9));
 					//add credentials columns
 				}	
 				rs.close();		
@@ -266,7 +267,7 @@ public class UserDB {
 		int status = 0;
 		Connection connection;
 
-		String preparedSQL = "INSERT INTO user (First_Name, Last_Name, Phone, Address, City, State, Zip, Date) VALUES(?,?,?,?,?,?,?,?) ";
+		String preparedSQL = "INSERT INTO user (First_Name, Last_Name, Phone, Address, City, State, Zip, Date) VALUES(?,?,?,?,?,?,?,?)";
 		PreparedStatement statement = null;	
 		try{
 			connection = DBConnector.getConnection();

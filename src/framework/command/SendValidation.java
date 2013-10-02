@@ -2,6 +2,7 @@ package framework.command;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import framework.controller.Command;
 
@@ -14,12 +15,21 @@ import javax.mail.Transport;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 
+import beans.Credentials;
+
 public class SendValidation implements Command {
 
 	@Override
 	public String perform(HttpServletRequest request,
 			HttpServletResponse response) {
 		
+		HttpSession httpsession = request.getSession();
+		
+		Credentials creds = (Credentials)httpsession.getAttribute("creds");
+		
+		int userID = creds.getUserID();
+		String key = creds.getRegKey();
+		String email= creds.getEmail();
 				Properties props = new Properties();
 				props.put("mail.smtp.host", "smtp.gmail.com");
 				props.put("mail.smtp.socketFactory.port", "465");
@@ -31,19 +41,20 @@ public class SendValidation implements Command {
 				Session session = Session.getDefaultInstance(props,
 					new javax.mail.Authenticator() {
 						protected PasswordAuthentication getPasswordAuthentication() {
-							return new PasswordAuthentication("username","password");
+							return new PasswordAuthentication("capstonefall2013@gmail.com","Security_Pr0bs12!@");
 						}
 					});
 		 
 				try {
 		 
 					Message message = new MimeMessage(session);
-					message.setFrom(new InternetAddress("from@no-spam.com"));
+					message.setFrom(new InternetAddress("capstonefall2013@gmail.com"));
 					message.setRecipients(Message.RecipientType.TO,
-							InternetAddress.parse("to@no-spam.com"));
+							InternetAddress.parse(email));
 					message.setSubject("Testing Subject");
 					message.setText("Dear Mail Crawler," +
-							"\n\n No spam to my email, please!");
+							"\n\n Go to the link below to validate your e-mail address!" +
+							"http://localhost:8080/StageCraftMVCFramework/Login?user="+userID+"&key="+key);
 		 
 					Transport.send(message);
 		 
@@ -54,7 +65,7 @@ public class SendValidation implements Command {
 				}
 				
 		
-		return "/WEB-INF/views/login.jsp";
+		return "Login";
 	}
 
 }

@@ -29,32 +29,35 @@ public class Authenticate implements Command {
 			String nextView = "Login";
 
 			// ** 2. Check For Valid UserName and Password Combination ******
-			Credentials currentUser = CredentialsDB.authenticate(username, password);
-			int currentValid = (int) currentUser.getValid();
+			Credentials currentUser = CredentialsDB.authenticate(username,
+					password);
 
 			// ** 3. Directs users to respective landing page ******
-			if (currentUser != null && currentValid == 0) {
-				String currentRole = (String) currentUser.getRole();
-				String currentUsername = (String) currentUser.getEmail();
-				int currentUserID = (int) currentUser.getUserID();
+			if (currentUser != null) {
+				int currentValid = (int) currentUser.getValid();
+				if (currentValid == 0) {
+					String currentRole = (String) currentUser.getRole();
+					String currentUsername = (String) currentUser.getEmail();
+					int currentUserID = (int) currentUser.getUserID();
 
-				session.setAttribute("currentUsername", currentUsername);
-				session.setAttribute("currentRole", currentRole);
-				session.setAttribute("currentUserID", currentUserID);
+					session.setAttribute("currentUsername", currentUsername);
+					session.setAttribute("currentRole", currentRole);
+					session.setAttribute("currentUserID", currentUserID);
 
-				if (currentRole.equals("user")) {
-					nextView = "StandardUserView";
-					session.setAttribute("homepage", "StandardUserView");
-				} else if (currentRole.equals("admin")) {
-					nextView = "AdminView";
-					session.setAttribute("homepage", "AdminView");
-				} else if (currentRole.equals("moderator")) {
-					nextView = "ModUserView";
-					session.setAttribute("homepage", "ModUserView");
+					if (currentRole.equals("user")) {
+						nextView = "StandardUserView";
+						session.setAttribute("homepage", "StandardUserView");
+					} else if (currentRole.equals("admin")) {
+						nextView = "AdminView";
+						session.setAttribute("homepage", "AdminView");
+					} else if (currentRole.equals("moderator")) {
+						nextView = "ModUserView";
+						session.setAttribute("homepage", "ModUserView");
+					}
+				} else if (currentValid == 1) {
+					session.setAttribute("status",
+							"You Must First Validate Your Email");
 				}
-			} else if (currentUser != null && currentValid == 1) {
-				session.setAttribute("status",
-						"You Must First Validate Your Email");
 			} else {
 				session.setAttribute("status",
 						"Invalid Username/Password Combination");

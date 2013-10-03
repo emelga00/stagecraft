@@ -56,7 +56,7 @@
 			</tr>
 			<tr>
 				<td class="rightIt">Email</td>
-				<td><input type="text" name="email" maxlength="20" size="27" value="<%=email%>"/></td>
+				<td><input type="text" name="email" maxlength="40" size="27" value="<%=email%>"/></td>
 				<td></td>
 			</tr>
 			<tr>

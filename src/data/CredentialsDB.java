@@ -36,6 +36,7 @@ public class CredentialsDB {
 					credentials.setUserID(rs.getInt(4));
 					credentials.setRole(rs.getString(5));
 					credentials.setValid(rs.getInt(6));
+					credentials.setRegKey(rs.getString(7));
 				}	
 				rs.close();		
 				statement.close();
@@ -46,7 +47,6 @@ public class CredentialsDB {
 					System.out.println("Query: " + statement.toString());
 					credentials = null;
 				}	
-				
 			return credentials;
 		}	
 	

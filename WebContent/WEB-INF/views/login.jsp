@@ -2,6 +2,15 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1" import="beans.*,data.*"%>
     
+    <%
+    String user = (String) request.getParameter("user");
+    
+    String key = (String) request.getParameter("key");
+    if (user!=null||key!=null){
+    	int userID = Integer.parseInt(user);
+    	CredentialsDB.validated(userID,key);
+    }
+    	 %>
 <h1>What is the Global Performance Space?</h1><br>    
 <p>
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin malesuada felis at est commodo vestibulum. 

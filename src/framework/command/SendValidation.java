@@ -16,6 +16,7 @@ import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 
 import beans.Credentials;
+import beans.User;
 
 public class SendValidation implements Command {
 
@@ -26,10 +27,11 @@ public class SendValidation implements Command {
 		HttpSession httpsession = request.getSession();
 		
 		Credentials creds = (Credentials)httpsession.getAttribute("creds");
-		
+		User user = (User)httpsession.getAttribute("client");
 		int userID = creds.getUserID();
 		String key = creds.getRegKey();
 		String email= creds.getEmail();
+		String userName= user.getFirst_Name()+" "+user.getLast_Name();
 				Properties props = new Properties();
 				props.put("mail.smtp.host", "smtp.gmail.com");
 				props.put("mail.smtp.socketFactory.port", "465");
@@ -52,13 +54,11 @@ public class SendValidation implements Command {
 					message.setRecipients(Message.RecipientType.TO,
 							InternetAddress.parse(email));
 					message.setSubject("Testing Subject");
-					message.setText("Dear Mail Crawler," +
-							"\n\n Go to the link below to validate your e-mail address!" +
+					message.setText("Dear "+userName+"," +
+							"\n\n Go to the link below to validate your e-mail address!\n" +
 							"http://localhost:8080/StageCraftMVCFramework/Login?user="+userID+"&key="+key);
 		 
 					Transport.send(message);
-		 
-					System.out.println("Done");
 		 
 				} catch (MessagingException e) {
 					throw new RuntimeException(e);

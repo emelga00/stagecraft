@@ -45,10 +45,9 @@ public class Cred_PostAdd  implements Command{
 					return "Credential_Add";
 				}
 				int userID = Integer.parseInt((String)request.getParameter("userID"));
+				int checkEmail = CredentialsDB.checkCred(email);
 				
-				Credentials checkEmail = CredentialsDB.checkCred(email);
-				
-				if (checkEmail.getEmail()==null){
+				if (checkEmail!=0){
 					status = "This Email Address Is Already Registered!";
 					session.setAttribute("status", status);
 					return "Credential_Add";

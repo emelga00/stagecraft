@@ -248,6 +248,74 @@ public class CredentialsDB {
 			return status;
 
 	}
+	public static synchronized int setKey(int userID, String key){
+		/***********************************************************************
+		 * Method..................................................updateCred  *
+		 * Author.........................................................JLH  *
+		 *---------------------------------------------------------------------*
+		 * This method adds new products to the inventory table.               *
+		 *     Required parameters                                             *
+		 *     (Credentials) cred - Credentials bean containing the info       *
+		 *     							to be added                            *
+		 *     Return Value                                                    *
+		 *     (int) status - The number of records modified by the query      *
+		 ***********************************************************************/
+			int status=0;	
+			Connection connection; 
+			    
+			   
+				String preparedSQL = "Update credential Set RegKey = ? Where User_ID = ?";
+				PreparedStatement statement=null;	
+				try{
+					connection=DBConnector.getConnection();
+					statement = connection.prepareStatement(preparedSQL);
+					statement.setString(1, key);
+					statement.setInt(2, userID);
+					status = statement.executeUpdate();
+					statement.close();
+					connection.close();
+				}catch (SQLException ex){
+					System.out.println("Error: " + ex);
+					System.out.println("Query: " + statement.toString());
+				}
+
+			return status;
+
+	}
+	public static synchronized int resetCred(int userID, String password){
+		/***********************************************************************
+		 * Method..................................................updateCred  *
+		 * Author.........................................................JLH  *
+		 *---------------------------------------------------------------------*
+		 * This method adds new products to the inventory table.               *
+		 *     Required parameters                                             *
+		 *     (Credentials) cred - Credentials bean containing the info       *
+		 *     							to be added                            *
+		 *     Return Value                                                    *
+		 *     (int) status - The number of records modified by the query      *
+		 ***********************************************************************/
+			int status=0;	
+			Connection connection; 
+			    
+			   
+				String preparedSQL = "Update credential Set Pass = ? Where User_ID = ?";
+				PreparedStatement statement=null;	
+				try{
+					connection=DBConnector.getConnection();
+					statement = connection.prepareStatement(preparedSQL);
+					statement.setString(1, password);
+					statement.setInt(2, userID);
+					status = statement.executeUpdate();
+					statement.close();
+					connection.close();
+				}catch (SQLException ex){
+					System.out.println("Error: " + ex);
+					System.out.println("Query: " + statement.toString());
+				}
+
+			return status;
+
+	}
 	public static synchronized int deleteCred(int credID){
 		/***********************************************************************
 		 * Method...................................................deleteCred *
@@ -331,7 +399,7 @@ public class CredentialsDB {
 
 	
 	
-	public static synchronized Credentials getCredentialByUserID(String userID){
+	public static synchronized Credentials getCredentialByUserIDKey(int userID, String key){
 		/***********************************************************************
 		 * Method......................................getCredentialByClientID *
 		 * Author..........................................................JLH *
@@ -346,12 +414,13 @@ public class CredentialsDB {
 			Connection connection;
 			Credentials cred = null;
 		 	PreparedStatement statement = null;
-			String preparedSQL = "";
+			String preparedSQL = "Select * From credential Where User_ID = ? And RegKey =?";
 			
 		    try{
 		    	connection = DBConnector.getConnection();
 		    	statement = connection.prepareStatement(preparedSQL);
-		    	statement.setInt(1,Integer.parseInt(userID));
+		    	statement.setInt(1,userID);
+		    	statement.setString(2,key);
 				ResultSet rs = statement.executeQuery();
 				while(rs.next()){
 					cred = new Credentials();
@@ -360,6 +429,8 @@ public class CredentialsDB {
 					cred.setPass(rs.getString(3));
 					cred.setUserID(rs.getInt(4));
 					cred.setRole(rs.getString(5));
+					cred.setValid(rs.getInt(6));
+					cred.setRegKey(rs.getString(7));
 				}	
 				rs.close();		
 				statement.close();
@@ -407,5 +478,40 @@ public class CredentialsDB {
 			}
 			return status;
 		}
-	
+	public static synchronized int getUserID(String email){
+		/***********************************************************************
+		 * Method......................................getCredentialByClientID *
+		 * Author..........................................................JLH *
+		 * --------------------------------------------------------------------*
+		 * This method a Credentials Bean object based on the credID           *
+		 *                                                                     *
+		 *     Required parameters                                             *
+		 *     String credID                                                   *
+		 *     Return Value                                                    *
+		 *     (Credentials) cred - Returns a user bean object.                *
+		 ***********************************************************************/
+			Connection connection;
+			int userID = 0;
+		 	PreparedStatement statement = null;
+			String preparedSQL = "Select User_ID From credential Where Email = ?";
+			
+		    try{
+		    	connection = DBConnector.getConnection();
+		    	statement = connection.prepareStatement(preparedSQL);
+		    	statement.setString(1,email);
+				ResultSet rs = statement.executeQuery();
+				while(rs.next()){
+					userID = rs.getInt(1);
+				}	
+				rs.close();
+				statement.close();
+				connection.close();
+			}
+		    catch (SQLException ex){
+				System.out.println("Error: " + ex);
+				System.out.println("Query: " + statement.toString());
+				
+			}
+			return userID;
+		}
 }

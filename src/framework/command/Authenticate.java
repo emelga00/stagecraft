@@ -21,7 +21,10 @@ public class Authenticate implements Command {
 		String button = request.getParameter("submit");
 		if (button.equals("Register")) {
 			return "User_Add";
-		} else {
+		}else if(button.equals("Forgot Password?")) {
+			return "Forgot_Cred";
+		}
+		else {
 			// ** 1. Retrieve the Form Input (Name-Value Pairs) from the HTTP
 			// Request ***
 			String username = request.getParameter("username");

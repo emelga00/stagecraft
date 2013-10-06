@@ -12,7 +12,7 @@ public class UserDB {
 	 ***************************************************************************************/
 		
 	
-	public static synchronized ArrayList<User> getUserByAlpha(String companyInitial){
+	public static synchronized ArrayList<User> getUserByAlpha(String userInitial){
 		/***********************************************************************
 		 * Method.............................................getClientByAlpha *
 		 * Author..........................................................JLH *
@@ -33,12 +33,13 @@ public class UserDB {
 		 	User user = null;
 		 	ArrayList<User> userList = new ArrayList<User>();
 		 	PreparedStatement statement = null;
-			String preparedSQL = "";
+			String preparedSQL = "Select User_ID, First_Name, Last_Name, " +
+					"Phone, Address, City, State, ZIP, Date From user Where concat(Last_Name, ', ', First_Name) Like ?;";
 			
 			try{
 		    	connection = DBConnector.getConnection();
 		    	statement = connection.prepareStatement(preparedSQL);
-		    	statement.setString(1, companyInitial+"%");
+		    	statement.setString(1, userInitial+"%");
 				ResultSet rs = statement.executeQuery();
 				while(rs.next()){
 					user = new User();
@@ -50,23 +51,7 @@ public class UserDB {
 					user.setCity(rs.getString(6));
 					user.setState(rs.getString(7));
 					user.setZIP(rs.getString(8));
-					
-					
 					user.setDate(rs.getString(9));
-					//add credentials columns
-					user.setCreds_Credential_ID(rs.getInt(10));
-					user.setCreds_Email(rs.getString(11));
-					//kill of any nulls in DV_UN column
-					if(user.getCreds_Email() == null) {
-						user.setCreds_Email("TBD");
-					}
-					user.setCreds_Pass(rs.getString(12));
-					//kill of any nulls in DV_PW column
-					if(user.getCreds_Pass() == null) {
-						user.setCreds_Pass("TBD");
-					}
-					user.setRole(rs.getString(13));
-					//add info columns
 					userList.add(user);			
 				}	
 				rs.close();		

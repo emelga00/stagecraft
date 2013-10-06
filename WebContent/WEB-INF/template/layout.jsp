@@ -40,7 +40,7 @@ String urlMapping = (String)session.getAttribute("urlMapping");
    <div id="wrapper">
         <div id="header">
 			<%
-				if(urlMapping.equals("/CAClientListView")||urlMapping.equals("/CAInfoListView")||
+				if(urlMapping.equals("/AdminView")||urlMapping.equals("/CAInfoListView")||
 				urlMapping.equals("/CACredentialsListView")||urlMapping.equals("/ClientViewerList")||
 				urlMapping.equals("/HrEmployeeListView")||urlMapping.equals("/HrSystemUserListView")){
 			%>

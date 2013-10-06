@@ -15,9 +15,11 @@ public class User {
 	private String Date;
 	private String Role;
 	//from credentialDB
+	private int 	Valid;
 	private int    creds_Credential_ID;
 	private String creds_Email;
 	private String creds_Pass;
+	private String cred_Date;
 	
 	//from userDB
 	public int getUser_ID() {
@@ -80,6 +82,12 @@ public class User {
 	public void setRole(String role) {
 		Role = role;
 	}
+	public int getValid() {
+		return Valid;
+	}
+	public void setValid(int valid) {
+		Valid = valid;
+	}
 	//from credentialDB
 	public int getCreds_Credential_ID() {
 		return creds_Credential_ID;
@@ -98,6 +106,12 @@ public class User {
 	}
 	public void setCreds_Pass(String creds_pass) {
 		this.creds_Pass = creds_pass;
+	}
+	public String getCred_Date() {
+		return cred_Date;
+	}
+	public void setCred_Date(String cred_Date) {
+		this.cred_Date = cred_Date;
 	}
 	
 }

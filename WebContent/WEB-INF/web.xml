@@ -19,6 +19,7 @@
   
   <servlet-mapping>
     <servlet-name>Controller</servlet-name>
+    <url-pattern>/Home</url-pattern>
     <url-pattern>/Login</url-pattern>
     <url-pattern>/Logout</url-pattern>
     <url-pattern>/Authenticate</url-pattern>

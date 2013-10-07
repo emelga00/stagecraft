@@ -20,6 +20,7 @@ String urlMapping = (String)session.getAttribute("urlMapping");
       <link rel="stylesheet" href="<%=request.getContextPath()%>/styles/style.css" type="text/css"></link>
 	  <link rel="stylesheet" href="<%=request.getContextPath()%>/styles/reset.css" type="text/css"></link>
 	  <link rel="stylesheet" href="<%=request.getContextPath()%>/styles/reg-log.css" type="text/css"></link>
+	  <link rel="stylesheet" href="<%=request.getContextPath()%>/styles/tables.css" type="text/css"></link>
 	  <script src="http://code.jquery.com/jquery-latest.js"></script>
 	  
 	  <%

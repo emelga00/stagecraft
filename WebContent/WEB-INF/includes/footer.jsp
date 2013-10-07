@@ -1,1 +1,1 @@
-© Copyright 2013 Global Performance Space  All rights reserved     |       ABOUT    |     CONTACT
+Â© Copyright 2013 Global Performance Space  All rights reserved     |       ABOUT    |     CONTACT

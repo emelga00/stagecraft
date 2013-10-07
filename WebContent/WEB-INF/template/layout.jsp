@@ -16,7 +16,7 @@ String urlMapping = (String)session.getAttribute("urlMapping");
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
    <head>
-      <title>World of Stagecraft</title>
+      <title>Global Performance Space</title>
       <link rel="stylesheet" href="<%=request.getContextPath()%>/styles/style.css" type="text/css"></link>
 	  <link rel="stylesheet" href="<%=request.getContextPath()%>/styles/reset.css" type="text/css"></link>
 	  <link rel="stylesheet" href="<%=request.getContextPath()%>/styles/reg-log.css" type="text/css"></link>

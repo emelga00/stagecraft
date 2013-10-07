@@ -2,7 +2,7 @@
     pageEncoding="ISO-8859-1" import="beans.*,data.*"%>
 
 <div id="center">
-    <div id="logo"><a href="#">Global Performance Space</a></div>
+    <div id="logo"><a href="Home">Global Performance Space</a></div>
     	<div id="nav">
         	<ul>
 				<li><a href="#">Explore</a></li>

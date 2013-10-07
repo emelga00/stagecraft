@@ -9,7 +9,7 @@
 				<li><a href="#">Create</a></li>
 				<li><a href="#">Videos</a></li>
             	<li><a href="#">WIKI</a></li>
-            	<li><a href="#">Login</a></li>
+            	<li><a href="Login">Login</a></li>
 			</ul>
 		</div>
     <div class="search">

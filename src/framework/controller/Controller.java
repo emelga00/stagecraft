@@ -21,6 +21,7 @@ public class Controller extends HttpServlet {
 	public void init(){
 		requests = new ArrayList<RequestEntry>();
 		//--------------Authentication----------------------
+		requests.add(new RequestEntry("/Home","Forward",new Home(),"public", ""));
 		requests.add(new RequestEntry("/Login","Forward",new Login(),"public", ""));
 		requests.add(new RequestEntry("/Logout","Redirect",new Logout(),"public", ""));
 		requests.add(new RequestEntry("/Authenticate","Redirect",new Authenticate(),"public", ""));
@@ -72,7 +73,7 @@ public class Controller extends HttpServlet {
 			}			
 		}else{
 			//*** (4) If Access Not Granted Redirect to Login Page ****
-			nextView="Login";
+			nextView="Home";
 			responseType="Redirect";
 		}
 		

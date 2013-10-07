@@ -43,8 +43,8 @@ String urlMapping = (String)session.getAttribute("urlMapping");
         <div id="header">
 			<%
 				if(urlMapping.equals("/AdminView")||urlMapping.equals("/CAInfoListView")||
-				urlMapping.equals("/CACredentialsListView")||urlMapping.equals("/ClientViewerList")||
-				urlMapping.equals("/HrEmployeeListView")||urlMapping.equals("/HrSystemUserListView")){
+				urlMapping.equals("/StandardUserView")||urlMapping.equals("/ClientViewerList")||
+				urlMapping.equals("/Home")||urlMapping.equals("/HrSystemUserListView")){
 			%>
 			<jsp:include page="/WEB-INF/includes/header2.jsp" />
 				<%

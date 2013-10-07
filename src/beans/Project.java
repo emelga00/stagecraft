@@ -7,6 +7,7 @@ public class Project
 	private String Description;
 	private int	   userID;
 	private int    orgID;
+	
 	//from credentialDB
 		public void setProjID(int projID) {
 			this.projID = projID;
@@ -26,8 +27,8 @@ public class Project
 		public String getDesc() {
 			return Description;
 		}
-		public void setUserID(int projID) {
-			this.userID = projID;
+		public void setUserID(int userID) {
+			this.userID = userID;
 		}
 		public int getUserID() {
 			return userID;

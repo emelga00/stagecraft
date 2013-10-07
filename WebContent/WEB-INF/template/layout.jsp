@@ -48,10 +48,6 @@ String urlMapping = (String)session.getAttribute("urlMapping");
 			%>
 			<jsp:include page="/WEB-INF/includes/header2.jsp" />
 				<%
-				} else if (!session.equals(null)){
-					%>
-					<jsp:include page="/WEB-INF/includes/header2.jsp" />
-						<%
 				}else {
 				%>
 			<jsp:include page="/WEB-INF/includes/header.jsp" />

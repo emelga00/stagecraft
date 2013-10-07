@@ -114,7 +114,8 @@ public class Controller extends HttpServlet {
 			//*** Protected Page with Role****
 			String currentUsername = (String) session.getAttribute("currentUsername");
 			String role = (String)session.getAttribute("currentRole");
-			
+			System.out.println("current username is " + currentUsername);
+			System.out.println("current role is " + role);
 			if(currentUsername!=null&&entry.getRole().equals(role)){
 				accessGranted=true;
 			}else{

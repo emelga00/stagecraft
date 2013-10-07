@@ -25,7 +25,7 @@ String urlMapping = (String)session.getAttribute("urlMapping");
 	  
 	  <%
 	    //add the javascript references for the multifile upload on the add project page
-      if (urlMapping.equals("/AddProject"))
+      if (urlMapping.equals("/Project_Add"))
       {
     %>
         <script src="<%=request.getContextPath()%>/javascript/jquery.js" type="text/javascript"></script>
@@ -48,7 +48,11 @@ String urlMapping = (String)session.getAttribute("urlMapping");
 			%>
 			<jsp:include page="/WEB-INF/includes/header2.jsp" />
 				<%
-				} else {
+				} else if (!session.equals(null)){
+					%>
+					<jsp:include page="/WEB-INF/includes/header2.jsp" />
+						<%
+				}else {
 				%>
 			<jsp:include page="/WEB-INF/includes/header.jsp" />
 				<%

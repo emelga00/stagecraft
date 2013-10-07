@@ -13,12 +13,13 @@ String urlMapping = (String)session.getAttribute("urlMapping");
 
 %>
 
-<!DOCTYPE HTML>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
    <head>
       <title>World of Stagecraft</title>
       <link rel="stylesheet" href="<%=request.getContextPath()%>/styles/style.css" type="text/css"></link>
-	  <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/styles/reset.css" type="text/css"></link>
+	  <link rel="stylesheet" href="<%=request.getContextPath()%>/styles/reset.css" type="text/css"></link>
+	  <link rel="stylesheet" href="<%=request.getContextPath()%>/styles/reg-log.css" type="text/css"></link>
 	  <script src="http://code.jquery.com/jquery-latest.js"></script>
 	  
 	  <%
@@ -53,11 +54,10 @@ String urlMapping = (String)session.getAttribute("urlMapping");
 				}
 				%>
 		</div><!-- END header-->
-        <div class="clear"></div>
+<!--         <div class="clear"></div> -->
         <div id="section">
             <div id="page">
                 <!-- Page Content -->
-                <jsp:include page="/WEB-INF/includes/loginbox.jsp" />
                 <jsp:include page="<%=nextView%>"  />
             </div><!-- END content-->
         </div>

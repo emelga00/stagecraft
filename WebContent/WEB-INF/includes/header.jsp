@@ -1,3 +1,6 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1" import="beans.*,data.*"%>
+
 <div id="center">
     <div id="logo"><a href="#">Global Performance Space</a></div>
     	<div id="nav">

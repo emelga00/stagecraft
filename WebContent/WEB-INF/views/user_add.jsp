@@ -67,7 +67,7 @@
 		</table>
 		<div class="formControls">
 			<input class="jBtn" type="reset" name="rReset" value="Reset" /> &nbsp; 
-			<input class="jBtn" type="submit" name="submit" value="Add client" />		
+			<input class="jBtn" type="submit" name="submit" value="Register" />		
 		</div>
 	</form>
 </div>

@@ -99,7 +99,6 @@ public class Controller extends HttpServlet {
 		}
 		return found; 
 	}
-	
 	private boolean accessCheck(HttpServletRequest request,RequestEntry entry){
 		
 		boolean accessGranted=false;

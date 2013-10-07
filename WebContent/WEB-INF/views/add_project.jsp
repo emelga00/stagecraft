@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+    pageEncoding="ISO-8859-1" import="beans.*,data.*"%>
 
-<form action="AddProject" method="POST">
+<form name="AddProject" class="project" action="AddProject" method="POST">
   <fieldset>
     <legend>Project Information</legend>
     <p>

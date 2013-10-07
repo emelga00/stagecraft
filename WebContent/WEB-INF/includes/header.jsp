@@ -6,7 +6,7 @@
     	<div id="nav">
         	<ul>
 				<li><a href="#">Explore</a></li>
-				<li><a href="#">Create</a></li>
+				<li><a href="Project_Add">Create</a></li>
 				<li><a href="#">Videos</a></li>
             	<li><a href="#">WIKI</a></li>
             	<li><a href="Login">Login</a></li>

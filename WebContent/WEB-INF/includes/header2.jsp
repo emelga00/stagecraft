@@ -6,14 +6,14 @@
  ***************/
 %>
 <div id="center">
-    <div id="logo"><a href="#">Global Performance Space</a></div>
+    <div id="logo"><a href="Home">Global Performance Space</a></div>
     	<div id="nav">
         	<ul>
 				<li><a href="#">Explore</a></li>
-				<li><a href="#">Create</a></li>
+				<li><a href="Project_Add">Create</a></li>
 				<li><a href="#">Videos</a></li>
             	<li><a href="#">WIKI</a></li>
-            	<li><a href="#">Logout</a></li>
+            	<li><a href="Logout">Logout</a></li>
 			</ul>
 		</div>
     <div class="search">

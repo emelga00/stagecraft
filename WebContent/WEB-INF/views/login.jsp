@@ -26,12 +26,12 @@
         	<h1>Register</h1>
         </div>
         <div class="register-content">
-         	Email			 	<input type="text" name="user"  class="email" size="35"/> <br><br>
-            Username			<input type="text" name="user"  class="username" size="35"/> <br><br>
-            Password	 		<input type="text" name="user"  class="password" size="35"/> <br><br>
-            Confirm Password	<input type="text" name="user"  class="confpassword" size="35"/> <br> <br>
-            Organization		<input type="text" name="user"  class="org" size="35"/> <br><br>
-            Zip					<input type="text" name="user"  class="zip" placeholder="or Postal Code" size="35"/> <br><br>
+         	Email			 	<input type="text" name="user"  class="email" size="30"/> <br><br>
+            Username			<input type="text" name="user"  class="username" size="30"/> <br><br>
+            Password	 		<input type="text" name="user"  class="password" size="30"/> <br><br>
+            Confirm Password	<input type="text" name="user"  class="confpassword" size="30"/> <br> <br>
+            Organization		<input type="text" name="user"  class="org" size="30"/> <br><br>
+            Zip					<input type="text" name="user"  class="zip" placeholder="or Postal Code" size="30"/> <br><br>
             <input type="checkbox" name="check" value="agree" /> I accept the Terms of Service<br />
         </div>
         <div class="register-footer">

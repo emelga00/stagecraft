@@ -4,7 +4,7 @@ public class Project
 {
 	private int    projID;
 	private String Name;
-	private String Description;
+	private String Description;      //needed?
 	private int	   userID;
 	private int    orgID;
 	

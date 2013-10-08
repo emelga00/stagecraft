@@ -2,148 +2,30 @@ package data;
 
 import java.sql.*; 
 import java.util.ArrayList;
-import beans.Project;
+import beans.Submission;
 
-public class ProjectsDB {
+public class SubmissionsDB {
 	/***************************************************************************************
-	 * Class....................................................................ProjectsDB *
+	 * Class.................................................................SubmissionsDB *
 	 * Author..........................................................................BDS *
 	 * ----------------------------------------------------------------------------------- *
 	 ***************************************************************************************/
 		
-	
-	public static synchronized ArrayList<Project> getProjectsByAlpha(String projectName)
+	//getProjectByPID -- will be used for pull by projID in project update form
+	public static synchronized Submission getSubmissionsByPID(String projectID)
 	{
-		/***********************************************************************
-		 * Method............................................getProjectByAlpha *
-		 * Author..........................................................JLH *
-		 * --------------------------------------------------------------------*
-		 * This method retrieves a list of project beans based on projectName  *
-		 * If the projectName is an empty string the contents of the entire    *
-		 * table will be returned, otherwise the method will return all records*
-		 * that begin with the projectName string.(Use LIKE)                   *
-		 *                                                                     *
-		 *     Required parameters                                             *
-		 *     (String) projectName - the string to find                       *
-		 *                                                                     *
-		 *     Return Value                                                    *
-		 *     ArrayList<Project> projectList - Returns an projectList of      *
-		 *                                      project beans                  *
-		 ***********************************************************************/
-			Connection connection;
-		 	Project            project     = null;
-		 	ArrayList<Project> projList    = new ArrayList<Project>();
-		 	PreparedStatement  statement   = null;
-			String             preparedSQL = "";
-			
-			try
-			{
-		    	connection   = DBConnector.getConnection  ();
-		    	statement    = connection.prepareStatement(preparedSQL);
-		    	statement.setString                       (1, projectName+"%");
-		    	ResultSet rs = statement.executeQuery     ();
-  				while(rs.next())
-  				{
-  					project = new Project();
-  					project.setProjID    (rs.getInt(1));
-  					project.setName      (rs.getString(3));
-  					project.setDesc      (rs.getString(2));
-  					project.setUserID    (rs.getInt(4));
-  					project.setOrgID     (rs.getInt(5));
-
-  					//kill of any nulls in Name column
-  					if(project.getName() == null) 
-  					{
-  						project.setName("New Project");
-  					}
-  					
-  					//add info columns
-  					projList.add(project);			
-  				}	
-				rs.close();		
-				statement.close();
-				connection.close();
-			}
-		    catch (SQLException ex){
-				System.out.println("Error: " + ex);
-				System.out.println("Query: " + statement.toString());
-			}
-			return projList;
-		}
-	
-	public static synchronized ArrayList<Project> getProjectByAlphaExact(String projectName)
-	{
-		/***********************************************************************
-		 * Method.......................................getProjectByAlphaExact *
+	  /***********************************************************************
+		 * Method..........................................getSubmissionsByPID *
 		 * Author..........................................................BDS *
 		 * --------------------------------------------------------------------*
-		 * This method retrieves a list of project beans based on projectName. *
-		 * If the projectName is an empty string the contents of the entire    *
-		 * table will be returned, otherwise the method will return all records*
-		 * that begin with the projectName string.(Use LIKE)                   *
+		 * This method calls a Submission Bean object based on the ProjectID   *
+		 * variable                                                            *
 		 *                                                                     *
 		 *     Required parameters                                             *
-		 *     (String) projectName - the name of the project to search for    *
+		 *     (String) projectID - the id of the project to search for        *
 		 *     Return Value                                                    *
-		 *     ArrayList<Project> projectList - Returns an arrayList of project*
-		 *                                      beans                          *
+		 *     (Project) project  - Returns a project bean object.             *
 		 ***********************************************************************/
-			Connection connection;
-		 	Project project             = null;
-		 	ArrayList<Project> projList = new ArrayList<Project>();
-		 	PreparedStatement statement = null;
-			String preparedSQL          = "";
-			
-			try
-			{
-		    	connection   = DBConnector.getConnection  ();
-		    	statement    = connection.prepareStatement(preparedSQL);
-		    	statement.setString                       (1, projectName);
-		    	ResultSet rs = statement.executeQuery     ();
-		    	while(rs.next())
-		    	{
-  					project = new Project();
-  					project.setProjID    (rs.getInt(1));
-  					project.setName      (rs.getString(2));
-  					project.setDesc      (rs.getString(3));
-  					project.setUserID    (rs.getInt(4));
-  					project.setOrgID     (rs.getInt(5));
-  				
-  					//kill of any nulls in DV_UN column
-  					if(project.getName() == null)
-  					{
-  						project.setName("New Project");
-  					}
-  					
-  					//add info columns
-  					projList.add(project);			
-  				}
-				rs.close();		
-				statement.close();
-				connection.close();
-			}
-		    catch (SQLException ex){
-				System.out.println("Error: " + ex);
-				System.out.println("Query: " + statement.toString());
-			}
-			return projList;
-		}
-
-	//getProjectByPID -- will be used for pull by projID in project update form
-	public static synchronized Project getProjByPID(String projectID)
-		{
-			/***********************************************************************
-			 * Method..............................................getProjectByPID *
-			 * Author..........................................................BDS *
-			 * --------------------------------------------------------------------*
-			 * This method calls a Project Bean object based on the projectID      *
-			 * variable                                                            *
-			 *                                                                     *
-			 *     Required parameters                                             *
-			 *     (String) projectID - the id of the project to search for        *
-			 *     Return Value                                                    *
-			 *     (Project) project  - Returns a project bean object.             *
-			 ***********************************************************************/
 				Connection connection;
 				Project           project     = null;
 			 	PreparedStatement statement   = null;
@@ -186,9 +68,9 @@ public class ProjectsDB {
 		 * This method a calls a Project Bean object based on the projectID    *
 		 *                                                                     *
 		 *     Required parameters                                             *
-		 *     (String) projectID - the id of the project to search for        *
+		 *     (String) clientID - the id of the client to search for          *
 		 *     Return Value                                                    *
-		 *     (Project) project - Returns a project bean object.              *
+		 *     (User) user - Returns a user bean object.                       *
 		 ***********************************************************************/
 		
   	  Connection        connection;	

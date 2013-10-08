@@ -12,7 +12,7 @@ public class SubmissionsDB {
 	 ***************************************************************************************/
 		
 	//getProjectByPID -- will be used for pull by projID in project update form
-	public static synchronized Submission getSubmissionsByPID(String projectID)
+	public static synchronized ArrayList<Submission> getSubmissionsByPID(String projectID)
 	{
 	  /***********************************************************************
 		 * Method..........................................getSubmissionsByPID *
@@ -24,12 +24,14 @@ public class SubmissionsDB {
 		 *     Required parameters                                             *
 		 *     (String) projectID - the id of the project to search for        *
 		 *     Return Value                                                    *
-		 *     (Project) project  - Returns a project bean object.             *
+		 *     ArrayList<Submission> subList - Returns a subList of Submission *
+		 *                                     beans                           *
 		 ***********************************************************************/
 				Connection connection;
-				Project           project     = null;
-			 	PreparedStatement statement   = null;
-				String            preparedSQL = "";
+				Submission            submission  = null;
+				ArrayList<Submission> subList     = new ArrayList<Submission>();
+			 	PreparedStatement     statement   = null;
+				String                preparedSQL = "";
 				
 			    try
 			    {
@@ -39,12 +41,12 @@ public class SubmissionsDB {
 			    	ResultSet rs = statement.executeQuery     ();
 			    	while(rs.next())
 			    	{
-  						project = new Project();
-  						project.setProjID    (rs.getInt(1));
-  						project.setName      (rs.getString(2));
-  						project.setDesc      (rs.getString(3));
-  						project.setUserID    (rs.getInt(4));
-  						project.setOrgID     (rs.getInt(5));
+  						submission = new Submission();
+  						submission.setSubID (rs.getInt(1));
+  						submission.setProjID(rs.getInt(2));
+  						submission.setUserID(rs.getInt(3));
+  						submission.setURL   (rs.getString(4));
+  						submission.setBlob  (rs.getBytes(5));
   					}	
   					rs.close        ();
   					statement.close ();
@@ -55,46 +57,47 @@ public class SubmissionsDB {
   					System.out.println("Error: " + ex);
   					System.out.println("Query: " + statement.toString());
 			    }
-				return project;
+				return subList;
 			}
 	
 	//getProjectByPID -- will be used for pull by projID in project update form
-	public static synchronized Project getProjectByBean(Project project)
+	public static synchronized Submission getSubmissionsByBean(Submission submission)
 	{
 		/***********************************************************************
 		 * Method................................................getProjByBean *
 		 * Author..........................................................BDS *
 		 * --------------------------------------------------------------------*
-		 * This method a calls a Project Bean object based on the projectID    *
+		 * This method a calls a Submission Bean object based on the projectID *
 		 *                                                                     *
 		 *     Required parameters                                             *
 		 *     (String) clientID - the id of the client to search for          *
 		 *     Return Value                                                    *
-		 *     (User) user - Returns a user bean object.                       *
+		 *     (User) user - Returns a submission bean object.                 *
 		 ***********************************************************************/
 		
   	  Connection        connection;	
-  	  Project           tempProject = new Project();
-		 	PreparedStatement statement   = null;
-			String            preparedSQL = "";
+  	  Submission        tempSubmission = new Submission();
+		 	PreparedStatement statement      = null;
+			String            preparedSQL    = "";
 			
 		    try
 		    {
 		    	connection   = DBConnector.getConnection  ();
 		    	statement    = connection.prepareStatement(preparedSQL);
-		    	statement.setString(1, project.getName    ());
-  				statement.setString(2, project.getDesc    ());
-  				statement.setInt   (3, project.getUserID  ());
-  				statement.setInt   (4, project.getOrgID   ());
-  				ResultSet rs = statement.executeQuery     ();
+		    	statement.setInt   (1, submission.getSubID ());
+  				statement.setInt   (2, submission.getProjID());
+  				statement.setInt   (3, submission.getUserID());
+  				statement.setString(4, submission.getURL   ());
+  				statement.setBytes (5, submission.getBlob  ());
+  				ResultSet rs = statement.executeQuery      ();
   				while(rs.next())
   				{
-  					tempProject = new Project();
-  					tempProject.setProjID    (rs.getInt   (1));
-  					tempProject.setName      (rs.getString(2));
-  					tempProject.setDesc      (rs.getString(3));
-  					tempProject.setUserID    (rs.getInt   (4));
-  					tempProject.setOrgID     (rs.getInt   (5));
+  					tempSubmission = new Submission();
+  					tempSubmission.setSubID (rs.getInt   (1));
+  					tempSubmission.setProjID(rs.getInt   (2));
+  					tempSubmission.setUserID(rs.getInt   (3));
+  					tempSubmission.setURL   (rs.getString(4));
+  					tempSubmission.setBlob  (rs.getBytes (5));
   				}
   				
   				rs.close        ();		
@@ -107,20 +110,20 @@ public class SubmissionsDB {
   				System.out.println("Query: " + statement.toString());
   			}
 		    
-			return tempProject;
+			return tempSubmission;
 		}
 	
 	
-	public static synchronized int addProject(Project project)
+	public static synchronized int addSubmission(Submission submission)
 	{
 		/***********************************************************************
-		 * Method......................................................addProj *
+		 * Method................................................addSubmission *
 		 * Author..........................................................BDS *
 		 *---------------------------------------------------------------------*
-		 * This method adds a project to the Project table.                    *
+		 * This method adds a submission to the Submissions table.             *
 		 *     Required parameters                                             *
-		 *     (Project) project - Project bean containing the info to be      *
-		 *                         added                                       *
+		 *     (Submission) submission - Submission bean containing the info   *
+		 *                               to be added                           *
 		 *     Return Value                                                    *
 		 *     (int) status - The number of records modified by the query      *
 		 ***********************************************************************/

@@ -1,79 +1,71 @@
-<%@ page contentType="text/html; charset=iso-8859-1" language="java" import="java.util.*,java.sql.*,data.*,beans.*" %>
-
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1" import="beans.*,data.*"%>
+    
 <%
-/****************
+/***************
  *  Author: JLH
- ****************/
-response.setHeader("Pragma", "No-cache");
-response.setDateHeader("Expires", 0);
-response.setHeader("Cache-Control", "no-cache");
+ ***************/
 
-String nextView =  (String) request.getAttribute("nextView");
-String urlMapping = (String)session.getAttribute("urlMapping");
-
-String currentUsername = (String)session.getAttribute("currentUsername");
+	
+	
+	String status = (String)session.getAttribute("status");
+	session.removeAttribute("status");
+	
+	//**** Get the data list placed in Request or Session Scope *******
+	
+	//reset status incase user cancels out of form
+    String email = (String) session.getAttribute("email");
+    String fName = (String) session.getAttribute("fName");
+    String lName = (String) session.getAttribute("lName");
+    session.removeAttribute("email");
+    session.removeAttribute("fName");
+    session.removeAttribute("lName");
+    if(email==null){
+    	email="";
+    }
+    if(fName==null){
+    	fName="";
+    }
+    if(lName==null){
+    	lName="";
+    }
 %>
 
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
-   <head>
-      <title>Global Performance Space</title>
-      <link rel="stylesheet" href="<%=request.getContextPath()%>/styles/style.css" type="text/css"></link>
-	  <link rel="stylesheet" href="<%=request.getContextPath()%>/styles/reset.css" type="text/css"></link>
-	  <link rel="stylesheet" href="<%=request.getContextPath()%>/styles/forms.css" type="text/css"></link>
-	  <link rel="stylesheet" href="<%=request.getContextPath()%>/styles/tables.css" type="text/css"></link>
-	  <script src="http://code.jquery.com/jquery-latest.js"></script>
-	  <style type="text/css">
-	  body { 
-  				background: url(images/red.jpg) no-repeat center center fixed; 
-  				-webkit-background-size: cover;
-  				-moz-background-size: cover;
-  				-o-background-size: cover;
-  				background-size: cover;
-}
-	  </style>
-	  <%
-	    //add the javascript references for the multifile upload on the add project page
-      if (urlMapping.equals("/Project_Add"))
-      {
-    %>
-        <script src="<%=request.getContextPath()%>/javascript/jquery.js" type="text/javascript"></script>
-        <script src="<%=request.getContextPath()%>/javascript/jquery.form.js" type="text/javascript" language="javascript"></script>
-        <script src="<%=request.getContextPath()%>/javascript/jquery.MetaData.js" type="text/javascript" language="javascript"></script>
-        <script src="<%=request.getContextPath()%>/javascript/jquery.MultiFile.js" type="text/javascript" language="javascript"></script>
-        <script src="<%=request.getContextPath()%>/javascript/jquery.blockUI.js" type="text/javascript" language="javascript"></script>
-    <%
-      }
-	  %>
-   </head>
-   
-   <body>
-   <div id="wrapper">
-        <div id="header">
-			<%
-				if(currentUsername!=null){
-			%>
-			<jsp:include page="/WEB-INF/includes/header2.jsp" />
-				<%
-				}else {
-				%>
-			<jsp:include page="/WEB-INF/includes/header.jsp" />
-				<%
-				}
-				%>
-		</div><!-- END header-->
-<div class="clear"></div>
-        <div id="section">
-            <div id="page">
-                <!-- Page Content -->
-                <jsp:include page="<%=nextView%>"  />
-            </div><!-- END content-->
+   <div id="register-page">
+   <div id="register">
+	<form name="registration" class="register-form" action="Cred_PostAdd" method="post">
+    	<div class="register-header">
+        	<h1>Register</h1>
         </div>
-		<div class="clear"></div>	       
-        <div id="footer">
-			<jsp:include page="/WEB-INF/includes/footer.jsp" />
-		</div><!-- END footer--> 
-   </div><!-- END wrapper--> 
-   </body>
-</html>
-
+        <div class="register-content">
+        	First Name				<input type="text" name="fName" class="register-fname" value="<%=fName%>" size="30" /><br><br>
+         	Last Name				<input type="text" name="lName" class="register-lname" value="<%=lName%>" size="30" /><br><br>
+         	Email			 	<input type="text" name="email"  class="register-email" value="<%=email%>" size="30"/> <br><br>
+            Password	 		<input type="text" name="pass1"  class="register-password" size="30"/> <br><br>
+            Confirm Password	<input type="text" name="pass2"  class="register-confpassword" size="30"/> <br> <br>
+             <input type="checkbox" name="terms" value="agree" /> I accept the Terms of Service<br />
+             <input type="hidden" name="terms" value="disagree" />
+        </div>
+        <div class="register-footer">
+			<input type="reset"  name="reset"  value="Reset"    class="reset"/> 
+			<input type="submit" name="submit" value="Sign Up" 	class="submit"/>		
+		</div>  
+	</form>
+    </div>
+    <div id="login">
+    <form name="login-form" class="login-form" action="Authenticate" method="post">
+        <div class="login-header">
+            <h2>Already a Member?</h2>
+        </div>
+        <div class="login-content">
+			<input name="username" type="text" class="input username" placeholder="Username" /><br><br>
+			<input name="password" type="password" class="input password" placeholder="Password" />	<br><br>	
+		</div>
+		<div class="login-footer">
+			<input type="submit" name="submit" value="Login" class="button" />
+        	<input type="submit" name="submit" value="Forgot Password?" class="password" />
+		</div>
+	</form> 
+    </div>
+   </div>

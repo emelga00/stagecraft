@@ -25,7 +25,7 @@
         	<h1>Register</h1>
         </div>
         <div class="register-content">
-        	Name				<input type="text" name"user" class="register-name" size="30" /><br><br>
+        	Name				<input type="text" name="user" class="register-name" size="30" /><br><br>
          	Email			 	<input type="text" name="user"  class="register-email" size="30"/> <br><br>
             Password	 		<input type="text" name="user"  class="register-password" size="30"/> <br><br>
             Confirm Password	<input type="text" name="user"  class="register-confpassword" size="30"/> <br> <br>

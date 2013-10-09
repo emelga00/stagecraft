@@ -50,6 +50,6 @@
     </p>      
   </fieldset> 
 
-  <input type="submit" name="submit" value="Submit Project" />
-  <input type="submit" name="submit" value="Cancel" />
+  <input class="button" type="submit" name="submit" value="Submit Project" />
+  <input class="button" type="submit" name="submit" value="Cancel" />
 </form>

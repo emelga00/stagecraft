@@ -63,7 +63,7 @@ String urlMapping = (String)session.getAttribute("urlMapping");
 				}
 				%>
 		</div><!-- END header-->
-<!--         <div class="clear"></div> -->
+<div class="clear"></div>
         <div id="section">
             <div id="page">
                 <!-- Page Content -->

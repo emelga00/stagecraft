@@ -101,9 +101,12 @@ ul{
 li{
 	display: inline;
 	float: left;
-}  
+}
+#login{
+	float: right;
+}
 .search, login{
-    float: right;
+    float: left;
 }
 .search{
     margin: 18px 5px;   

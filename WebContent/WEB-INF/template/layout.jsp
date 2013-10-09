@@ -22,7 +22,15 @@ String urlMapping = (String)session.getAttribute("urlMapping");
 	  <link rel="stylesheet" href="<%=request.getContextPath()%>/styles/reg-log.css" type="text/css"></link>
 	  <link rel="stylesheet" href="<%=request.getContextPath()%>/styles/tables.css" type="text/css"></link>
 	  <script src="http://code.jquery.com/jquery-latest.js"></script>
-	  
+	  <style type="text/css">
+	  body { 
+  				background: url(images/red.jpg) no-repeat center center fixed; 
+  				-webkit-background-size: cover;
+  				-moz-background-size: cover;
+  				-o-background-size: cover;
+  				background-size: cover;
+}
+	  </style>
 	  <%
 	    //add the javascript references for the multifile upload on the add project page
       if (urlMapping.equals("/Project_Add"))

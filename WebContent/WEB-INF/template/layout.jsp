@@ -20,7 +20,7 @@ String currentUsername = (String)session.getAttribute("currentUsername");
       <title>Global Performance Space</title>
       <link rel="stylesheet" href="<%=request.getContextPath()%>/styles/style.css" type="text/css"></link>
 	  <link rel="stylesheet" href="<%=request.getContextPath()%>/styles/reset.css" type="text/css"></link>
-	  <link rel="stylesheet" href="<%=request.getContextPath()%>/styles/reg-log.css" type="text/css"></link>
+	  <link rel="stylesheet" href="<%=request.getContextPath()%>/styles/forms.css" type="text/css"></link>
 	  <link rel="stylesheet" href="<%=request.getContextPath()%>/styles/tables.css" type="text/css"></link>
 	  <script src="http://code.jquery.com/jquery-latest.js"></script>
 	  <style type="text/css">
@@ -62,7 +62,7 @@ String currentUsername = (String)session.getAttribute("currentUsername");
 				}
 				%>
 		</div><!-- END header-->
-<!--         <div class="clear"></div> -->
+<div class="clear"></div>
         <div id="section">
             <div id="page">
                 <!-- Page Content -->

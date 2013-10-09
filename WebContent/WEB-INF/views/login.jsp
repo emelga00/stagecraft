@@ -15,23 +15,37 @@
 	//**** Get the data list placed in Request or Session Scope *******
 	
 	//reset status incase user cancels out of form
-    session.setAttribute("status", "Add client cancelled...");
+    String email = (String) session.getAttribute("email");
+    String fName = (String) session.getAttribute("fName");
+    String lName = (String) session.getAttribute("lName");
+    session.removeAttribute("email");
+    session.removeAttribute("fName");
+    session.removeAttribute("lName");
+    if(email==null){
+    	email="";
+    }
+    if(fName==null){
+    	fName="";
+    }
+    if(lName==null){
+    	lName="";
+    }
 %>
 
    <div id="register-page">
    <div id="register">
-	<form name="registration" class="register-form" action="User_PostAdd" method="post">
+	<form name="registration" class="register-form" action="Cred_PostAdd" method="post">
     	<div class="register-header">
         	<h1>Register</h1>
         </div>
         <div class="register-content">
-        	Name				<input type="text" name"user" class="register-name" size="30" /><br><br>
-         	Email			 	<input type="text" name="user"  class="register-email" size="30"/> <br><br>
-            Password	 		<input type="text" name="user"  class="register-password" size="30"/> <br><br>
-            Confirm Password	<input type="text" name="user"  class="register-confpassword" size="30"/> <br> <br>
-            Organization		<input type="text" name="user"  class="register-org" size="30"/> <br><br>
-            Zip					<input type="text" name="user"  class="register-zip" placeholder="or Postal Code" size="30"/> <br><br>
-            <input type="checkbox" name="check" value="agree" /> I accept the Terms of Service<br />
+        	First Name				<input type="text" name="fName" class="register-fname" value="<%=fName%>" size="30" /><br><br>
+         	Last Name				<input type="text" name="lName" class="register-lname" value="<%=lName%>" size="30" /><br><br>
+         	Email			 	<input type="text" name="email"  class="register-email" value="<%=email%>" size="30"/> <br><br>
+            Password	 		<input type="text" name="pass1"  class="register-password" size="30"/> <br><br>
+            Confirm Password	<input type="text" name="pass2"  class="register-confpassword" size="30"/> <br> <br>
+             <input type="checkbox" name="terms" value="agree" /> I accept the Terms of Service<br />
+             
         </div>
         <div class="register-footer">
 			<input type="reset"  name="reset"  value="Reset"    class="reset"/> 

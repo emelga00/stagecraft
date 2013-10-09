@@ -30,6 +30,37 @@ public class Cred_PostAdd  implements Command{
 				String email = request.getParameter("email");
 				String pass1 = request.getParameter("pass1");
 				String pass2 = request.getParameter("pass2");
+				String fName = request.getParameter("fName");
+				String lName = request.getParameter("lName");
+				String[] terms = request.getParameterValues("terms");
+				
+				if (terms == null){
+					
+					session.setAttribute("email",email);
+					session.setAttribute("fName",fName);
+					session.setAttribute("lName",lName);
+					status = "You Must Agree To The Terms";
+					session.setAttribute("status", status);
+				
+					return "Login";	
+				}
+			
+				if (fName==""||lName==""||email==""||pass1==""||pass2==""){
+					if(fName!=null){
+						session.setAttribute("fName",fName);
+					}
+					if(lName!=null){
+						session.setAttribute("lName",lName);
+					}
+					if(email!=null){
+						session.setAttribute("email",email);
+					}
+					
+					status = "You Must Fill Out All Fields";
+					session.setAttribute("status", status);
+					
+				return "Login";	
+				}
 				
 				String var1="@";
 				String var2=".";

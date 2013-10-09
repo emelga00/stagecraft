@@ -45,7 +45,6 @@
             Password	 		<input type="text" name="pass1"  class="register-password" size="30"/> <br><br>
             Confirm Password	<input type="text" name="pass2"  class="register-confpassword" size="30"/> <br> <br>
              <input type="checkbox" name="terms" value="agree" /> I accept the Terms of Service<br />
-             <input type="hidden" name="terms" value="disagree" />
         </div>
         <div class="register-footer">
 			<input type="reset"  name="reset"  value="Reset"    class="reset"/> 

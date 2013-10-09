@@ -11,6 +11,7 @@ response.setHeader("Cache-Control", "no-cache");
 String nextView =  (String) request.getAttribute("nextView");
 String urlMapping = (String)session.getAttribute("urlMapping");
 
+String currentUsername = (String)session.getAttribute("currentUsername");
 %>
 
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -50,9 +51,7 @@ String urlMapping = (String)session.getAttribute("urlMapping");
    <div id="wrapper">
         <div id="header">
 			<%
-				if(urlMapping.equals("/AdminView")||urlMapping.equals("/CAInfoListView")||
-				urlMapping.equals("/StandardUserView")||urlMapping.equals("/ClientViewerList")||
-				urlMapping.equals("/Home")||urlMapping.equals("/HrSystemUserListView")){
+				if(currentUsername!=null){
 			%>
 			<jsp:include page="/WEB-INF/includes/header2.jsp" />
 				<%

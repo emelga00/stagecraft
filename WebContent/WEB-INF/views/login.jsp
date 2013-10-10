@@ -42,7 +42,9 @@
 %>
 
    <div id="register-page">
+   <h2> <%=status %> </h2>
    <div id="register">
+   
 	<form name="registration" class="register-form" action="Cred_PostAdd" method="post">
     	<div class="register-header">
         	<h1>Register</h1>
@@ -54,6 +56,7 @@
             Password	 		<input type="password" name="pass1"  class="register-password" size="30"/> <br><br>
             Confirm Password	<input type="password" name="pass2"  class="register-confpassword" size="30"/> <br> <br>
              <input type="checkbox" name="terms" value="agree" /> I accept the Terms of Service<br />
+             
         </div>
         <div class="register-footer">
 			<input type="reset"  name="reset"  value="Reset"    class="reset"/> 

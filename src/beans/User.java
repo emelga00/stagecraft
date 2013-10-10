@@ -19,6 +19,7 @@ public class User {
 	private int    creds_Credential_ID;
 	private String creds_Email;
 	private String creds_Pass;
+	private String creds_RegKey;
 	private String cred_Date;
 	
 	//from userDB
@@ -106,6 +107,12 @@ public class User {
 	}
 	public void setCreds_Pass(String creds_pass) {
 		this.creds_Pass = creds_pass;
+	}
+	public String getCreds_RegKey() {
+		return creds_RegKey;
+	}
+	public void setCreds_RegKey(String creds_RegKey) {
+		this.creds_RegKey = creds_RegKey;
 	}
 	public String getCred_Date() {
 		return cred_Date;

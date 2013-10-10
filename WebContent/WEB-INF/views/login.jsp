@@ -7,7 +7,16 @@
  *  Author: JLH
  ***************/
 
-	
+ String user = (String) request.getParameter("user");
+
+ String key = (String) request.getParameter("key");
+ int user_ID = 0;
+ if (user!=null||key!=null){
+ 	user_ID = Integer.parseInt(user);
+ 	CredentialsDB.validated(user_ID,key);}
+ 	//finish forgot pass, put into another landing page
+ 	
+ 
 	
 	String status = (String)session.getAttribute("status");
 	session.removeAttribute("status");
@@ -42,8 +51,8 @@
         	First Name				<input type="text" name="fName" class="register-fname" value="<%=fName%>" size="30" /><br><br>
          	Last Name				<input type="text" name="lName" class="register-lname" value="<%=lName%>" size="30" /><br><br>
          	Email			 	<input type="text" name="email"  class="register-email" value="<%=email%>" size="30"/> <br><br>
-            Password	 		<input type="text" name="pass1"  class="register-password" size="30"/> <br><br>
-            Confirm Password	<input type="text" name="pass2"  class="register-confpassword" size="30"/> <br> <br>
+            Password	 		<input type="password" name="pass1"  class="register-password" size="30"/> <br><br>
+            Confirm Password	<input type="password" name="pass2"  class="register-confpassword" size="30"/> <br> <br>
              <input type="checkbox" name="terms" value="agree" /> I accept the Terms of Service<br />
         </div>
         <div class="register-footer">

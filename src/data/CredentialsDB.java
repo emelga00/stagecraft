@@ -31,9 +31,9 @@ public class CredentialsDB {
 				if(rs.next()){
 					credentials = new Credentials();
 					credentials.setCredID(rs.getInt(1));
-					credentials.setEmail(rs.getString(2));
-					credentials.setPass(rs.getString(3));
-					credentials.setUserID(rs.getInt(4));
+					credentials.setUserID(rs.getInt(2));
+					credentials.setEmail(rs.getString(3));
+					credentials.setPass(rs.getString(4));
 					credentials.setRole(rs.getString(5));
 					credentials.setValid(rs.getInt(6));
 					credentials.setRegKey(rs.getString(7));
@@ -49,6 +49,50 @@ public class CredentialsDB {
 				}	
 			return credentials;
 		}	
+	public static synchronized int getCred_IDByBean(Credentials cred){
+		/***********************************************************************
+		 * Method...............................................getClientByUID *
+		 * Author..........................................................JLH *
+		 * --------------------------------------------------------------------*
+		 * This method a Client Bean object based on the clientID              *
+		 *                                                                     *
+		 *     Required parameters                                             *
+		 *     (String) clientID - the id of the client to search for          *
+		 *     Return Value                                                    *
+		 *     (User) user - Returns a user bean object.                       *
+		 ***********************************************************************/
+		
+			int cred_ID=0;
+			Connection connection;
+		 	PreparedStatement statement = null;
+			String preparedSQL = "Select Credentials_ID From credential Where Email = ? And Pass= ? And Role= ? And Validated= ? And RegKey= ?";
+			
+		    try{
+		    	connection = DBConnector.getConnection();
+		    	statement = connection.prepareStatement(preparedSQL);
+		    	statement.setString(1, cred.getEmail());
+				statement.setString(2, cred.getPass());
+				statement.setString(3, cred.getRole());
+				statement.setInt(4, cred.getValid());
+				statement.setString(5, cred.getRegKey());
+				ResultSet rs = statement.executeQuery();
+				while(rs.next()){
+					cred_ID = rs.getInt(1);
+					//add credentials columns
+				}	
+				rs.close();		
+				statement.close();
+				connection.close();
+				
+			}
+		    catch (SQLException ex){
+				System.out.println("Error: " + ex);
+				System.out.println("Query: " + statement.toString());
+			}
+			return cred_ID;
+			
+		}
+	
 	
 	public static synchronized Credentials getCedentialByCredID(String credID){
 		/***********************************************************************
@@ -103,7 +147,7 @@ public class CredentialsDB {
 		 *     Return Value                                                    *
 		 *     (Credentials) cred - Returns a user bean object.                *
 		 ***********************************************************************/
-		System.out.println("Client name is ");
+	
 			Connection connection;
 	 		Credentials cred=null;
 	 		ArrayList<Credentials> credList = new ArrayList<Credentials>();
@@ -176,7 +220,7 @@ public class CredentialsDB {
 			return status;
 		}		
 	
-	public static synchronized int updateCred(Credentials cred){
+	public static synchronized void addUserID(int user_ID){
 		/***********************************************************************
 		 * Method..................................................updateCred  *
 		 * Author.........................................................JLH  *
@@ -188,21 +232,17 @@ public class CredentialsDB {
 		 *     Return Value                                                    *
 		 *     (int) status - The number of records modified by the query      *
 		 ***********************************************************************/
-			int status=0;	
+			
 			Connection connection; 
 			    
 			   
-				String preparedSQL = "";
+				String preparedSQL = "Update credential Set User_ID = ?";
 				PreparedStatement statement=null;	
 				try{
 					connection=DBConnector.getConnection();
 					statement = connection.prepareStatement(preparedSQL);		
-					statement.setString(1, cred.getEmail());
-					statement.setString(2, cred.getPass());
-					statement.setInt(3, cred.getUserID());
-					statement.setString(4, cred.getRole());
-					statement.setInt(5, cred.getCredID());
-					status = statement.executeUpdate();
+					statement.setInt(1, user_ID);
+					statement.executeUpdate();
 					statement.close();
 					connection.close();
 				}catch (SQLException ex){
@@ -210,7 +250,6 @@ public class CredentialsDB {
 					System.out.println("Query: " + statement.toString());
 				}
 
-			return status;
 
 	}
 	public static synchronized int validated(int userID, String key){

@@ -15,7 +15,6 @@ import javax.mail.Transport;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 
-import beans.Credentials;
 import beans.User;
 
 public class SendValidation implements Command {
@@ -26,11 +25,10 @@ public class SendValidation implements Command {
 		
 		HttpSession httpsession = request.getSession();
 		
-		Credentials creds = (Credentials)httpsession.getAttribute("creds");
-		User user = (User)httpsession.getAttribute("client");
-		int userID = creds.getUserID();
-		String key = creds.getRegKey();
-		String email= creds.getEmail();
+		User user = (User)httpsession.getAttribute("user");
+		int userID = user.getUser_ID();
+		String key = user.getCreds_RegKey();
+		String email= user.getCreds_Email();
 		String userName= user.getFirst_Name()+" "+user.getLast_Name();
 				Properties props = new Properties();
 				props.put("mail.smtp.host", "smtp.gmail.com");

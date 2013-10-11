@@ -286,6 +286,48 @@ public class CredentialsDB {
 			}
 			return cred;
 		}
+	public static synchronized Credentials getCedentialByUser_ID(int userID){
+		/***********************************************************************
+		 * Method........................................getCredentialByCredID *
+		 * Author..........................................................JLH *
+		 * --------------------------------------------------------------------*
+		 * This method a Credentials Bean object based on the credID           *
+		 *                                                                     *
+		 *     Required parameters                                             *
+		 *     String credID                                                   *
+		 *     Return Value                                                    *
+		 *     (Credentials) cred - Returns a user bean object.                *
+		 ***********************************************************************/
+			Connection connection;
+			Credentials cred = null;
+		 	PreparedStatement statement = null;
+			String preparedSQL = "Select * From user Where User_ID = ?";
+			
+		    try{
+		    	connection = DBConnector.getConnection();
+		    	statement = connection.prepareStatement(preparedSQL);
+		    	statement.setInt(1,userID);
+				ResultSet rs = statement.executeQuery();
+				while(rs.next()){
+					cred = new Credentials();
+					cred.setCredID(rs.getInt(1));
+					cred.setUserID(rs.getInt(2));
+					cred.setEmail(rs.getString(3));
+					cred.setPass(rs.getString(4));
+					cred.setRole(rs.getString(5));
+					cred.setValid(rs.getInt(6));
+					cred.setRegKey(rs.getString(7));
+				}	
+				rs.close();		
+				statement.close();
+				connection.close();
+			}
+		    catch (SQLException ex){
+				System.out.println("Error: " + ex);
+				System.out.println("Query: " + statement.toString());
+			}
+			return cred;
+		}
 	
 	public static synchronized ArrayList<Credentials> getCredentialByAlpha(String alpha){
 		/***********************************************************************

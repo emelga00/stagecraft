@@ -133,7 +133,7 @@ public class UserDB {
 			return userList;
 		}
 	//getClientByUID -- will be used for pull by userID in client update form
-		public static synchronized User getUserByUID(String userID){
+		public static synchronized User getUserByUserID(int userID){
 			/***********************************************************************
 			 * Method...............................................getClientByUID *
 			 * Author..........................................................JLH *
@@ -148,26 +148,25 @@ public class UserDB {
 				Connection connection;
 				User user = null;
 			 	PreparedStatement statement = null;
-				String preparedSQL = "";
+				String preparedSQL = "Select * From user Where User_ID = ?";
 				
 			    try{
 			    	connection = DBConnector.getConnection();
 			    	statement = connection.prepareStatement(preparedSQL);
-			    	statement.setInt(1, Integer.parseInt(userID));
+			    	statement.setInt(1, userID);
 					ResultSet rs = statement.executeQuery();
 					while(rs.next()){
 						user = new User();
 						user.setUser_ID(rs.getInt(1));
-						user.setFirst_Name(rs.getString(2));
-						user.setLast_Name(rs.getString(3));
-						user.setPhone(rs.getString(4));
-						user.setAddress(rs.getString(5));
-						user.setCity(rs.getString(6));
-						user.setState(rs.getString(7));
-						user.setZIP(rs.getString(8));
-						user.setDate(rs.getString(9));
-						user.setRole(rs.getString(10));
-						//add credentials columns
+						user.setCreds_Credential_ID(rs.getInt(2));
+						user.setFirst_Name(rs.getString(3));
+						user.setLast_Name(rs.getString(4));
+						user.setPhone(rs.getString(5));
+						user.setAddress(rs.getString(6));
+						user.setCity(rs.getString(7));
+						user.setState(rs.getString(8));
+						user.setZIP(rs.getString(9));
+						user.setDate(rs.getString(10));
 					}	
 					rs.close();		
 					statement.close();

@@ -29,6 +29,7 @@
     <url-pattern>/Credential_Add</url-pattern>
     <url-pattern>/Cred_PostAdd</url-pattern>
     <url-pattern>/User_Add</url-pattern>
+    <url-pattern>/User_Modify</url-pattern>
     <url-pattern>/User_PostAdd</url-pattern>
     <url-pattern>/SendValidation</url-pattern>
     <url-pattern>/Forgot_Cred</url-pattern>

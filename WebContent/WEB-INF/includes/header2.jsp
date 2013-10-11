@@ -1,8 +1,13 @@
 <%@ page import="java.util.Date, java.text.*,beans.*" %>
 
-
+<%
+String homepage = (String)session.getAttribute("homepage");
+if(homepage==""){
+	homepage="Home";
+}
+%>
 <div id="center">
-    <div id="logo"><a href="Home">Global Performance Space</a></div>
+    <div id="logo"><a href="<%=homepage%>">Global Performance Space</a></div>
     	<div id="head-nav-container">
         	<ul id="header-nav" class="clearfix">
 				<li id="explore" class="header-nav"><a href="#">Explore</a></li>

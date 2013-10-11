@@ -49,6 +49,40 @@ public class CredentialsDB {
 				}	
 			return credentials;
 		}	
+	public static synchronized int checkVerification(String userName){
+		/***********************************************************************
+		 * Method.............................................authenticate     *
+		 * Author......................................................JLH     *
+		 *---------------------------------------------------------------------*
+		 * This method authenticates a user via username and password          *
+		 * 																	   *
+		 * Return Value 													   *
+		 * (User) user:  Returns a user bean of the user that logged in.       *
+		 ***********************************************************************/
+			Connection connection;
+		 	int valid = 1;
+		 	PreparedStatement statement=null;
+			String preparedSQL = "SELECT Validated FROM Credential WHERE Email = ?";
+			
+		    try{
+		    	connection=DBConnector.getConnection();
+		    	statement = connection.prepareStatement(preparedSQL);
+		    	statement.setString(1, userName);
+				ResultSet rs = statement.executeQuery();
+				if(rs.next()){
+					valid = rs.getInt(1);
+				}	
+				rs.close();		
+				statement.close();
+				connection.close();
+				
+			}catch (SQLException ex){
+					System.out.println("Error: " + ex);
+					System.out.println("Query: " + statement.toString());
+					valid = 1;
+				}	
+			return valid;
+		}	
 	public static synchronized int getCred_IDByBean(Credentials cred){
 		/***********************************************************************
 		 * Method...............................................getClientByUID *
@@ -90,6 +124,124 @@ public class CredentialsDB {
 				System.out.println("Query: " + statement.toString());
 			}
 			return cred_ID;
+			
+		}
+	public static synchronized String getKeyBYUserID(int user_ID){
+		/***********************************************************************
+		 * Method...............................................getClientByUID *
+		 * Author..........................................................JLH *
+		 * --------------------------------------------------------------------*
+		 * This method a Client Bean object based on the clientID              *
+		 *                                                                     *
+		 *     Required parameters                                             *
+		 *     (String) clientID - the id of the client to search for          *
+		 *     Return Value                                                    *
+		 *     (User) user - Returns a user bean object.                       *
+		 ***********************************************************************/
+		
+			String key = "";
+			Connection connection;
+		 	PreparedStatement statement = null;
+			String preparedSQL = "Select RegKey From credential Where User_ID = ?";
+			
+		    try{
+		    	connection = DBConnector.getConnection();
+		    	statement = connection.prepareStatement(preparedSQL);
+		    	statement.setInt(1, user_ID);
+				ResultSet rs = statement.executeQuery();
+				while(rs.next()){
+					key = rs.getString(1);
+					//add credentials columns
+				}	
+				rs.close();		
+				statement.close();
+				connection.close();
+				
+			}
+		    catch (SQLException ex){
+				System.out.println("Error: " + ex);
+				System.out.println("Query: " + statement.toString());
+			}
+			return key;
+			
+		}
+	public static synchronized String getEmailByUserID(int user_ID){
+		/***********************************************************************
+		 * Method...............................................getClientByUID *
+		 * Author..........................................................JLH *
+		 * --------------------------------------------------------------------*
+		 * This method a Client Bean object based on the clientID              *
+		 *                                                                     *
+		 *     Required parameters                                             *
+		 *     (String) clientID - the id of the client to search for          *
+		 *     Return Value                                                    *
+		 *     (User) user - Returns a user bean object.                       *
+		 ***********************************************************************/
+		
+			String email = "";
+			Connection connection;
+		 	PreparedStatement statement = null;
+			String preparedSQL = "Select Email From credential Where User_ID = ?";
+			
+		    try{
+		    	connection = DBConnector.getConnection();
+		    	statement = connection.prepareStatement(preparedSQL);
+		    	statement.setInt(1, user_ID);
+				ResultSet rs = statement.executeQuery();
+				while(rs.next()){
+					email = rs.getString(1);
+					//add credentials columns
+				}	
+				rs.close();		
+				statement.close();
+				connection.close();
+				
+			}
+		    catch (SQLException ex){
+				System.out.println("Error: " + ex);
+				System.out.println("Query: " + statement.toString());
+			}
+			return email;
+			
+		}
+	public static synchronized int getUserIDByEmail(String email){
+		/***********************************************************************
+		 * Method...............................................getClientByUID *
+		 * Author..........................................................JLH *
+		 * --------------------------------------------------------------------*
+		 * This method a Client Bean object based on the clientID              *
+		 *                                                                     *
+		 *     Required parameters                                             *
+		 *     (String) clientID - the id of the client to search for          *
+		 *     Return Value                                                    *
+		 *     (User) user - Returns a user bean object.                       *
+		 ***********************************************************************/
+		
+			int user_ID = 0;
+			Connection connection;
+		 	PreparedStatement statement = null;
+			String preparedSQL = "Select User_ID From credential Where Email = ?";
+			
+		    try{
+		    	connection = DBConnector.getConnection();
+		    	statement = connection.prepareStatement(preparedSQL);
+		    	statement.setString(1, email);
+				ResultSet rs = statement.executeQuery();
+				while(rs.next()){
+					user_ID = rs.getInt(1);
+					//add credentials columns
+				}	
+				rs.close();		
+				statement.close();
+				connection.close();
+				
+			}
+		    catch (SQLException ex){
+				System.out.println("Error: " + ex);
+				System.out.println("Query: " + statement.toString());
+				user_ID=0;
+			}
+			return user_ID;
 			
 		}
 	
@@ -220,7 +372,7 @@ public class CredentialsDB {
 			return status;
 		}		
 	
-	public static synchronized void addUserID(int user_ID){
+	public static synchronized void addUserID(int user_ID, int cred_ID){
 		/***********************************************************************
 		 * Method..................................................updateCred  *
 		 * Author.........................................................JLH  *
@@ -236,12 +388,13 @@ public class CredentialsDB {
 			Connection connection; 
 			    
 			   
-				String preparedSQL = "Update credential Set User_ID = ?";
+				String preparedSQL = "Update credential Set User_ID = ? Where Credentials_ID = ?";
 				PreparedStatement statement=null;	
 				try{
 					connection=DBConnector.getConnection();
 					statement = connection.prepareStatement(preparedSQL);		
 					statement.setInt(1, user_ID);
+					statement.setInt(2, cred_ID);
 					statement.executeUpdate();
 					statement.close();
 					connection.close();
@@ -506,9 +659,9 @@ public class CredentialsDB {
 				while(rs.next()){
 					cred = new Credentials();
 					cred.setCredID(rs.getInt(1));
-					cred.setEmail(rs.getString(2));
-					cred.setPass(rs.getString(3));
-					cred.setUserID(rs.getInt(4));
+					cred.setUserID(rs.getInt(2));
+					cred.setEmail(rs.getString(3));
+					cred.setPass(rs.getString(4));
 					cred.setRole(rs.getString(5));
 					cred.setValid(rs.getInt(6));
 					cred.setRegKey(rs.getString(7));

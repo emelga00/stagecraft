@@ -26,15 +26,17 @@ public class SendValidation implements Command {
 		HttpSession httpsession = request.getSession();
 		
 		User user = (User)httpsession.getAttribute("user");
+		httpsession.removeAttribute("user");
+		
 		int userID = user.getUser_ID();
 		String key = user.getCreds_RegKey();
 		String email= user.getCreds_Email();
 		String userName= user.getFirst_Name()+" "+user.getLast_Name();
+		
 				Properties props = new Properties();
 				props.put("mail.smtp.host", "smtp.gmail.com");
 				props.put("mail.smtp.socketFactory.port", "465");
-				props.put("mail.smtp.socketFactory.class",
-						"javax.net.ssl.SSLSocketFactory");
+				props.put("mail.smtp.socketFactory.class","javax.net.ssl.SSLSocketFactory");
 				props.put("mail.smtp.auth", "true");
 				props.put("mail.smtp.port", "465");
 		 
@@ -49,8 +51,7 @@ public class SendValidation implements Command {
 		 
 					Message message = new MimeMessage(session);
 					message.setFrom(new InternetAddress("capstonefall2013@gmail.com"));
-					message.setRecipients(Message.RecipientType.TO,
-							InternetAddress.parse(email));
+					message.setRecipients(Message.RecipientType.TO,InternetAddress.parse(email));
 					message.setSubject("Testing Subject");
 					message.setText("Dear "+userName+"," +
 							"\n\n Go to the link below to validate your e-mail address!\n" +

@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Insert title here</title>
+<title>Admin Landing Page</title>
 <style type="text/css">
 table {
 	font-size:0.9em;
@@ -14,7 +14,7 @@ table {
 
 <%
 	/***************
- *  Author: BAC
+ *  Author: JLH
  ***************/
  
 	int index;
@@ -68,14 +68,14 @@ out.println("<div class='centerIt' id='status'>"+result+"</div>");
 		    <th>Date</th>
 		    <th>Role</th>
 		    <th>Credential<br />ID</th>
-		    <th> -- </th>
-		    <th> -- </th>
+		    <th>Email</th>
+		    <th>Password</th>
 			<th>Verification</th>
 			<th> -- </th>
 			<th> -- </th>
 		</tr>
 		<%
-			String contCharges = "";
+			
 				String fullPhone;
 				String areacode;
 				String phone;
@@ -87,6 +87,7 @@ out.println("<div class='centerIt' id='status'>"+result+"</div>");
 				int valid;
 				String notValid;
 				int rowToggle = 0;
+				
 				for(index = 0; index < users.size(); index++){
 			
 					user = (User)users.get(index);
@@ -108,7 +109,7 @@ out.println("<div class='centerIt' id='status'>"+result+"</div>");
 					valid = creds.getValid();
 				}
 				if(cred_ID==0){
-					credID="TBD";
+					credID=Integer.toString(cred_ID);
 				}else{
 					credID=Integer.toString(cred_ID);
 				}
@@ -118,9 +119,13 @@ out.println("<div class='centerIt' id='status'>"+result+"</div>");
 					notValid = "Not Verified";
 				}
 				fullPhone = user.getPhone();
+				if(fullPhone==null||fullPhone.equals("")){
+					areacode = " - ";
+					phone = " - ";
+				}else{
 				areacode = fullPhone.substring(0,3);
 				phone = fullPhone.substring(3,6)+"-"+fullPhone.substring(6,10);
-			
+				}
 		%>
 			<%
 				if(rowToggle%2 != 0) {
@@ -142,11 +147,11 @@ out.println("<div class='centerIt' id='status'>"+result+"</div>");
 				<td class="centerIt"><%=user.getDate()%></td>
 				<td class="centerIt"><%=role%></td>
 				<td class="centerIt"><%=credID%></td>
-				<td class="centerIt">E-Mail:<br /><%=email%></td>
-				<td class="centerIt">Password:<br /><%=pass%></td>
+				<td class="centerIt"><%=email%></td>
+				<td class="centerIt"><%=pass%></td>
 				<td class="centerIt"><%=notValid%></td>
-				<td><a class="jBtn" href="Client_Modify?clientID=<%=user.getUser_ID()%>">Modify</a></td>
-				<td><a class="jBtn" href="Client_Delete?clientID=<%=user.getUser_ID()%>">Delete</a></td>
+				<td><a class="jBtn" href="User_Modify?userID=<%=user.getUser_ID()%>">Modify</a></td>
+				<td><a class="jBtn" href="User_Delete?userID=<%=user.getUser_ID()%>">Delete</a></td>
 			</tr>
 		<%
 		rowToggle++;

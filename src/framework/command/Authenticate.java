@@ -19,10 +19,9 @@ public class Authenticate implements Command {
 
 		HttpSession session = request.getSession();
 		String button = request.getParameter("submit");
-		if(button.equals("Forgot Password?")) {
+		if (button.equals("Forgot Password?")) {
 			return "Forgot_Cred";
-		}
-		else {
+		} else {
 			// ** 1. Retrieve the Form Input (Name-Value Pairs) from the HTTP
 			// Request ***
 			String username = request.getParameter("username");
@@ -56,8 +55,13 @@ public class Authenticate implements Command {
 						session.setAttribute("homepage", "ModUserView");
 					}
 				} else if (currentValid == 1) {
-					session.setAttribute("status",
-							"You Must First Validate Your Email");
+					if (currentUser.getRegKey().equals("")) {
+						session.setAttribute("status",
+								"You Have Been Blocked Due To Spam");
+					} else {
+						session.setAttribute("status",
+								"You Must First Validate Your Email");
+					}
 				}
 			} else {
 				session.setAttribute("status",

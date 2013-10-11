@@ -41,9 +41,9 @@ public class Controller extends HttpServlet {
 		requests.add(new RequestEntry("/Credential_Add","Forward",new Credential_Add(),"public", ""));
 		requests.add(new RequestEntry("/Cred_PostAdd","Redirect",new Cred_PostAdd(),"public", ""));
 		//--------------User-------------------------
-		requests.add(new RequestEntry("/User_Modify","Forward",new User_Modify(),"protected", "admin"));
+		requests.add(new RequestEntry("/User_Modify","Forward",new User_Modify(),"protected", "user,moderator,admin"));
 		//--------------Project-------------------------
-		requests.add(new RequestEntry("/Project_Add","Forward",new Project_Add(),"protected", "user"));
+		requests.add(new RequestEntry("/Project_Add","Forward",new Project_Add(),"protected", "user,admin"));
 	}
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -115,9 +115,7 @@ public class Controller extends HttpServlet {
 			//*** Protected Page with Role****
 			String currentUsername = (String) session.getAttribute("currentUsername");
 			String role = (String)session.getAttribute("currentRole");
-			System.out.println("current username is " + currentUsername);
-			System.out.println("current role is " + role);
-			if(currentUsername!=null&&entry.getRole().equals(role)){
+			if(currentUsername!=null&&entry.getRole().contains(role)){
 				accessGranted=true;
 			}else{
 				accessGranted=false;

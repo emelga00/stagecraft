@@ -73,9 +73,17 @@
 			%>
 			Enabled
 			<%
-				out.println("<select name='enabled'>"
-						+ " <option value='yes'>enabled</option>"
-						+ " <option value='no'>disabled</option>" + " </select> ");
+				if (user.getValid()==0) {
+					out.println("<select name='enabled'>"
+							+ " <option value='yes' selected>enabled</option>"
+							+ " <option value='no'>disabled</option>" + 
+							" </select> ");
+				}else{
+					out.println("<select name='enabled'>"
+							+ " <option value='yes'>enabled</option>"
+							+ " <option value='no' selected>disabled</option>" + 
+							" </select> ");
+				}
 			%>
 			<br> <input type="hidden" name="userID" value="<%=user.getUser_ID()%>" /><br />
 

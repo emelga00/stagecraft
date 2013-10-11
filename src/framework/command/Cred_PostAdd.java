@@ -47,7 +47,6 @@ public class Cred_PostAdd implements Command {
 		lName = request.getParameter("lName");
 		terms = request.getParameterValues("terms");
 
-
 		if (fName != null) {
 			session.setAttribute("fName", fName);
 		}
@@ -58,9 +57,8 @@ public class Cred_PostAdd implements Command {
 			session.setAttribute("email", email);
 		}
 
-		
 		String button = request.getParameter("submit");
-		if(button.equals("Resend Verification")) {
+		if (button.equals("Resend Verification")) {
 			returnClass = sendVerify();
 			return returnClass;
 		}
@@ -115,7 +113,7 @@ public class Cred_PostAdd implements Command {
 				cred.setRole("user");
 				cred.setValid(1);
 				cred.setRegKey(uuid);
-				
+
 				int results = CredentialsDB.addCred(cred);
 				int cred_ID = 0;
 				User user = new User();
@@ -137,16 +135,16 @@ public class Cred_PostAdd implements Command {
 							user.setCreds_Email(email);
 							user.setUser_ID(user_ID);
 							session.setAttribute("user", user);
-							
+
 							fName = "";
-								session.setAttribute("fName", fName);
-							
-							lName ="";
-								session.setAttribute("lName", lName);
-							
+							session.setAttribute("fName", fName);
+
+							lName = "";
+							session.setAttribute("lName", lName);
+
 							email = "";
-								session.setAttribute("email", email);
-							
+							session.setAttribute("email", email);
+
 						} else {
 							CredentialsDB.deleteCred(cred_ID);
 							status = "Account Not Added, Try Again";
@@ -186,17 +184,23 @@ public class Cred_PostAdd implements Command {
 				int currentValid = (int) CredentialsDB.checkVerification(email);
 
 				if (currentValid != 0) {
-					
+
 					int user_ID = (int) CredentialsDB.getUserIDByEmail(email);
 					String key = (String) CredentialsDB.getKeyBYUserID(user_ID);
-					User nonValidUser = new User();
-					nonValidUser.setUser_ID(user_ID);
-					nonValidUser.setCreds_RegKey(key);
-					nonValidUser.setCreds_Email(email);
-					nonValidUser.setFirst_Name(fName);
-					nonValidUser.setLast_Name(lName);
-					session.setAttribute("user",nonValidUser);
-					return "SendValidation";
+					if (key == "") {
+						session.setAttribute("status",
+								"You Have Been Blocked Due To Spam");
+						return "Login";
+					} else {
+						User nonValidUser = new User();
+						nonValidUser.setUser_ID(user_ID);
+						nonValidUser.setCreds_RegKey(key);
+						nonValidUser.setCreds_Email(email);
+						nonValidUser.setFirst_Name(fName);
+						nonValidUser.setLast_Name(lName);
+						session.setAttribute("user", nonValidUser);
+						return "SendValidation";
+					}
 				} else {
 					status = "This Email Address Has Already Been Validated";
 					session.setAttribute("status", status);

@@ -187,7 +187,7 @@ public class Cred_PostAdd implements Command {
 
 					int user_ID = (int) CredentialsDB.getUserIDByEmail(email);
 					String key = (String) CredentialsDB.getKeyBYUserID(user_ID);
-					if (key == "") {
+					if (key.equals("")) {
 						session.setAttribute("status",
 								"You Have Been Blocked Due To Spam");
 						return "Login";

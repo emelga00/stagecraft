@@ -18,9 +18,6 @@
 	String loginEmail ="";	
 	String status;
 	if (user != null || key != null) {
-		if(key==""){
-			status = "You Have Been Blocked Due To Spam";
-		}
 		user_ID = Integer.parseInt(user);
 		loginEmail = (String) CredentialsDB.getEmailByUserID(user_ID);
 		results = CredentialsDB.validated(user_ID, key);

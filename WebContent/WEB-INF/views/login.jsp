@@ -93,7 +93,7 @@
 		<form name="login-form" class="login-form" action="Authenticate"
 			method="post">
 			<div class="login-header">
-				<h2>Already a Member?</h2>
+				<h1>Already a Member?</h1>
 			</div>
 			<div class="login-content">
 				<% if(loginEmail!=""){

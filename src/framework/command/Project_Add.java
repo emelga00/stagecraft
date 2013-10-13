@@ -12,8 +12,8 @@ import framework.controller.Command;
 public class Project_Add implements Command {
 
 	@Override
-	public String perform(HttpServletRequest request,HttpServletResponse response) {
-		
+	public String perform(HttpServletRequest request,HttpServletResponse response) 
+	{		
 		return "/WEB-INF/views/add_project.jsp";
 	}
 }

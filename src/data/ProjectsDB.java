@@ -10,7 +10,52 @@ public class ProjectsDB {
 	 * Author..........................................................................BDS *
 	 * ----------------------------------------------------------------------------------- *
 	 ***************************************************************************************/
-		
+	
+  public static synchronized ArrayList<Project> getAllProjects()
+  {
+    ArrayList<Project> projects = new ArrayList<Project>();
+    
+    StringBuilder query = new StringBuilder();
+    
+    query.append("SELECT columns");
+    query.append("FROM database");
+    
+    try
+    {
+      Connection connection       = DBConnector.getConnection();
+      PreparedStatement statement = connection.prepareStatement(query.toString());      
+      ResultSet resultSet         = statement.executeQuery();
+      
+      while(resultSet.next())
+      {
+        Project project = new Project();
+        
+        project.setProjID(resultSet.getInt(1));
+        project.setDesc(resultSet.getString(2));
+        project.setName(resultSet.getString(3));       
+        project.setUserID(resultSet.getInt(4));
+        project.setOrgID(resultSet.getInt(5));
+
+        if(project.getName() == null) 
+        {
+          project.setName("New Project");
+        }
+
+        projects.add(project);  
+      }
+      
+      resultSet.close();   
+      statement.close();
+      connection.close();
+    }
+    catch (SQLException ex)
+    {
+      System.out.println("Error: " + ex);
+      System.out.println("Query: " + query.toString());
+    }
+    
+    return projects;
+  }
 	
 	public static synchronized ArrayList<Project> getProjectsByAlpha(String projectName)
 	{

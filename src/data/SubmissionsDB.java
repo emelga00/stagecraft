@@ -2,7 +2,7 @@ package data;
 
 import java.sql.*; 
 import java.util.ArrayList;
-import beans.Submission;
+import beans.*;
 
 public class SubmissionsDB {
 	/***************************************************************************************
@@ -136,10 +136,10 @@ public class SubmissionsDB {
 		{
 			connection = DBConnector.getConnection  ();
 			statement  = connection.prepareStatement(preparedSQL);
-			statement.setString(1, project.getName  ());
-			statement.setString(2, project.getDesc  ());
-			statement.setInt   (3, project.getUserID());
-			statement.setInt   (4, project.getOrgID ());
+			//statement.setString(1, project.getName  ());
+			//statement.setString(2, project.getDesc  ());
+			//statement.setInt   (3, project.getUserID());
+			//statement.setInt   (4, project.getOrgID ());
 			status     = statement.executeUpdate    ();
 			statement.close                         ();
 			connection.close                        ();

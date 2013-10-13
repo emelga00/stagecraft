@@ -37,6 +37,8 @@
     <url-pattern>/Reset_Cred</url-pattern>
     <url-pattern>/Reset_PostCred</url-pattern>
     <url-pattern>/Project_Add</url-pattern>
+    <url-pattern>/Explore</url-pattern>
+    <url-pattern>/Create</url-pattern>
 
   </servlet-mapping>
 </web-app>

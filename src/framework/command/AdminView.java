@@ -35,5 +35,4 @@ public class AdminView implements Command {
 	    request.setAttribute("userList", users);
 	    return "/WEB-INF/views/admin_landing.jsp";
 	 }
-
 }

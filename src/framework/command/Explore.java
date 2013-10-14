@@ -11,9 +11,9 @@ public class Explore implements Command
 {
   public String perform(HttpServletRequest request, HttpServletResponse response) 
   {
-    //ArrayList<Project> projects = ProjectsDB.getAllProjects();
+    ArrayList<Project> projects = ProjectsDB.getAllProjects();
     
-    //request.setAttribute("projects", projects);
+    request.setAttribute("projects", projects);
 
     return "/WEB-INF/views/view_projects.jsp";
   }

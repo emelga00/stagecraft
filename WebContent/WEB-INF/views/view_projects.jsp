@@ -38,9 +38,9 @@
 %>  
     <h1 id="<%=project.getProjID()%>"><%=project.getName()%></h1>
     <br />
-    <h2>Created By: <%=project.getUserID()%></h2>
+    <h2>Created By: <%=project.getSubmittedBy()%></h2>
     <br />
-    <h2>Organization: <%=project.getOrgID()%></h2>
+    <h2>Organization: <%=project.getOrganization()%></h2>
     <br />
     <h2>Description</h2>
     <br />

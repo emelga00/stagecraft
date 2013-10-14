@@ -4,9 +4,9 @@ public class Project
 {
 	private int    projID;
 	private String Name;
-	private String Description;      //needed?
-	private int	   userID;
-	private int    orgID;
+	private String Description;
+	private String submittedBy;
+	private String organization;
 	
 	//from credentialDB
 		public void setProjID(int projID) {
@@ -27,16 +27,16 @@ public class Project
 		public String getDesc() {
 			return Description;
 		}
-		public void setUserID(int userID) {
-			this.userID = userID;
+		public void setSubmittedBy(String submittedBy) {
+			this.submittedBy = submittedBy;
 		}
-		public int getUserID() {
-			return userID;
+		public String getSubmittedBy() {
+			return submittedBy;
 		}
-		public void setOrgID(int orgID) {
-			this.orgID = orgID;
+		public void setOrganization(String organization) {
+			this.organization = organization;
 		}
-		public int getOrgID() {
-			return orgID;
+		public String getOrganization() {
+			return organization;
 		}
 }

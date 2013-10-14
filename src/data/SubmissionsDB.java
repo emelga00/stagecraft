@@ -179,8 +179,6 @@ public class SubmissionsDB {
 			statement  = connection.prepareStatement(preparedSQL);
 			statement.setString(1, project.getName  ());
 			statement.setString(2, project.getDesc  ());
-			statement.setInt   (3, project.getUserID());
-			statement.setInt   (4, project.getOrgID ());
 			status    = statement.executeUpdate     ();
 			statement.close                         ();
 			connection.close                        ();

@@ -16,9 +16,11 @@ public class ProjectsDB {
     ArrayList<Project> projects = new ArrayList<Project>();
     
     StringBuilder query = new StringBuilder();
-    
-    query.append("SELECT columns");
-    query.append("FROM database");
+
+    query.append("SELECT p.projid, p.name, p.description, u.first_name, u.last_name, o.name ");
+    query.append("FROM projects p ");
+    query.append("JOIN user u ON p.userid = u.user_id ");
+    query.append("JOIN organizations o ON p.orgID = o.organizationid ");
     
     try
     {
@@ -31,10 +33,17 @@ public class ProjectsDB {
         Project project = new Project();
         
         project.setProjID(resultSet.getInt(1));
-        project.setDesc(resultSet.getString(2));
-        project.setName(resultSet.getString(3));       
-        project.setUserID(resultSet.getInt(4));
-        project.setOrgID(resultSet.getInt(5));
+        project.setName(resultSet.getString(2)); 
+        project.setDesc(resultSet.getString(3));
+      
+        String firstName = resultSet.getString(4);
+        String lastName = resultSet.getString(5);
+        
+        String fullName = firstName + " " + lastName;
+        
+        project.setSubmittedBy(fullName);
+
+        project.setOrganization(resultSet.getString(6));
 
         if(project.getName() == null) 
         {
@@ -87,14 +96,14 @@ public class ProjectsDB {
 		    	statement    = connection.prepareStatement(preparedSQL);
 		    	statement.setString                       (1, projectName+"%");
 		    	ResultSet rs = statement.executeQuery     ();
-  				while(rs.next())
+  				
+		    	while(rs.next())
   				{
   					project = new Project();
   					project.setProjID    (rs.getInt(1));
   					project.setName      (rs.getString(3));
   					project.setDesc      (rs.getString(2));
-  					project.setUserID    (rs.getInt(4));
-  					project.setOrgID     (rs.getInt(5));
+
 
   					//kill of any nulls in Name column
   					if(project.getName() == null) 
@@ -151,8 +160,7 @@ public class ProjectsDB {
   					project.setProjID    (rs.getInt(1));
   					project.setName      (rs.getString(2));
   					project.setDesc      (rs.getString(3));
-  					project.setUserID    (rs.getInt(4));
-  					project.setOrgID     (rs.getInt(5));
+
   				
   					//kill of any nulls in DV_UN column
   					if(project.getName() == null)
@@ -206,8 +214,7 @@ public class ProjectsDB {
   						project.setProjID    (rs.getInt(1));
   						project.setName      (rs.getString(2));
   						project.setDesc      (rs.getString(3));
-  						project.setUserID    (rs.getInt(4));
-  						project.setOrgID     (rs.getInt(5));
+
   					}	
   					rs.close        ();
   					statement.close ();
@@ -247,8 +254,7 @@ public class ProjectsDB {
 		    	statement    = connection.prepareStatement(preparedSQL);
 		    	statement.setString(1, project.getName    ());
   				statement.setString(2, project.getDesc    ());
-  				statement.setInt   (3, project.getUserID  ());
-  				statement.setInt   (4, project.getOrgID   ());
+
   				ResultSet rs = statement.executeQuery     ();
   				while(rs.next())
   				{
@@ -256,8 +262,7 @@ public class ProjectsDB {
   					tempProject.setProjID    (rs.getInt   (1));
   					tempProject.setName      (rs.getString(2));
   					tempProject.setDesc      (rs.getString(3));
-  					tempProject.setUserID    (rs.getInt   (4));
-  					tempProject.setOrgID     (rs.getInt   (5));
+
   				}
   				
   				rs.close        ();		
@@ -298,8 +303,7 @@ public class ProjectsDB {
 			statement  = connection.prepareStatement(preparedSQL);
 			statement.setString(1, project.getName  ());
 			statement.setString(2, project.getDesc  ());
-			statement.setInt   (3, project.getUserID());
-			statement.setInt   (4, project.getOrgID ());
+
 			status     = statement.executeUpdate    ();
 			statement.close                         ();
 			connection.close                        ();
@@ -339,8 +343,7 @@ public class ProjectsDB {
 			statement  = connection.prepareStatement(preparedSQL);
 			statement.setString(1, project.getName  ());
 			statement.setString(2, project.getDesc  ());
-			statement.setInt   (3, project.getUserID());
-			statement.setInt   (4, project.getOrgID ());
+
 			status    = statement.executeUpdate     ();
 			statement.close                         ();
 			connection.close                        ();

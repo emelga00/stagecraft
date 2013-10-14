@@ -17,10 +17,14 @@ public class ProjectsDB {
     
     StringBuilder query = new StringBuilder();
 
-    query.append("SELECT p.projid, p.name, p.description, u.first_name, u.last_name, o.name ");
+    query.append("SELECT p.projid, p.name, p.description, ");
+    query.append("(SELECT CONCAT_WS(' ', first_name, last_name) FROM user WHERE user_id = p.userID), ");
+    query.append("o.name, p.createddate, p.lastupdated, ");
+    query.append("(SELECT CONCAT_WS(' ', first_name, last_name) FROM user WHERE user_id = p.updateduserid), ");
+    query.append("(SELECT s.blob FROM submission s WHERE p.bannerpicid = s.subid) ");
     query.append("FROM projects p ");
-    query.append("JOIN user u ON p.userid = u.user_id ");
     query.append("JOIN organizations o ON p.orgID = o.organizationid ");
+    query.append("ORDER BY p.createddate, p.lastupdated ");
     
     try
     {
@@ -32,18 +36,15 @@ public class ProjectsDB {
       {
         Project project = new Project();
         
-        project.setProjID(resultSet.getInt(1));
+        project.setProjectID(resultSet.getInt(1));
         project.setName(resultSet.getString(2)); 
-        project.setDesc(resultSet.getString(3));
-      
-        String firstName = resultSet.getString(4);
-        String lastName = resultSet.getString(5);
-        
-        String fullName = firstName + " " + lastName;
-        
-        project.setSubmittedBy(fullName);
-
-        project.setOrganization(resultSet.getString(6));
+        project.setDesc(resultSet.getString(3));   
+        project.setSubmittedBy(resultSet.getString(4));
+        project.setOrganization(resultSet.getString(5));
+        project.setCreatedDate(resultSet.getString(6));
+        project.setLastUpdatedDate(resultSet.getString(7));
+        project.setLastUpdatedBy(resultSet.getString(8));
+        project.setBannerPicture(resultSet.getBytes(9));
 
         if(project.getName() == null) 
         {
@@ -100,10 +101,6 @@ public class ProjectsDB {
 		    	while(rs.next())
   				{
   					project = new Project();
-  					project.setProjID    (rs.getInt(1));
-  					project.setName      (rs.getString(3));
-  					project.setDesc      (rs.getString(2));
-
 
   					//kill of any nulls in Name column
   					if(project.getName() == null) 
@@ -157,10 +154,6 @@ public class ProjectsDB {
 		    	while(rs.next())
 		    	{
   					project = new Project();
-  					project.setProjID    (rs.getInt(1));
-  					project.setName      (rs.getString(2));
-  					project.setDesc      (rs.getString(3));
-
   				
   					//kill of any nulls in DV_UN column
   					if(project.getName() == null)
@@ -211,9 +204,6 @@ public class ProjectsDB {
 			    	while(rs.next())
 			    	{
   						project = new Project();
-  						project.setProjID    (rs.getInt(1));
-  						project.setName      (rs.getString(2));
-  						project.setDesc      (rs.getString(3));
 
   					}	
   					rs.close        ();
@@ -250,19 +240,15 @@ public class ProjectsDB {
 			
 		    try
 		    {
-		    	connection   = DBConnector.getConnection  ();
+		    	connection   = DBConnector.getConnection();
 		    	statement    = connection.prepareStatement(preparedSQL);
-		    	statement.setString(1, project.getName    ());
-  				statement.setString(2, project.getDesc    ());
+		    	statement.setString(1, project.getName());
+  				statement.setString(2, project.getDesc());
 
   				ResultSet rs = statement.executeQuery     ();
   				while(rs.next())
   				{
   					tempProject = new Project();
-  					tempProject.setProjID    (rs.getInt   (1));
-  					tempProject.setName      (rs.getString(2));
-  					tempProject.setDesc      (rs.getString(3));
-
   				}
   				
   				rs.close        ();		
@@ -302,7 +288,7 @@ public class ProjectsDB {
 			connection = DBConnector.getConnection  ();
 			statement  = connection.prepareStatement(preparedSQL);
 			statement.setString(1, project.getName  ());
-			statement.setString(2, project.getDesc  ());
+			statement.setString(2, project.getDesc());
 
 			status     = statement.executeUpdate    ();
 			statement.close                         ();
@@ -342,7 +328,7 @@ public class ProjectsDB {
 			connection = DBConnector.getConnection  ();
 			statement  = connection.prepareStatement(preparedSQL);
 			statement.setString(1, project.getName  ());
-			statement.setString(2, project.getDesc  ());
+			statement.setString(2, project.getDesc());
 
 			status    = statement.executeUpdate     ();
 			statement.close                         ();

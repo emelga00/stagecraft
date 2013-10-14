@@ -36,7 +36,7 @@
   {
     Project project = (Project) projects.get(i);
 %>  
-    <h1 id="<%=project.getProjID()%>"><%=project.getName()%></h1>
+    <h1 id="<%=project.getProjectID()%>"><%=project.getName()%></h1>
     <br />
     <h2>Created By: <%=project.getSubmittedBy()%></h2>
     <br />

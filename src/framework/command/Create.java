@@ -9,7 +9,7 @@ import framework.controller.Command;
  ******************/
 
 
-public class Project_Add implements Command {
+public class Create implements Command {
 
 	@Override
 	public String perform(HttpServletRequest request,HttpServletResponse response) 

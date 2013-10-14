@@ -43,8 +43,8 @@ public class Controller extends HttpServlet {
 		//--------------User-------------------------
 		requests.add(new RequestEntry("/User_Modify","Forward",new User_Modify(),"protected", "user,moderator,admin"));
 		//--------------Projects---------------------
-		requests.add(new RequestEntry("/Explore", "Forward", new Project_ViewAll(), "public", ""));
-		requests.add(new RequestEntry("/Create","Forward",new Project_Add(),"public", "")); //"user,admin"
+		requests.add(new RequestEntry("/Explore", "Forward", new Explore(), "public", ""));
+		requests.add(new RequestEntry("/Create","Forward",new Create(),"public", "")); //"user,admin"
 	}
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

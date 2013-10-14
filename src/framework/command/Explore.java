@@ -7,7 +7,7 @@ import framework.controller.Command;
 import data.*;
 import beans.*;
 
-public class Project_ViewAll implements Command 
+public class Explore implements Command 
 {
   public String perform(HttpServletRequest request, HttpServletResponse response) 
   {

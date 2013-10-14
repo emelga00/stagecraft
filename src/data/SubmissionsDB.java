@@ -10,11 +10,11 @@ public class SubmissionsDB {
 	 * Author..........................................................................BDS *
 	 * ----------------------------------------------------------------------------------- *
 	 ***************************************************************************************/
-		
+
 	//getProjectByPID -- will be used for pull by projID in project update form
 	public static synchronized ArrayList<Submission> getSubmissionsByPID(String projectID)
 	{
-	  /***********************************************************************
+		/***********************************************************************
 		 * Method..........................................getSubmissionsByPID *
 		 * Author..........................................................BDS *
 		 * --------------------------------------------------------------------*
@@ -27,39 +27,41 @@ public class SubmissionsDB {
 		 *     ArrayList<Submission> subList - Returns a subList of Submission *
 		 *                                     beans                           *
 		 ***********************************************************************/
-				Connection connection;
-				Submission            submission  = null;
-				ArrayList<Submission> subList     = new ArrayList<Submission>();
-			 	PreparedStatement     statement   = null;
-				String                preparedSQL = "";
-				
-			    try
-			    {
-			    	connection   = DBConnector.getConnection  ();
-			    	statement    = connection.prepareStatement(preparedSQL);
-			    	statement.setInt                          (1, Integer.parseInt(projectID));
-			    	ResultSet rs = statement.executeQuery     ();
-			    	while(rs.next())
-			    	{
-  						submission = new Submission();
-  						submission.setSubID (rs.getInt(1));
-  						submission.setProjID(rs.getInt(2));
-  						submission.setUserID(rs.getInt(3));
-  						submission.setURL   (rs.getString(4));
-  						submission.setBlob  (rs.getBytes(5));
-  					}	
-  					rs.close        ();
-  					statement.close ();
-  					connection.close();
-  				}
-			    catch (SQLException ex)
-			    {
-  					System.out.println("Error: " + ex);
-  					System.out.println("Query: " + statement.toString());
-			    }
-				return subList;
-			}
-	
+		Connection connection;
+		Submission            submission  = null;
+		ArrayList<Submission> subList     = new ArrayList<Submission>();
+		PreparedStatement     statement   = null;
+		String                preparedSQL = "";
+
+		try
+		{
+			connection   = DBConnector.getConnection  ();
+			statement    = connection.prepareStatement(preparedSQL);
+			statement.setInt                          (1, Integer.parseInt(projectID));
+			ResultSet rs = statement.executeQuery     ();
+			while(rs.next())
+			{
+				submission = new Submission();
+				submission.setSubID (rs.getInt   (1));
+				submission.setProjID(rs.getInt   (2));
+				submission.setUserID(rs.getInt   (3));
+				submission.setURL   (rs.getString(4));
+				submission.setBlob  (rs.getBytes (5));
+				submission.setType  (rs.getString(6));
+				submission.setDate  (rs.getString(7));
+			}	
+			rs.close        ();
+			statement.close ();
+			connection.close();
+		}
+		catch (SQLException ex)
+		{
+			System.out.println("Error: " + ex);
+			System.out.println("Query: " + statement.toString());
+		}
+		return subList;
+	}
+
 	//getProjectByPID -- will be used for pull by projID in project update form
 	public static synchronized Submission getSubmissionsByBean(Submission submission)
 	{
@@ -74,46 +76,51 @@ public class SubmissionsDB {
 		 *     Return Value                                                    *
 		 *     (User) user - Returns a submission bean object.                 *
 		 ***********************************************************************/
-		
-  	  Connection        connection;	
-  	  Submission        tempSubmission = new Submission();
-		 	PreparedStatement statement      = null;
-			String            preparedSQL    = "";
+
+		Connection        connection;	
+		Submission        tempSubmission = new Submission();
+		PreparedStatement statement      = null;
+		String            preparedSQL    = "";
+
+		try
+		{
+			connection   = DBConnector.getConnection   ();
+			statement    = connection.prepareStatement (preparedSQL);
+			statement.setInt   (1, submission.getSubID ());
+			statement.setInt   (2, submission.getProjID());
+			statement.setInt   (3, submission.getUserID());
+			statement.setString(4, submission.getURL   ());
+			statement.setBytes (5, submission.getBlob  ());
+			statement.setString(6, submission.getType  ());
+			statement.setString(7, submission.getDate  ());
 			
-		    try
-		    {
-		    	connection   = DBConnector.getConnection  ();
-		    	statement    = connection.prepareStatement(preparedSQL);
-		    	statement.setInt   (1, submission.getSubID ());
-  				statement.setInt   (2, submission.getProjID());
-  				statement.setInt   (3, submission.getUserID());
-  				statement.setString(4, submission.getURL   ());
-  				statement.setBytes (5, submission.getBlob  ());
-  				ResultSet rs = statement.executeQuery      ();
-  				while(rs.next())
-  				{
-  					tempSubmission = new Submission();
-  					tempSubmission.setSubID (rs.getInt   (1));
-  					tempSubmission.setProjID(rs.getInt   (2));
-  					tempSubmission.setUserID(rs.getInt   (3));
-  					tempSubmission.setURL   (rs.getString(4));
-  					tempSubmission.setBlob  (rs.getBytes (5));
-  				}
-  				
-  				rs.close        ();		
-  				statement.close ();
-  				connection.close();
-			 }
-		    catch (SQLException ex)
-		    {
-  				System.out.println("Error: " + ex);
-  				System.out.println("Query: " + statement.toString());
-  			}
-		    
-			return tempSubmission;
+			ResultSet rs = statement.executeQuery      ();
+			while(rs.next())
+			{
+				tempSubmission = new Submission();
+				tempSubmission.setSubID (rs.getInt   (1));
+				tempSubmission.setProjID(rs.getInt   (2));
+				tempSubmission.setUserID(rs.getInt   (3));
+				tempSubmission.setURL   (rs.getString(4));
+				tempSubmission.setBlob  (rs.getBytes (5));
+				tempSubmission.setType  (rs.getString(6));
+				tempSubmission.setDate  (rs.getString(7));
+			}
+
+			rs.close        ();		
+			statement.close ();
+			connection.close();
 		}
-	
-	
+		catch (SQLException ex)
+		{
+			System.out.println("Error: " + ex);
+			System.out.println("Query: " + statement.toString());
+		}
+
+		return tempSubmission;
+	}
+
+
 	public static synchronized int addSubmission(Submission submission)
 	{
 		/***********************************************************************
@@ -127,19 +134,23 @@ public class SubmissionsDB {
 		 *     Return Value                                                    *
 		 *     (int) status - The number of records modified by the query      *
 		 ***********************************************************************/
-	  
-	  Connection        connection;
-	  int               status      = 0;
+
+		Connection        connection;
+		int               status      = 0;
 		String            preparedSQL = "";
 		PreparedStatement statement   = null;	
 		try
 		{
 			connection = DBConnector.getConnection  ();
 			statement  = connection.prepareStatement(preparedSQL);
-			//statement.setString(1, project.getName  ());
-			//statement.setString(2, project.getDesc  ());
-			//statement.setInt   (3, project.getUserID());
-			//statement.setInt   (4, project.getOrgID ());
+			statement.setInt   (1, submission.getSubID ());
+			statement.setInt   (2, submission.getProjID());
+			statement.setInt   (3, submission.getUserID());
+			statement.setString(4, submission.getURL   ());
+			statement.setBytes (5, submission.getBlob  ());
+			statement.setString(6, submission.getType  ());
+			statement.setString(7, submission.getDate  ());
+			
 			status     = statement.executeUpdate    ();
 			statement.close                         ();
 			connection.close                        ();
@@ -151,10 +162,10 @@ public class SubmissionsDB {
 		}
 		return status;
 	}
-	
-	
-	public static synchronized int updateProject(Project project)
-{
+
+
+	public static synchronized int updateSubmission(Submission submission)
+	{
 		/***********************************************************************
 		 * Method................................................updateProject *
 		 * Author..........................................................BDS *
@@ -167,18 +178,24 @@ public class SubmissionsDB {
 		 *     Return Value                                                    *
 		 *     (int) status - The number of records modified by the query      *
 		 ***********************************************************************/
-		
-	  Connection        connection;
-	  int               status      = 0;
+
+		Connection        connection;
+		int               status      = 0;
 		String            preparedSQL = "";
 		PreparedStatement statement   = null;	
-		
+
 		try
 		{
 			connection = DBConnector.getConnection  ();
 			statement  = connection.prepareStatement(preparedSQL);
-			statement.setString(1, project.getName  ());
-			statement.setString(2, project.getDesc  ());
+			statement.setInt   (1, submission.getSubID ());
+			statement.setInt   (2, submission.getProjID());
+			statement.setInt   (3, submission.getUserID());
+			statement.setString(4, submission.getURL   ());
+			statement.setBytes (5, submission.getBlob  ());
+			statement.setString(6, submission.getType  ());
+			statement.setString(7, submission.getDate  ());
+
 			status    = statement.executeUpdate     ();
 			statement.close                         ();
 			connection.close                        ();
@@ -190,9 +207,9 @@ public class SubmissionsDB {
 		}
 		return status;
 	}
-	
-	
-	public static synchronized String delProject(int projectID)
+
+
+	public static synchronized String delSubmission(int submissionID)
 	{
 		/***********************************************************************
 		 * Method...................................................delProject *
@@ -206,18 +223,18 @@ public class SubmissionsDB {
 		 *     Return Value                                                    *
 		 *     (String) status - Results of deletions                          *
 		 **********************************************************************/
-	  
-	  Connection connection;
+
+		Connection connection;
 		int        results     = 0;
 		String     status      = "";
-		String     preparedSQL = "DELETE FROM Projects WHERE ProjectID=?";
-				
+		String     preparedSQL = "DELETE FROM submission WHERE subID=?";
+
 		PreparedStatement statement = null;	
 		try
 		{
 			connection = DBConnector.getConnection  ();
 			statement  = connection.prepareStatement(preparedSQL);
-			statement.setInt                        (1, projectID);
+			statement.setInt                        (1, submissionID);
 			results    = statement.executeUpdate    ();
 			statement.close                         ();
 			connection.close                        ();
@@ -228,9 +245,9 @@ public class SubmissionsDB {
 			System.out.println("Query: " + statement.toString());
 		}
 		if(status == "")
-			status = "Error deleteing project# " + projectID;
+			status = "Error deleteing project# " + submissionID;
 		else
-			status = "Success deleting " + status + " for project # " + projectID;
+			status = "Success deleting " + status + " for project # " + submissionID;
 		return status;
 	}
 }

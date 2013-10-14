@@ -20,22 +20,22 @@
     submissions = new ArrayList<Submission>();
   }
   
-  String startProject = (String)request.getAttribute("startProject");
+  String projectID = (String)request.getAttribute("projectID");
   int projectNumber;
   
-  if (startProject == null)
+  if (projectID == null)
   {
-    projectNumber = 0;
+    //send a redirect to the viewProjects page
   }
   else
   {
-    projectNumber = Integer.parseInt(startProject);
+    projectNumber = Integer.parseInt(projectID);
   }
 %>
 
 <h1>View Submissions Page</h1>
 
-<%
+<%//need to add three different loops to sort each one by type
   //loop through the submission ArrayList and put each submission on the page
   for(int i = 0; i < submissions.size(); i++)
   {
@@ -51,34 +51,11 @@
 %>
 	     <h2><%=submission.getBlob()%></h2>
     	 <br />
-<%
-	  }
-
+<%	  }
 	else
 	  {
-%>	    
-	    <h2><%=submission.getURL()%></h2>
+%>     <h2><%=submission.getURL()%></h2>
 	    <br />
-<%	     
-	  }
+<%	  }
   }
 %>
-<p>
-  <span>   
-<%
-  if (projectNumber > 0)
-  {
-%>  
-    <a href="<%=request.getContextPath()%><%=pageUrl%>?startPost=<%=projectNumber - displayNumber%>">Previous 5 Entries</a> &nbsp;&nbsp;
-<%
-  }
-
-  if (submissions.size() == 5)
-  {
-%>            
-    <a href="<%=request.getContextPath()%><%=pageUrl%>?startPost=<%=projectNumber + displayNumber%>">Next 5 Entries</a>
-<%        
-  }
-%>  
-  </span>
-</p>

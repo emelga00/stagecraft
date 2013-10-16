@@ -34,6 +34,8 @@ body{
 	-o-transition: all .5s; /* Opera */
 }
 #header{
+	position: fixed;
+	top: 0;
 	background: #dddddd;
     height: 60px;
 	width: 100%;
@@ -56,7 +58,7 @@ body{
 #header li{  
     --border: 1px solid orange;
     height: 60px;
-    width: 80px;
+    width: 70px;
     background: #dddddd;
 	cursor: pointer;
 	-webkit-box-shadow: outline 0px 0px 2px 0px rgba(211,206,170,.75);
@@ -64,6 +66,7 @@ body{
     box-shadow: outline 0px 0px 2px 0px rgba(211,206,170,.75);    
 }
 #head-nav-container a{
+	
     font-weight:bold;
 	text-align: center;
 	color: #424242;

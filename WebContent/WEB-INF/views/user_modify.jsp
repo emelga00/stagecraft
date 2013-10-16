@@ -11,29 +11,29 @@
 	<form name="registration" class="register-form"
 		action="User_PostModify" method="post">
 		<div class="register-header">
-			<h1>Register</h1>
+			<h1>User Info</h1>
 		</div>
 		<div class="register-content">
 			First Name 
-			<input type="text" name="fName" class="modify-fName" value="<%=user.getFirst_Name()%>" size="30" /><br> 
+			<input type="text" name="fName" class="modify-fName" value="<%=user.getFirst_Name()%>" size="30" />
 			<br>
 			Last Name 
-			<input type="text" name="lName" class="modify-lName" value="<%=user.getLast_Name()%>" size="30" /><br> 
+			<input type="text" name="lName" class="modify-lName" value="<%=user.getLast_Name()%>" size="30" />
 			<br>
 			Phone 
-			<input type="text" name="phone" class="modify-phone" value="<%=user.getPhone()%>" size="30" /> <br> 
+			<input type="text" name="phone" class="modify-phone" value="<%=user.getPhone()%>" size="30" /> 
 			<br>
 			Address 
-			<input type="text" name="address" class="modify-address" value="<%=user.getAddress()%>" size="30" /><br> 
+			<input type="text" name="address" class="modify-address" value="<%=user.getAddress()%>" size="30" />
 			<br> 
 			City
-			<input type="text" name="city" class="modify-city" value="<%=user.getCity()%>" size="30" /><br> 
+			<input type="text" name="city" class="modify-city" value="<%=user.getCity()%>" size="30" />
 			<br> 
 			State 
-			<input type="text" name="state" class="modify-state" value="<%=user.getState()%>" size="30" /><br> 
+			<input type="text" name="state" class="modify-state" value="<%=user.getState()%>" size="30" />
 			<br> 
 			Zip 
-			<input type="text" name="zip" class="modify-zip" value="<%=user.getZIP()%>" size="30" /> <br> 
+			<input type="text" name="zip" class="modify-zip" value="<%=user.getZIP()%>" size="30" />
 			<br>
 			Role
 			<%
@@ -85,13 +85,13 @@
 							" </select> ");
 				}
 			%>
-			<br> <input type="hidden" name="userID" value="<%=user.getUser_ID()%>" /><br />
+			<br> <input type="hidden" name="userID" value="<%=user.getUser_ID()%>" />
 
 		</div>
 		<div class="register-footer">
 			<input type="submit" name="submit" value="Cancel" class="submit" />
 			<input type="reset" name="reset" value="Reset" class="reset" /> <input
-				type="submit" name="submit" value="Sign Up" class="submit" />
+				type="submit" name="submit" value="Submit" class="submit" />
 
 		</div>
 	</form>

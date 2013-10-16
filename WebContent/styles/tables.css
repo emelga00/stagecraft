@@ -1,7 +1,7 @@
 @import url(http://fonts.googleapis.com/css?family=Bree+Serif);
 @import url(http://fonts.googleapis.com/css?family=Amaranth);
 .listTable {
-	position: absolute;
+	position: relative;
 	font-weight: 400;
 	font-size: 14px;
 	color: #9d9e9e;
@@ -16,6 +16,7 @@
 	text-shadow: 1px 1px 0 rgba(256,256,256,1.0);
 	background: #fff;
 	text-align: center;
+	
 }
 .listTable th{
 	background: black;

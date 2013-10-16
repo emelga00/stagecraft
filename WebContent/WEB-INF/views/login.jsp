@@ -54,9 +54,6 @@
 %>
 
 <div id="register-page">
-	<h2>
-		<%=status%>
-	</h2>
 	<div id="register">
 
 		<form name="registration" class="register-form" action="Cred_PostAdd"
@@ -65,28 +62,28 @@
 				<h1>Register</h1>
 			</div>
 			<div class="register-content">
-				First Name <input type="text" name="fName" class="register-fname" value="<%=fName%>" size="30" /><br>
+				First Name <input type="text" name="fName" class="register-fname" value="<%=fName%>" size="30" />
 				<br> 
 				Last Name 
-				<input type="text" name="lName" class="register-lname" value="<%=lName%>" size="30" /><br>
+				<input type="text" name="lName" class="register-lname" value="<%=lName%>" size="30" />
 				<br> 
 				Email 
-				<input type="text" name="email" class="register-email" value="<%=email%>" size="30" /> <br>
+				<input type="text" name="email" class="register-email" value="<%=email%>" size="30" />
 				<br> 
 				Password 
-				<input type="password" name="pass1" class="register-password" size="30" /> <br>
+				<input type="password" name="pass1" class="register-password" size="30" /> 
 				<br> 
 				Confirm Password 
-				<input type="password" name="pass2" class="register-confpassword" size="30" /> <br>
+				<input type="password" name="pass2" class="register-confpassword" size="30" />
 				<br>
 				<input type="checkbox" name="terms" value="agree" /> I accept the Terms of Service<br />
-
+				
 			</div>
 			<div class="register-footer">
 				<input type="reset" name="reset" value="Reset" class="reset" /> 
 				<input type="submit" name="submit" value="Resend Verification"	class="submit" />
 				<input type="submit" name="submit" value="Sign Up" class="submit" /> 
-				
+				<div id="status"><%=status%></div>
 			</div>
 		</form>
 	</div>
@@ -98,15 +95,14 @@
 			</div>
 			<div class="login-content">
 				<% if(loginEmail!=""){
-					out.println("<input name='username' type='text' class='input username' value='"+loginEmail+"'/><br>");
+					out.println("<input name='username' type='text' class='input username' value='"+loginEmail+"'/>");
 				}else{
-					out.println("<input name='username' type='text' class='input username' placeholder='Username'/><br>");
+					out.println("<input name='username' type='text' class='input username' placeholder='Username'/>");
 				}
 				%>
 				<br>
 				<input name="password" type="password" class="input password"
 					placeholder="Password" /> <br>
-				<br>
 			</div>
 			<div class="login-footer">
 				<input type="submit" name="submit" value="Login" class="button" />

@@ -1,15 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1" import="java.util.ArrayList,beans.*,data.*"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Admin Landing Page</title>
-<style type="text/css">
-table {
-	font-size:0.9em;
-}
-</style>
+
 </head>
 
 <%
@@ -60,16 +51,13 @@ out.println("<div class='centerIt' id='status'>"+result+"</div>");
 <div id="listHolder">
 	<table class="listTable">
 		<tr>
-			<th>User<br />ID</th>
-		    <th>First<br />Name</th>
-		    <th>Last<br />Name</th>
-		    <th>Phone</th>
-		    <th>Address</th>
+			<th>User ID</th>
+		    <th>First Name</th>
+		    <th>Last Name</th>
 		    <th>Date</th>
 		    <th>Role</th>
-		    <th>Credential<br />ID</th>
+		    <th>Credentia ID</th>
 		    <th>Email</th>
-		    <th>Password</th>
 			<th>Verification</th>
 			<th> -- </th>
 			<th> -- </th>
@@ -142,13 +130,10 @@ out.println("<div class='centerIt' id='status'>"+result+"</div>");
 				<td class="centerIt"><span class="idText"><%=user.getUser_ID()%></span></td>
 				<td><%=user.getFirst_Name()%></td>
 				<td><%=user.getLast_Name()%></td>
-				<td class="centerIt">(<%=areacode%>)<br > <span  style="white-space: nowrap;"><%=phone%></span></td>
-				<td><%=user.getAddress()%> <br><span  style="white-space: nowrap;"><%=user.getCity()%>, <%=user.getState()%>. <%=user.getZIP()%></span></td>
 				<td class="centerIt"><%=user.getDate()%></td>
 				<td class="centerIt"><%=role%></td>
 				<td class="centerIt"><%=credID%></td>
 				<td class="centerIt"><%=email%></td>
-				<td class="centerIt"><%=pass%></td>
 				<td class="centerIt"><%=notValid%></td>
 				<td><a class="jBtn" href="User_Modify?userID=<%=user.getUser_ID()%>">Modify</a></td>
 				<td><a class="jBtn" href="User_Delete?userID=<%=user.getUser_ID()%>">Delete</a></td>

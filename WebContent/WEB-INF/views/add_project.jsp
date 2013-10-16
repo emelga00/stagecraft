@@ -36,8 +36,10 @@
     <legend>Tutorial Videos</legend>
     <p>
       Tutorial Videos
+      <img border="0" src="<%=request.getContextPath()%>/images/help.png" Title="This area allows you to upload or link any videos.">
       <br />
-    </p>      
+      <input type="file" class="multi" name="planUploads">
+    </p>          
   </fieldset> 
           
   <br /> 
@@ -46,10 +48,12 @@
     <legend>Pictures</legend>
     <p>
       Pictures
+      <img border="0" src="<%=request.getContextPath()%>/images/help.png" Title="This area allows you to upload or link any pictures.">
       <br />
-    </p>      
+      <input type="file" class="multi" name="planUploads">
+    </p>              
   </fieldset> 
-
+ <br><br>
   <input class="button" type="submit" name="submit" value="Submit Project" />
   <input class="button" type="submit" name="submit" value="Cancel" />
 </form>

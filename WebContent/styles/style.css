@@ -25,7 +25,7 @@ body{
 }
 #wrapper {
         width: 100%;
-        min-width: 1240px;
+        min-width: 1260px;
 }
 #header, a, img, li, footer{
 	transition: all .5s;
@@ -66,7 +66,7 @@ body{
     box-shadow: outline 0px 0px 2px 0px rgba(211,206,170,.75);    
 }
 #head-nav-container a{
-	
+	font-size: 14px;
     font-weight:bold;
 	text-align: center;
 	color: #424242;
@@ -110,7 +110,7 @@ li{
     float: right;
 }
 .search{
-    margin: 18px 5px;   
+    margin: 15px 5px;   
 }
 /*=========================================================================*/
 #section         {
@@ -118,7 +118,8 @@ li{
 	color: #f3f3f3;
     width: 70%;
     min-height: 600px;
-    margin:  30px auto;
+    
+    margin:  100px auto;
     padding: 40px auto;
 	background: #33332d;
     border: 5px solid black;
@@ -147,13 +148,15 @@ li{
  * FOOTER                  *
  ***************************/
 #footer{
+	
     width:          100%;
     color:          #f3f3f3;
 	background:     #33332d;
     text-align:     center;
     padding:        30px 0;
 	--border:         1px solid #aaaaaa;
-	font-family: 'Bree Serif', serif;
+	font-family:Arial,Helvetica,sans-serif;
+	font-size: 14px;
 	text-transform: uppercase;
 }
 

@@ -9,14 +9,15 @@ public class Submission
 	private byte[] blob;
 	private String type;
 	private String date;
+	private String category;
 	
 	//from submissionDB
-    public void setSubID(int subID) {
-      this.subID = subID;
-    }
-    public int getSubID() {
-      return subID;
-    }
+  public void setSubID(int subID) {
+    this.subID = subID;
+  }
+  public int getSubID() {
+    return subID;
+  }
 	public void setProjID(int projID) {
 	  this.projID = projID;
 	}
@@ -53,4 +54,10 @@ public class Submission
 	public String getDate() {
 	  return date;
 	}
+	public void setCategory(String category) {
+	  this.category = category;
+	}
+	public String getCategory() {
+	  return category;
+	}	
 }

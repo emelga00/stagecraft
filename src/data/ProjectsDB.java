@@ -193,7 +193,7 @@ public class ProjectsDB {
 				Connection connection;
 				Project           project     = null;
 			 	PreparedStatement statement   = null;
-				String            preparedSQL = "";
+				String            preparedSQL = "Select * from projects where projID = "+projectID;
 				
 			    try
 			    {
@@ -225,7 +225,7 @@ public class ProjectsDB {
 		 * Method................................................getProjByBean *
 		 * Author..........................................................BDS *
 		 * --------------------------------------------------------------------*
-		 * This method a calls a Project Bean object based on the projectID    *
+		 * This method a calls a Project Bean object based on the project      *
 		 *                                                                     *
 		 *     Required parameters                                             *
 		 *     (String) projectID - the id of the project to search for        *

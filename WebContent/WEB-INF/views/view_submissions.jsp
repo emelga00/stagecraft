@@ -1,45 +1,37 @@
 <%@ 
   page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"
-  import="java.util.ArrayList, beans.*"
+  import="java.util.ArrayList, beans.*,data.*"
 %>
 <%
 /*****************************************************
  *  Author: BDS
- *  Description: View Submissions based on Project_ID
+ *  Description: View Submissions based on Project
  ****************************************************/
-
-  final int displayNumber = 10;
-  int index, index1;
-
-  String pageUrl = (String) request.getAttribute("pageUrl");
+  Project project = (Project)request.getAttribute("project");
   
-  ArrayList<?> submissions = (ArrayList<?>) request.getAttribute("submissions");
+  ArrayList<Submission> vidSubmissions  = new ArrayList<Submission>();
+  ArrayList<Submission> imgSubmissions  = new ArrayList<Submission>();
+  ArrayList<Submission> planSubmissions = new ArrayList<Submission>();
   
-  if(submissions == null) 
+  vidSubmissions  = SubmissionsDB.getSubmissionsByTypeSortCategory("video");
+  imgSubmissions  = SubmissionsDB.getSubmissionsByTypeSortCategory("video");
+  planSubmissions = SubmissionsDB.getSubmissionsByTypeSortCategory("video");
+  
+  request.removeAttribute("project");
+  
+  if(vidSubmissions == null && imgSubmissions == null && planSubmissions == null) 
   {
-    submissions = new ArrayList<Submission>();
-  }
-  
-  String projectID = (String)request.getAttribute("projectID");
-  int projectNumber;
-  
-  if (projectID == null)
-  {
-    //send a redirect to the viewProjects page
-  }
-  else
-  {
-    projectNumber = Integer.parseInt(projectID);
+    //show add new submission page instead
   }
 %>
 
-<h1>View Submissions Page</h1>
+<h1><%=project.getName()%> - Submissions</h1>
 
 <%//need to add three different loops to sort each one by type
   //loop through the submission ArrayList and put each submission on the page
-  for(int i = 0; i < submissions.size(); i++)
+  for(int i = 0; i < vidSubmissions.size(); i++)
   {
-    Submission submission = (Submission)submissions.get(i);
+    Submission submission = (Submission)vidSubmissions.get(i);
 %>  
     <h1 id="<%=submission.getProjID()%>"><%=submission.getSubID()%></h1>
     <br />
@@ -57,5 +49,5 @@
 %>     <h2><%=submission.getURL()%></h2>
 	    <br />
 <%	  }
-  }
+    }
 %>

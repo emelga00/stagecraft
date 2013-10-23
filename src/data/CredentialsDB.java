@@ -55,8 +55,7 @@ public class CredentialsDB {
 					credentials = null;
 				}	
 			return credentials;
-		}	
-	
+	}	
 	public static synchronized int checkVerification(String userName){
 		/***********************************************************************
 		 * Method........................................checkVerification     *
@@ -92,7 +91,7 @@ public class CredentialsDB {
 					valid = 1;
 				}	
 			return valid;
-		}	
+	}	
 	public static synchronized int getCred_IDByBean(Credentials cred){
 		/***********************************************************************
 		 * Method.........................................getCred_IDByBean     *
@@ -105,13 +104,12 @@ public class CredentialsDB {
 		 * automatically incremented in the database when the credential is    *
 		 * created						           							   *
 		 ***********************************************************************/
-		
 			int cred_ID=0;
 			Connection connection;
 		 	PreparedStatement statement = null;
-			String preparedSQL = "Select Credentials_ID From credential Where Email = ? And Pass= ? And Role= ? And Validated= ? And RegKey= ?";
-			
-		    try{
+			String preparedSQL = "Select Credentials_ID From credential Where Email = ? " +
+					"And Pass= ? And Role= ? And Validated= ? And RegKey= ?";
+			try{
 		    	connection = DBConnector.getConnection();
 		    	statement = connection.prepareStatement(preparedSQL);
 		    	statement.setString(1, cred.getEmail());
@@ -134,7 +132,7 @@ public class CredentialsDB {
 			}
 			return cred_ID;
 			
-		}
+	}
 	public static synchronized String getKeyBYUserID(int user_ID){
 		/***********************************************************************
 		 * Method...........................................getKeyBYUserID     *
@@ -171,7 +169,7 @@ public class CredentialsDB {
 			}
 			return key;
 			
-		}
+	}
 	public static synchronized String getEmailByUserID(int user_ID){
 		/***********************************************************************
 		 * Method.........................................getEmailByUserID     *
@@ -207,8 +205,7 @@ public class CredentialsDB {
 			}
 			return email;
 			
-		}
-	
+	}
 	public static synchronized int getUserIDByEmail(String email){
 		/***********************************************************************
 		 * Method.........................................getUserIDByEmail     *
@@ -246,56 +243,13 @@ public class CredentialsDB {
 			}
 			return user_ID;
 			
-		}
-	
-	
-	public static synchronized Credentials getCedentialByCredID(String credID){
-		/***********************************************************************
-		 * Method....................................getCredentialByCredID     *
-		 * Author......................................................JLH     *
-		 *---------------------------------------------------------------------*
-		 * This method retrieves the Credential Bean based on the cred_ID      *
-		 * 																	   *
-		 * Return Value 													   *
-		 * (Credentials) credentials:  Returns a credentials bean of the user  *
-		 * based on the credID, an int automatically incremented in the        *
-		 * database       											           *
-		 ***********************************************************************/
-			Connection connection;
-			Credentials cred = null;
-		 	PreparedStatement statement = null;
-			String preparedSQL = "";
-			
-		    try{
-		    	connection = DBConnector.getConnection();
-		    	statement = connection.prepareStatement(preparedSQL);
-		    	statement.setInt(1,Integer.parseInt(credID));
-				ResultSet rs = statement.executeQuery();
-				while(rs.next()){
-					cred = new Credentials();
-					cred.setCredID(rs.getInt(1));
-					cred.setEmail(rs.getString(2));
-					cred.setPass(rs.getString(3));
-					cred.setUserID(rs.getInt(4));
-					cred.setRole(rs.getString(5));
-				}	
-				rs.close();		
-				statement.close();
-				connection.close();
-			}
-		    catch (SQLException ex){
-				System.out.println("Error: " + ex);
-				System.out.println("Query: " + statement.toString());
-			}
-			return cred;
-		}
-	
+	}
 	public static synchronized Credentials getCedentialByUser_ID(int userID){
 		/***********************************************************************
 		 * Method...................................getCredentialByUser_ID     *
 		 * Author......................................................JLH     *
 		 *---------------------------------------------------------------------*
-		 * This method retrieves the Credential Bean based on the userID      *
+		 * This method retrieves the Credential Bean based on the userID       *
 		 * 																	   *
 		 * Return Value 													   *
 		 * (Credentials) credentials:  Returns a credentials bean of the user  *
@@ -331,9 +285,7 @@ public class CredentialsDB {
 				System.out.println("Query: " + statement.toString());
 			}
 			return cred;
-		}
-	
-	
+	}
 	public static synchronized int addCred(Credentials cred){
 		/***********************************************************************
 		 * Method..................................................addCred     *
@@ -347,7 +299,8 @@ public class CredentialsDB {
 		 ***********************************************************************/
 			int status=0;	
 			Connection connection; 
-			String preparedSQL = "INSERT INTO credential (Email, Pass, User_ID, Role, Validated, RegKey) VALUES(?,?,?,?,?,?) ";
+			String preparedSQL = "INSERT INTO credential (Email, Pass, User_ID, Role, " +
+					"Validated, RegKey) VALUES(?,?,?,?,?,?) ";
 			PreparedStatement statement=null;	
 			try{
 				connection=DBConnector.getConnection();
@@ -367,8 +320,7 @@ public class CredentialsDB {
 			}
 
 			return status;
-		}		
-	
+	}		
 	public static synchronized void addUserID(int user_ID, int cred_ID){
 		/***********************************************************************
 		 * Method................................................adduserID     *
@@ -427,7 +379,7 @@ public class CredentialsDB {
 				}
 
 			return status;
-		}
+	}
 	public static synchronized int validated(int userID, String key){
 		/***********************************************************************
 		 * Method................................................validated     *
@@ -438,7 +390,7 @@ public class CredentialsDB {
 		 * 																	   *
 		 * Return Value 													   *
 		 * (int) status:  Returns an int that indicates the success or failure *
-		 * of the updated validated int	     									   *
+		 * of the updated validated int	     								   *
 		 ***********************************************************************/
 			int status=0;	
 			Connection connection; 
@@ -469,7 +421,7 @@ public class CredentialsDB {
 		 * 																	   *
 		 * Return Value 													   *
 		 * (int) status:  Returns an int that indicates the success or failure *
-		 * of the updated key	      											   *
+		 * of the updated key	      										   *
 		 ***********************************************************************/
 			int status=0;	
 			Connection connection; 
@@ -526,7 +478,7 @@ public class CredentialsDB {
 		 * This method retieves a Credential Bean based on the userID and key  *
 		 * 																	   *
 		 * Return Value 													   *
-		 * (Credentials) credentials:  Returns a credentials bean              *       											   *
+		 * (Credentials) credentials:  Returns a credentials bean              *       											   
 		 ***********************************************************************/
 			Connection connection;
 			Credentials cred = null;
@@ -558,8 +510,7 @@ public class CredentialsDB {
 				System.out.println("Query: " + statement.toString());
 			}
 			return cred;
-		}
-	
+	}	
 	public static synchronized int checkCred(String email){
 		/***********************************************************************
 		 * Method................................................checkCred     *
@@ -570,9 +521,9 @@ public class CredentialsDB {
 		 * registered 														   *
 		 * 																	   *
 		 * Return Value 													   *
-		 * (int) count:  Returns an int that counts if any instances of the 
-		 * entered email are already in the database*
-		 * of the insert command	    											   *
+		 * (int) count:  Returns an int that counts if any instances of the    *
+		 * entered email are already in the database                           *
+		 * of the insert command	    									   *
 		 ***********************************************************************/
 			Connection connection;
 			int count = 1;
@@ -598,5 +549,4 @@ public class CredentialsDB {
 			}
 			return count;
 		}
-	
 }

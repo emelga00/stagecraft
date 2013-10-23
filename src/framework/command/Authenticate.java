@@ -91,16 +91,14 @@ public class Authenticate implements Command {
 				session.setAttribute("currentUsername", currentUsername);
 				session.setAttribute("currentRole", currentRole);
 				session.setAttribute("currentUserID", currentUserID);
+				session.setAttribute("homepage", "Explore");
 				// ** Sets homepage relative to the user's role
 				if (currentRole.equals("user")) {
-					nextView = "StandardUserView";
-					session.setAttribute("homepage", "StandardUserView");
+					nextView = "Explore";
 				} else if (currentRole.equals("admin")) {
-					nextView = "AdminView";
-					session.setAttribute("homepage", "AdminView");
+					nextView = "Explore";
 				} else if (currentRole.equals("moderator")) {
-					nextView = "ModUserView";
-					session.setAttribute("homepage", "ModUserView");
+					nextView = "Explore";
 				}
 				// ** If not validated, it determines, based on the presence
 				// of a key, if the user has not yet validated their email or

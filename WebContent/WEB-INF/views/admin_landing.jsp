@@ -56,9 +56,9 @@ out.println("<div class='centerIt' id='status'>"+result+"</div>");
 		    <th>Last Name</th>
 		    <th>Date</th>
 		    <th>Role</th>
-		    <th>Credentia ID</th>
+		    <th>Credential ID</th>
 		    <th>Email</th>
-			<th>Verification</th>
+			<th>Enabled?</th>
 			<th> -- </th>
 			<th> -- </th>
 		</tr>
@@ -74,13 +74,17 @@ out.println("<div class='centerIt' id='status'>"+result+"</div>");
 				String role;
 				int valid;
 				String notValid;
-				int rowToggle = 0;
+				String date;
+				String mddate;
+				String ydate;
+				String currentRole = (String)session.getAttribute("currentRole");
 				
 				for(index = 0; index < users.size(); index++){
 			
 					user = (User)users.get(index);
 
-			
+
+				date = user.getDate();
 				int uID = user.getUser_ID();
 				Credentials creds = CredentialsDB.getCedentialByUser_ID(uID);
 				if(creds==null){
@@ -96,17 +100,22 @@ out.println("<div class='centerIt' id='status'>"+result+"</div>");
 					role = creds.getRole();
 					valid = creds.getValid();
 				}
-				if(cred_ID==0){
-					credID=Integer.toString(cred_ID);
-				}else{
-					credID=Integer.toString(cred_ID);
-				}
+				
+				if((currentRole.equals("moderator")&&!role.equals("admin"))||currentRole.equals("admin")){
 				if(valid==0){
-					notValid="Verified";
+					notValid="Enabled";
 				}else{
-					notValid = "Not Verified";
+					notValid = "Disabled";
 				}
 				fullPhone = user.getPhone();
+				if (date==null||date.equals("")){
+					mddate= "- / -";
+					ydate = " - ";
+				}
+				else{
+					mddate = date.substring(0,5);
+					ydate= date.substring(6,10);
+				}
 				if(fullPhone==null||fullPhone.equals("")){
 					areacode = " - ";
 					phone = " - ";
@@ -115,33 +124,19 @@ out.println("<div class='centerIt' id='status'>"+result+"</div>");
 				phone = fullPhone.substring(3,6)+"-"+fullPhone.substring(6,10);
 				}
 		%>
-			<%
-				if(rowToggle%2 != 0) {
-			%>
-				<tr class="oddRow">
-			<%
-				} else {
-			%>
-				<tr class="evenRow">
-			<%
-				}
-			
-			%>
-				<td class="centerIt"><span class="idText"><%=user.getUser_ID()%></span></td>
+			<tr>
+				<td class="centerIt"><span class="idText"><%=uID%></span></td>
 				<td><%=user.getFirst_Name()%></td>
 				<td><%=user.getLast_Name()%></td>
-				<td class="centerIt"><%=user.getDate()%></td>
+				<td class="centerIt"><%=mddate+ "\n\n"+ ydate%></td>
 				<td class="centerIt"><%=role%></td>
-				<td class="centerIt"><%=credID%></td>
+				<td class="centerIt"><%=cred_ID%></td>
 				<td class="centerIt"><%=email%></td>
 				<td class="centerIt"><%=notValid%></td>
 				<td><a class="jBtn" href="User_Modify?userID=<%=user.getUser_ID()%>">Modify</a></td>
 				<td><a class="jBtn" href="User_Delete?userID=<%=user.getUser_ID()%>">Delete</a></td>
 			</tr>
-		<%
-		rowToggle++;
-		}
-		%>
+		<%}} %>
 	</table>
 </div>
 

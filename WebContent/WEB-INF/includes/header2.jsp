@@ -2,6 +2,7 @@
 
 <%
 String homepage = (String)session.getAttribute("homepage");
+String currentRole = (String)session.getAttribute("currentRole");
 if(homepage==""){
 	homepage="Home";
 }
@@ -14,6 +15,11 @@ if(homepage==""){
 				<li id="create" class="header-nav"><a href="Create">Create</a></li>
 				<li id="videos" class="header-nav"><a href="#">Videos</a></li>
             	<li id="wiki" class="header-nav"><a href="#">WIKI</a></li>
+            	
+            	<% if(currentRole.equals("admin")||currentRole.equals("moderator")){
+            	out.println("<li id='admin' class='header-nav'><a href='ViewUsers'>Admin</a></li>");
+            	}
+            		%>
             	<li id="login" class="header-nav"><a href="Logout">Logout</a></li>
 			</ul>
 		</div>

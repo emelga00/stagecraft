@@ -259,7 +259,7 @@ public class CredentialsDB {
 			Connection connection;
 			Credentials cred = null;
 		 	PreparedStatement statement = null;
-			String preparedSQL = "Select * From user Where User_ID = ?";
+			String preparedSQL = "Select * From credential Where User_ID = ?";
 			
 		    try{
 		    	connection = DBConnector.getConnection();
@@ -347,6 +347,36 @@ public class CredentialsDB {
 				System.out.println("Error: " + ex);
 				System.out.println("Query: " + statement.toString());
 			}
+	}
+	public static synchronized int modUser(int user_ID, String role, int valid){
+		/***********************************************************************
+		 * Method................................................adduserID     *
+		 * Author......................................................JLH     *
+		 *---------------------------------------------------------------------*
+		 * This method adds the automatically incremented int, user_ID, from 
+		 * the user table to the credentials table                             *
+		 * 																	   *
+		 * Return Value 													   *
+		 * (Void)      											 			   *
+		 ***********************************************************************/
+			Connection connection; 
+			int result =0;
+			String preparedSQL = "Update credential Set Role = ?, Validated = ? Where User_ID = ?";
+			PreparedStatement statement=null;	
+			try{
+				connection=DBConnector.getConnection();
+				statement = connection.prepareStatement(preparedSQL);		
+				statement.setString(1, role);
+				statement.setInt(2, valid);
+				statement.setInt(3, user_ID);
+				result = statement.executeUpdate();
+				statement.close();
+				connection.close();
+			}catch (SQLException ex){
+				System.out.println("Error: " + ex);
+				System.out.println("Query: " + statement.toString());
+			}
+			return result;
 	}
 	public static synchronized int deleteCred(int credID){
 		/***********************************************************************

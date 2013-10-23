@@ -12,7 +12,7 @@ import beans.User;
 
 import framework.controller.Command;
 
-public class ModUserView implements Command {
+public class ViewUsers implements Command {
 	/***************************************************************************************
 	 * Class..............................................................ClientViewerList *
 	 * Author..........................................................................JLH *
@@ -33,6 +33,6 @@ public class ModUserView implements Command {
 	    ArrayList<User> users = UserDB.getUserByAlpha(letter);
 
 	    request.setAttribute("userList", users);
-	    return "/WEB-INF/views/admin_landing.jsp";
+	    return "/WEB-INF/views/view_users.jsp";
 	 }
 }

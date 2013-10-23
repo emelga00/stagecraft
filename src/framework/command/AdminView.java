@@ -15,7 +15,7 @@ import framework.controller.Command;
 public class AdminView implements Command {
 	/***************************************************************************************
 	 * Class..............................................................ClientViewerList *
-	 * Author..........................................................................BAC *
+	 * Author..........................................................................JLH *
 	 * ----------------------------------------------------------------------------------- *
 	 * This class provides next view destination for the controller -- List Clients page   *
 	 *   and generates arraylist of client beans for display                               *

@@ -14,7 +14,7 @@ import data.CredentialsDB;
  ******************/
 
 
-public class User_Modify implements Command {
+public class CopyOfUser_Modify implements Command {
 
 	@Override
 	public String perform(HttpServletRequest request,HttpServletResponse response) {

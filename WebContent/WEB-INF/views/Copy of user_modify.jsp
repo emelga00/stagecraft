@@ -15,13 +15,25 @@
 		</div>
 		<div class="register-content">
 			First Name 
-			<input type="text" name="fName" class="modify-fName" value="<%=user.getFirst_Name()%>" size="30" disabled="disabled"/>
+			<input type="text" name="fName" class="modify-fName" value="<%=user.getFirst_Name()%>" size="30" />
 			<br>
 			Last Name 
-			<input type="text" name="lName" class="modify-lName" value="<%=user.getLast_Name()%>" size="30" disabled="disabled"/>
+			<input type="text" name="lName" class="modify-lName" value="<%=user.getLast_Name()%>" size="30" />
 			<br>
-			Email 
-			<input type="text" name="email" class="modify-email" value="<%=user.getCreds_Email()%>" size="30" disabled="disabled"/> 
+			Phone 
+			<input type="text" name="phone" class="modify-phone" value="<%=user.getPhone()%>" size="30" /> 
+			<br>
+			Address 
+			<input type="text" name="address" class="modify-address" value="<%=user.getAddress()%>" size="30" />
+			<br> 
+			City
+			<input type="text" name="city" class="modify-city" value="<%=user.getCity()%>" size="30" />
+			<br> 
+			State 
+			<input type="text" name="state" class="modify-state" value="<%=user.getState()%>" size="30" />
+			<br> 
+			Zip 
+			<input type="text" name="zip" class="modify-zip" value="<%=user.getZIP()%>" size="30" />
 			<br>
 			Role
 			<%
@@ -59,7 +71,7 @@
 					}
 				}
 			%>
-			Enabled?
+			Enabled
 			<%
 				if (user.getValid()==0) {
 					out.println("<select name='enabled'>"

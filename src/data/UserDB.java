@@ -33,8 +33,8 @@ public class UserDB {
 		 	User user = null;
 		 	ArrayList<User> userList = new ArrayList<User>();
 		 	PreparedStatement statement = null;
-			String preparedSQL = "Select User_ID, First_Name, Last_Name, " +
-					"Phone, Address, City, State, ZIP, Date From user Where concat(Last_Name, ', ', First_Name) Like ?;";
+			String preparedSQL = "Select u.User_ID, u.First_Name, u.Last_Name, " +
+					"u.Phone, u.Address, u.City, u.State, u.ZIP, u.Date From user u, credential c Where u.User_ID = c.User_ID AND concat(u.Last_Name, ', ', u.First_Name) Like ?;";
 			
 			try{
 		    	connection = DBConnector.getConnection();

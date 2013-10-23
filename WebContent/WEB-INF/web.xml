@@ -39,6 +39,8 @@
     <url-pattern>/Project_Add</url-pattern>
     <url-pattern>/Explore</url-pattern>
     <url-pattern>/Create</url-pattern>
+    <url-pattern>/User_PostModify</url-pattern>
+    <url-pattern>/ViewUsers</url-pattern>
 
   </servlet-mapping>
 </web-app>

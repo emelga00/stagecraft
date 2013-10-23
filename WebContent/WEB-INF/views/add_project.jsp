@@ -1,7 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1" import="beans.*,data.*"%>
+<%@ taglib uri="http://ckeditor.com" prefix="ckeditor"%>   
 
-<form name="AddProject" class="project" action="AddProject" method="POST">
+<form name="AddProject" class="project" action="Create" method="POST">
   <fieldset>
     <legend>Project Information</legend>
     <p>
@@ -56,4 +57,5 @@
  <br><br>
   <input class="button" type="submit" name="submit" value="Submit Project" />
   <input class="button" type="submit" name="submit" value="Cancel" />
+  
 </form>

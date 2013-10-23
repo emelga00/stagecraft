@@ -17,21 +17,25 @@ String currentUsername = (String)session.getAttribute("currentUsername");
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
    <head>
-      <title>Global Performance Space</title>
-      <link rel="stylesheet" href="<%=request.getContextPath()%>/styles/style.css" type="text/css"></link>
-	  <link rel="stylesheet" href="<%=request.getContextPath()%>/styles/reset.css" type="text/css"></link>
-	  <link rel="stylesheet" href="<%=request.getContextPath()%>/styles/forms.css" type="text/css"></link>
-	  <link rel="stylesheet" href="<%=request.getContextPath()%>/styles/tables.css" type="text/css"></link>
-	  <script src="http://code.jquery.com/jquery-latest.js"></script>
-	  <style type="text/css">
-	  body { 
+     	<title>Global Performance Space</title>
+      	<link rel="stylesheet" href="<%=request.getContextPath()%>/styles/style.css" type="text/css"></link>
+	  	<link rel="stylesheet" href="<%=request.getContextPath()%>/styles/reset.css" type="text/css"></link>
+	  	<link rel="stylesheet" href="<%=request.getContextPath()%>/styles/forms.css" type="text/css"></link>
+	  	<link rel="stylesheet" href="<%=request.getContextPath()%>/styles/tables.css" type="text/css"></link>
+	  	<script src="http://code.jquery.com/jquery-latest.js"></script>
+		<script src="//tinymce.cachefly.net/4.0/tinymce.min.js"></script>
+			<script>
+        		tinymce.init({selector:'textarea'});
+			</script>
+		<style type="text/css">
+	  		body { 
   				background: url(images/red.jpg) no-repeat center center fixed; 
   				-webkit-background-size: cover;
   				-moz-background-size: cover;
   				-o-background-size: cover;
   				background-size: cover;
 }
-	  </style>
+	  	</style>
 	  <%
 	    //add the javascript references for the multifile upload on the add project page
       if (urlMapping.equals("/Project_Add"))

@@ -2,26 +2,22 @@ package beans;
 
 public class Project 
 {
-	private String projectID;
+	private int    projectID;
 	private String name;
 	private String description;
-	private String userID;
-  private String userName;
-  private String orgID;
-  private String organizationName;
+  private String submittedBy;
+  private String organization;
   private String createdDate;
   private String lastUpdatedDate;
-  private String lastUpdatedID;
-  private String lastUpdatedName;
-  private String bannerPicID;
+  private String lastUpdatedBy;
   private byte[] bannerPicture;
 	
-	public String getProjectID()
+	public int getProjectID()
   {
     return projectID;
   }
 	
-  public void setProjectID(String projectID)
+  public void setProjectID(int projectID)
   {
     this.projectID = projectID;
   }
@@ -46,44 +42,24 @@ public class Project
     this.description = description;
   }
   
-  public String getUserID()
+  public String getSubmittedBy()
   {
-    return userID;
+    return submittedBy;
   }
   
-  public void setUserID(String userID)
+  public void setSubmittedBy(String submittedBy)
   {
-    this.userID = userID;
+    this.submittedBy = submittedBy;
   }
   
-  public String getUserName()
+  public String getOrganization()
   {
-    return userName;
+    return organization;
   }
   
-  public void setUserName(String userName)
+  public void setOrganization(String organization)
   {
-    this.userName = userName;
-  }
-
-  public String getOrgID()
-  {
-    return orgID;
-  }
-
-  public void setOrgID(String orgID)
-  {
-    this.orgID = orgID;
-  }
-  
-  public String getOrganizationName()
-  {
-    return organizationName;
-  }
-  
-  public void setOrganizationName(String organizationName)
-  {
-    this.organizationName = organizationName;
+    this.organization = organization;
   }
   
   public String getCreatedDate()
@@ -105,37 +81,17 @@ public class Project
   {
     this.lastUpdatedDate = lastUpdatedDate;
   }
-
-  public String getLastUpdatedID()
+  
+  public String getLastUpdatedBy()
   {
-    return lastUpdatedID;
+    return lastUpdatedBy;
   }
-
-  public void setLastUpdatedID(String lastUpdatedID)
+  
+  public void setLastUpdatedBy(String lastUpdatedBy)
   {
-    this.lastUpdatedID = lastUpdatedID;
+    this.lastUpdatedBy = lastUpdatedBy;
   }
-
-  public String getLastUpdatedName()
-  {
-    return lastUpdatedName;
-  }
-
-  public void setLastUpdatedName(String lastUpdatedName)
-  {
-    this.lastUpdatedName = lastUpdatedName;
-  }
-
-  public String getBannerPicID()
-  {
-    return bannerPicID;
-  }
-
-  public void setBannerPicID(String bannerPicID)
-  {
-    this.bannerPicID = bannerPicID;
-  }
-
+  
   public byte[] getBannerPicture()
   {
     return bannerPicture;

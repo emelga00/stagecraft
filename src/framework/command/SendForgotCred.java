@@ -40,7 +40,7 @@ public class SendForgotCred implements Command {
 				httpsession.setAttribute("email", email);
 				return "Forgot_Cred";
 			} else {
-				userID = CredentialsDB.getUserID(email);
+				userID = CredentialsDB.getUserIDByEmail(email);
 			}
 			String key = UUID.randomUUID().toString();
 			int results = CredentialsDB.setKey(userID, key);

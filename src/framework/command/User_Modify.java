@@ -24,7 +24,7 @@ public class User_Modify implements Command {
 		String user_ID = (String)request.getParameter("userID");
 		int userID = Integer.parseInt(user_ID);
 		Credentials creds = new Credentials();
-		creds = CredentialsDB.getCredentialByUserID(userID);
+		creds = CredentialsDB.getCedentialByUser_ID(userID);
 		User user = new User();
 		user = UserDB.getUserByUserID(userID);
 		System.out.println(creds.getEmail());

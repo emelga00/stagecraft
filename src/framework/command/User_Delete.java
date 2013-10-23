@@ -5,16 +5,13 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import framework.controller.Command;
-import beans.User;
-import beans.Credentials;
 import data.UserDB;
-import data.CredentialsDB;
 /******************
  * Author JLH
  ******************/
 
 
-public class CopyOfUser_Modify implements Command {
+public class User_Delete implements Command {
 
 	@Override
 	public String perform(HttpServletRequest request,HttpServletResponse response) {
@@ -22,17 +19,14 @@ public class CopyOfUser_Modify implements Command {
 		HttpSession session = request.getSession();
 		
 		String user_ID = (String)request.getParameter("userID");
+		String status = "User Not Deleted!";
 		int userID = Integer.parseInt(user_ID);
-		Credentials creds = new Credentials();
-		creds = CredentialsDB.getCedentialByUser_ID(userID);
-		User user = new User();
-		user = UserDB.getUserByUserID(userID);
+		int result = UserDB.delUser(userID);
+		if(result >0){
+			status = "User Deleted!";
+		}
 		
-		user.setCreds_Email(creds.getEmail());
-		user.setRole(creds.getRole());
-		user.setValid(creds.getValid());
-		
-		session.setAttribute("user", user);
-		return "/WEB-INF/views/user_modify.jsp";
+		session.setAttribute("status", status);
+		return "ViewUsers";
 	}
 }

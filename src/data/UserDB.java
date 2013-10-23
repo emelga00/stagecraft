@@ -392,7 +392,7 @@ public class UserDB {
 	}
 	
 	
-	public static synchronized String delUser(int userID){
+	public static synchronized int delUser(int userID){
 		/***********************************************************************
 		 * Method....................................................delClient *
 		 * Author..........................................................JLH *
@@ -406,7 +406,6 @@ public class UserDB {
 		 *                       3 tables                                      *
 		 ***********************************************************************/
 		int results = 0;
-		String status = "";
 		Connection connection; 
 		
 		String preparedSQL2 = "DELETE FROM Credential WHERE User_ID=?";
@@ -418,24 +417,19 @@ public class UserDB {
 			statement = connection.prepareStatement(preparedSQL2);
 			statement.setInt(1, userID);
 			results = statement.executeUpdate();
-			if(results > 0)
-				status += "Credentials- ";
-			statement = connection.prepareStatement(preparedSQL3);
-			statement.setInt(1, userID);
-			results = statement.executeUpdate();
-			if(results > 0)
-				status += "Client- ";
-			statement.close();
-			connection.close();
+			if(results > 0){
+				statement = connection.prepareStatement(preparedSQL3);
+				statement.setInt(1, userID);
+				results = statement.executeUpdate();
+				statement.close();
+				connection.close();
+			}
 		}catch (SQLException ex){
 			System.out.println("Error: " + ex);
 			System.out.println("Query: " + statement.toString());
 		}
-		if(status == "")
-			status = "Error deleteing client # " + userID;
-		else
-			status = "Success deleting " + status + " for client # " + userID;
-		return status;
+		
+		return results;
 	}
 	
 	

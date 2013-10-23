@@ -41,6 +41,7 @@
     <url-pattern>/Create</url-pattern>
     <url-pattern>/User_PostModify</url-pattern>
     <url-pattern>/ViewUsers</url-pattern>
+    <url-pattern>/User_Delete</url-pattern>
 
   </servlet-mapping>
 </web-app>

@@ -82,7 +82,7 @@ out.println("<div class='centerIt' id='status'>"+result+"</div>");
 
 			
 				int uID = user.getUser_ID();
-				Credentials creds = CredentialsDB.getCredentialByUserID(uID);
+				Credentials creds = CredentialsDB.getCedentialByUser_ID(uID);
 				if(creds==null){
 					cred_ID = 0;
 					email = " - ";

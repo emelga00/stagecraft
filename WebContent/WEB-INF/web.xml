@@ -42,7 +42,7 @@
     <url-pattern>/User_PostModify</url-pattern>
     <url-pattern>/ViewUsers</url-pattern>
     <url-pattern>/User_Delete</url-pattern>
-    <url-pattern>/ViewProject</url-pattern>
+    <url-pattern>/UserProfile</url-pattern>
 
   </servlet-mapping>
 </web-app>

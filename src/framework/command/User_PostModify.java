@@ -22,7 +22,6 @@ public class User_PostModify  implements Command{
 	public String perform(HttpServletRequest request, HttpServletResponse response) {
 		HttpSession session = request.getSession();
 		String status = "User not updated!";
-		String homepage = (String) session.getAttribute("homepage");
 		//** 1. Retrieve the Form Input (Name-Value Pairs) from the HTTP Request ***
 		String user_ID = request.getParameter("userID");
 		int userID = Integer.parseInt(user_ID);
@@ -40,6 +39,6 @@ public class User_PostModify  implements Command{
 					
 		}
 		
-		return homepage;
+		return "ViewUsers";
 	}
 }

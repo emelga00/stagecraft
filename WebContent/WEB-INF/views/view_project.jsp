@@ -30,3 +30,5 @@
     Organization Name: <%=project.getOrganization() %> <br />
     Banner Picture ID: <%=project.getBannerPicID() %> <br />
     Banner Picture: <%=project.getBannerPicture() %> <br />
+    
+    <a href="ViewSubmissions?projectID=<%=project.getProjectID()%>">View Submissions</a>

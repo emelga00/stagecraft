@@ -42,7 +42,7 @@
     Project Name: <%=project.getName()%> <br />
     Project Description: <%=project.getDesc() %> <br />
     Submitted On: <%=project.getCreatedDate() %> <br />
-    Submitted By: <%=project.getSubmittedBy() %> <br />
+    Submitted By: <a href="UserProfile?userID=<%=project.getUserID()%>"><%=project.getSubmittedBy() %></a> <br />
     Submitted User ID: <%=project.getUserID() %> <br />
     Last Updated On: <%=project.getLastUpdatedDate() %> <br />
     Last Updated By: <%=project.getLastUpdatedBy() %> <br />

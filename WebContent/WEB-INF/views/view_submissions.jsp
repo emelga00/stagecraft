@@ -8,15 +8,16 @@
  *  Description: View Submissions based on Project
  ****************************************************/
   String projectID  = (String) session.getAttribute("projectID");
+  int projID = Integer.parseInt(projectID);
   Project project = ProjectsDB.getProjByPID(projectID);
   
   ArrayList<Submission> vidSubmissions  = new ArrayList<Submission>();
   ArrayList<Submission> imgSubmissions  = new ArrayList<Submission>();
   ArrayList<Submission> planSubmissions = new ArrayList<Submission>();
   
-  vidSubmissions  = SubmissionsDB.getSubmissionsByTypeSortCategory("video");
-  imgSubmissions  = SubmissionsDB.getSubmissionsByTypeSortCategory("image");
-  planSubmissions = SubmissionsDB.getSubmissionsByTypeSortCategory("plan");
+  vidSubmissions  = SubmissionsDB.getSubmissionsByTypeSortCategory("video", projID);
+  imgSubmissions  = SubmissionsDB.getSubmissionsByTypeSortCategory("image", projID);
+  planSubmissions = SubmissionsDB.getSubmissionsByTypeSortCategory("plan", projID);
   
   request.removeAttribute("projectID");
   

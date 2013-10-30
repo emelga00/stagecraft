@@ -12,7 +12,7 @@ public class SubmissionsDB {
 	 ***************************************************************************************/
 
 	//getSubmissionByTypeSortCateogry-- will be used to pull by categoryID in view submission page
-	public static synchronized ArrayList<Submission> getSubmissionsByTypeSortCategory(String type)
+	public static synchronized ArrayList<Submission> getSubmissionsByTypeSortCategory(String type, int projID)
 	{
 		/***********************************************************************
 		 * Method.............................getSubmissionsByTypeSortCategory *
@@ -31,13 +31,14 @@ public class SubmissionsDB {
 		Submission            submission  = null;
 		ArrayList<Submission> subList     = new ArrayList<Submission>();
 		PreparedStatement     statement   = null;
-		String                preparedSQL = "SELECT * FROM submission WHERE type = '"+type+"' sort by category;";
+		String                preparedSQL = "SELECT * FROM submission WHERE type = ? AND projID = ?;";
 
 		try
 		{
 			connection   = DBConnector.getConnection  ();
 			statement    = connection.prepareStatement(preparedSQL);
 			statement.setString                         (1, type);
+			statement.setInt                         (2, projID);
 			ResultSet rs = statement.executeQuery     ();
 			while(rs.next())
 			{

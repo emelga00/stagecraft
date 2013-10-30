@@ -29,22 +29,34 @@
 %>
 
 <h1>View All Projects Page</h1>
-
+<br />
+<hr />  
+<br />
 <%
   //loop through the projects ArrayList and put each project on the page
   for(int i = 0; i < projects.size(); i++)
   {
     Project project = (Project) projects.get(i);
 %>  
-    <h1 id="<%=project.getProjectID()%>"><%=project.getName()%></h1>
+    ProjectID: <%=project.getProjectID()%> <br />
+    Project Name: <%=project.getName()%> <br />
+    Project Description: <%=project.getDesc() %> <br />
+    Submitted On: <%=project.getCreatedDate() %> <br />
+    Submitted By: <%=project.getSubmittedBy() %> <br />
+    Submitted User ID: <%=project.getUserID() %> <br />
+    Last Updated On: <%=project.getLastUpdatedDate() %> <br />
+    Last Updated By: <%=project.getLastUpdatedBy() %> <br />
+    Last Updated ID: <%=project.getLastUpdatedID() %> <br />
+    Organization ID: <%=project.getOrganizationID() %> <br />
+    Organization Name: <%=project.getOrganization() %> <br />
+    Banner Picture ID: <%=project.getBannerPicID() %> <br />
+    Banner Picture: <%=project.getBannerPicture() %> <br />
     <br />
-    <h2>Created By: <%=project.getSubmittedBy()%></h2>
+    <a href="ViewProject?projectID=<%=project.getProjectID()%>">View Project Page</a>
     <br />
-    <h2>Organization: <%=project.getOrganization()%></h2>
     <br />
-    <h2>Description</h2>
+    <hr />  
     <br />
-    <p><%=project.getDesc()%></p>   
 <%
   }
 %>

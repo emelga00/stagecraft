@@ -17,6 +17,6 @@ public class ViewSubmissions implements Command
     String projectID = (String) request.getAttribute("projectID");
     session.setAttribute("projectID", projectID);
 
-    return "/WEB-INF/views/view_projects.jsp";
+    return "/WEB-INF/views/view_submissions.jsp";
   }
 }

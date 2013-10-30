@@ -37,8 +37,7 @@ public class UserProfile implements Command {
 		}else{
 			currentUserID = Integer.parseInt(userID);	
 		}
-		System.out.println("userid is "+ userID);
-		System.out.println("currentUserID is "+ currentUserID);
+		
 	    User userProfile = UserDB.getUserProfile(currentUserID);
 
 	    session.setAttribute("userProfile", userProfile);

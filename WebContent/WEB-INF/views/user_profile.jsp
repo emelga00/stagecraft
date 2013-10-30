@@ -4,15 +4,18 @@
 
 <%
 	User user = (User) session.getAttribute("userProfile");
-	int currentUserID = (Integer) session.getAttribute("currentUserID");
+	String currentUsername = (String) session.getAttribute("currentUsername");
+	int currentUserID = 0;
+	if(currentUsername !=null){
+	currentUserID = (Integer) session.getAttribute("currentUserID");
+	}
 	String disabled = "disabled='disabled'";
 	Boolean cUser = false;
 	if (user.getUser_ID()==currentUserID){
 		cUser=true;
 		disabled = "";
 	}
-	System.out.println("currentUserID is "+currentUserID);
-	System.out.println("user.getFirst_Name is "+user.getFirst_Name());
+	
 	
 %>
 <div id="register">

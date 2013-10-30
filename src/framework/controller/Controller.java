@@ -42,7 +42,7 @@ public class Controller extends HttpServlet {
 		requests.add(new RequestEntry("/Cred_PostAdd","Redirect",new Cred_PostAdd(),"public", ""));
 		//--------------User-------------------------
 		requests.add(new RequestEntry("/User_Modify","Forward",new User_Modify(),"protected", "user,moderator,admin"));
-		requests.add (new RequestEntry("/UserProfile","Forward",new UserProfile(),"protected", "user,moderator,admin"));
+		requests.add (new RequestEntry("/UserProfile","Forward",new UserProfile(),"public", ""));
 		//--------------Projects---------------------
 		requests.add(new RequestEntry("/Explore", "Forward", new Explore(), "public", ""));
 		requests.add(new RequestEntry("/Create","Forward",new Create(),"public", "")); //"user,admin"

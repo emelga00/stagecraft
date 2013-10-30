@@ -7,7 +7,8 @@
  *  Author: BDS
  *  Description: View Submissions based on Project
  ****************************************************/
-  Project project = (Project)request.getAttribute("project");
+  String projectID  = (String) request.getAttribute("projectID");
+  Project project = ProjectsDB.getProjByPID(projectID);
   
   ArrayList<Submission> vidSubmissions  = new ArrayList<Submission>();
   ArrayList<Submission> imgSubmissions  = new ArrayList<Submission>();
@@ -17,7 +18,7 @@
   imgSubmissions  = SubmissionsDB.getSubmissionsByTypeSortCategory("image");
   planSubmissions = SubmissionsDB.getSubmissionsByTypeSortCategory("plan");
   
-  request.removeAttribute("project");
+  request.removeAttribute("projectID");
   
   if(vidSubmissions == null && imgSubmissions == null && planSubmissions == null) 
   {

@@ -7,7 +7,7 @@
  *  Author: BDS
  *  Description: View Submissions based on Project
  ****************************************************/
-  String projectID  = (String) request.getAttribute("projectID");
+  String projectID  = (String) session.getAttribute("projectID");
   Project project = ProjectsDB.getProjByPID(projectID);
   
   ArrayList<Submission> vidSubmissions  = new ArrayList<Submission>();

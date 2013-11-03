@@ -18,10 +18,12 @@
   vidSubmissions  = SubmissionsDB.getSubmissionsByTypeSortCategory("video", projID);
   imgSubmissions  = SubmissionsDB.getSubmissionsByTypeSortCategory("image", projID);
   planSubmissions = SubmissionsDB.getSubmissionsByTypeSortCategory("plan", projID);
+  System.out.println("Proj ID: "+projID);
+  
   
   request.removeAttribute("projectID");
   
-  if(vidSubmissions == null && imgSubmissions == null && planSubmissions == null) 
+  if(vidSubmissions.size() == 0 && imgSubmissions.size() == 0 && planSubmissions.size() == 0) 
   {
     //show add new submission page instead
     %><h1><%=project.getName()%> - Submissions</h1>
@@ -57,11 +59,14 @@
 	<div style="overflow:auto;">
 	<table>
 <%
+	System.out.println("Vid  Size: "+vidSubmissions.size());
+	System.out.println("Img  Size: "+imgSubmissions.size());
+	System.out.println("Plan Size: "+planSubmissions.size());
   for(int i = 0; i < vidSubmissions.size(); i++)
   {
     Submission submission = (Submission)vidSubmissions.get(i);
 %>  	<tr>
-<% 
+<%  System.out.println("URL: "+submission.getURL());
 	if(submission.getURL()==null)
 	  {
 %>

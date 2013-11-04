@@ -15,7 +15,6 @@ public class ViewSubmissions implements Command
   {
     HttpSession session = request.getSession();
     String projectID = (String) request.getParameter("projectID");
-    System.out.println("project in vs is" + projectID);
     session.setAttribute("projectID", projectID);
 
     return "/WEB-INF/views/view_submissions.jsp";

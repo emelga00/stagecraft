@@ -31,16 +31,14 @@ public class SubmissionsDB {
 		Submission            submission  = null;
 		ArrayList<Submission> subList     = new ArrayList<Submission>();
 		PreparedStatement     statement   = null;
-		String                preparedSQL = "SELECT * FROM submission WHERE type = '?' AND projID = ?;";
-		
-		System.out.println("Prepared Statement: "+preparedSQL);
+		String                preparedSQL = "SELECT * FROM submission WHERE type LIKE '?' AND projID = ?";
 		
 		try
 		{
 			connection   = DBConnector.getConnection  ();
 			statement    = connection.prepareStatement(preparedSQL);
-			statement.setString                         (1, type);
-			statement.setInt                            (2, projID);
+			statement.setString                       (1, type);
+			statement.setInt                          (2, projID);
 			ResultSet rs = statement.executeQuery     ();
 			while(rs.next())
 			{
@@ -89,7 +87,7 @@ public class SubmissionsDB {
     Submission            submission  = null;
     ArrayList<Submission> subList     = new ArrayList<Submission>();
     PreparedStatement     statement   = null;
-    String                preparedSQL = "";
+    String                preparedSQL = "SELECT * FROM submission WHERE projID = ?";
 
     try
     {
@@ -108,10 +106,12 @@ public class SubmissionsDB {
         submission.setType    (rs.getString(6));
         submission.setDate    (rs.getString(7));
         submission.setCategory(rs.getString(8));
+        subList.add(submission);
       } 
       rs.close        ();
       statement.close ();
       connection.close();
+      return subList;
     }
     catch (SQLException ex)
     {

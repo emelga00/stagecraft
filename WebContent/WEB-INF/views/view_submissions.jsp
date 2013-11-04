@@ -17,23 +17,23 @@
   
   vidSubmissions  = SubmissionsDB.getSubmissionsByTypeSortCategory("video", projID);
   imgSubmissions  = SubmissionsDB.getSubmissionsByTypeSortCategory("image", projID);
-  planSubmissions = SubmissionsDB.getSubmissionsByTypeSortCategory("plan", projID);
-  System.out.println("Proj ID: "+projID);
-  
-  
+  planSubmissions = SubmissionsDB.getSubmissionsByTypeSortCategory("plan" , projID);
+
   request.removeAttribute("projectID");
   
-  if(vidSubmissions.size() == 0 && imgSubmissions.size() == 0 && planSubmissions.size() == 0) 
+  if(vidSubmissions.isEmpty() && imgSubmissions.isEmpty() && planSubmissions.isEmpty()) 
   {
-    //show add new submission page instead
+    //show add new submission button/link instead
     %><h1><%=project.getName()%> - Submissions</h1>
-      <h2>Currently there is no content for this project</h2><%
+      <h2>Currently there is no content for this project</h2>
+      <h2>VidSubmissions.Size : <%=vidSubmissions.size ()%>
+      <h2>ImgSubmissions.Size : <%=imgSubmissions.size ()%>
+      <h2>PlanSubmissions.Size: <%=planSubmissions.size()%><%
   }
   else
   {
 %>
 	<h1><%=project.getName()%> - Submissions</h1>
-<%//need to add three different loops to sort each one by type%>
 	<table>
 	<tr>
 	<td>

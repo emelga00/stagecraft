@@ -5,7 +5,7 @@
 <%
 /*****************************************************
  *  Author: BDS
- *  Description: View Submissions based on Project
+ *  Description: View Submissions based on ProjectID and type
  ****************************************************/
   String projectID  = (String) session.getAttribute("projectID");
   int projID = Integer.parseInt(projectID);

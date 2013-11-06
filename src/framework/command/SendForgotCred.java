@@ -3,12 +3,9 @@ package framework.command;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-
 import framework.controller.Command;
-
 import java.util.Properties;
 import java.util.UUID;
-
 import javax.mail.Message;
 import javax.mail.MessagingException;
 import javax.mail.PasswordAuthentication;
@@ -16,18 +13,59 @@ import javax.mail.Session;
 import javax.mail.Transport;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
-
 import data.CredentialsDB;
-
+/***********************************************************************
+ * Class............................................SendForgotCred     *
+ * Author...................................JLH(found code online)     *
+ *---------------------------------------------------------------------*
+ * This Class sends the specified email a link that enables them to    *
+ * reset their password                                				   *
+ * 																	   *
+ ***********************************************************************/
 public class SendForgotCred implements Command {
 
+	HttpSession httpsession;
+	String email;
+	String returnClass;
+	
 	@Override
 	public String perform(HttpServletRequest request,
 			HttpServletResponse response) {
 
-		HttpSession httpsession = request.getSession();
+		getParameters(request);
+		returnClass = sendLink();
+		return returnClass;
+	}
 
-		String email = (String) request.getParameter("email");
+	private void getParameters(HttpServletRequest request) {
+		/***********************************************************************
+		 * Method............................................getParameters     *
+		 * Author......................................................JLH     *
+		 *---------------------------------------------------------------------*
+		 * This method pulls in parameters using the HttpServletRequest from   *
+		 * the forgot password fields on the forgot_cred.jsp					     		   *
+		 * 																	   *
+		 * Return Value 													   *
+		 * (void)                                                              *
+		 ***********************************************************************/
+		httpsession = request.getSession();
+		email = (String) request.getParameter("email");
+	}
+	
+	private String sendLink() {
+		/***********************************************************************
+		 * Method.................................................sendLink     *
+		 * Author......................................................JLH     *
+		 *---------------------------------------------------------------------*
+		 * This method verifies that all of the necessary fields were properly *
+		 * filled out. This method checks to see if the new password created   *
+		 * and the confirm password match. If they match, it changes the user's*
+		 * password.														   *
+		 * 																	   *
+		 * Return Value 													   *
+		 * (String) returnClass:  Returns a String value that indicates the    *
+		 * correct page for redirection										   *
+		 ***********************************************************************/
 		String status = "";
 
 		if (email != null) {
@@ -89,5 +127,4 @@ public class SendForgotCred implements Command {
 		}
 		return "Login";
 	}
-
 }

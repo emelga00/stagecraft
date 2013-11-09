@@ -14,10 +14,11 @@ String urlMapping = (String)session.getAttribute("urlMapping");
 String currentUsername = (String)session.getAttribute("currentUsername");
 %>
 
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE HTML>
 <html>
    <head>
      	<title>Global Performance Space</title>
+     	<link rel="stylesheet" href="<%=request.getContextPath()%>/styles/nav.css" type="text/css"></link>
       	<link rel="stylesheet" href="<%=request.getContextPath()%>/styles/style.css" type="text/css"></link>
 	  	<link rel="stylesheet" href="<%=request.getContextPath()%>/styles/reset.css" type="text/css"></link>
 	  	<link rel="stylesheet" href="<%=request.getContextPath()%>/styles/forms.css" type="text/css"></link>
@@ -27,15 +28,16 @@ String currentUsername = (String)session.getAttribute("currentUsername");
 			<script>
         		tinymce.init({selector:'textarea'});
 			</script>
-		<style type="text/css">
-	  		body { 
-  				background: url(images/red.jpg) no-repeat center center fixed; 
-  				-webkit-background-size: cover;
-  				-moz-background-size: cover;
-  				-o-background-size: cover;
-  				background-size: cover;
-}
-	  	</style>
+		<script type="text/javascript">
+		$(document).on("scroll",function(){
+			if($(document).scrollTop()>100){ 
+				$("header").removeClass("large").addClass("small");
+				}
+			else{
+				$("header").removeClass("small").addClass("large");
+				}
+			});
+		</script>
 	  <%
 	    //add the javascript references for the multifile upload on the add project page
       if (urlMapping.equals("/Project_Add"))
@@ -53,7 +55,7 @@ String currentUsername = (String)session.getAttribute("currentUsername");
    
    <body>
    <div id="wrapper">
-        <div id="header">
+        <header>
 			<%
 				if(currentUsername!=null){
 			%>
@@ -65,7 +67,7 @@ String currentUsername = (String)session.getAttribute("currentUsername");
 				<%
 				}
 				%>
-		</div><!-- END header-->
+		</header>
 <div class="clear"></div>
         <div id="section">
             <div id="page">

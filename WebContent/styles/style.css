@@ -1,145 +1,45 @@
 @import url(http://fonts.googleapis.com/css?family=Bree+Serif);
 @import url(http://fonts.googleapis.com/css?family=Amaranth);
 
-p {
-    padding: 5px 20px;
-}
-#page h1{
-	
-}
-#page h1,h1 {
-    padding: 0 20px;
-	font-family: 'Bree Serif', serif;
-	font-weight: 300;
-	font-size: 28px;
-	
-	color: #f3f3f3;
-	margin-bottom: 10px;
-}
 .clear {
     clear: both;
 }
+/* Basic layout */
 body{
-    background-color: #8e001c;
-    font-family: "Trebuchet MS","Myriad Pro",Arial,sans-serif;
+	background-color: #ebebeb;
 }
-#wrapper {
-        width: 100%;
-        min-width: 1260px;
-}
-#header, a, img, li, footer{
-	transition: all .5s;
-	-moz-transition: all .5s; /* Firefox 4 */
-	-webkit-transition: all .5s; /* Safari and Chrome */
-	-o-transition: all .5s; /* Opera */
-}
-#header{
-	min-width: 1200px;
-	position: fixed;
-	top: 0;
-	background: #dddddd;
-    height: 60px;
-	width: 100%;
-    border-bottom: 20px solid #33332d;
-}
-#header a{
-	color: #424242;
-    --border: 2px solid green;
-	text-decoration: none;
-	font-family: 'Bree Serif', serif;
-	text-transform: uppercase;
-    float: left; 
-}
-#header a:hover{
-}
-#header ul{
-    --border: 2px solid red;
-    float: left;
-}
-#header li{  
-    --border: 1px solid orange;
-    height: 60px;
-    width: 70px;
-    background: #dddddd;
-	cursor: pointer;
-	-webkit-box-shadow: outline 0px 0px 2px 0px rgba(211,206,170,.75);
-    -moz-box-shadow: outline 0px 0px 2px 0px rgba(211,206,170,.75);
-    box-shadow: outline 0px 0px 2px 0px rgba(211,206,170,.75);    
-}
-#head-nav-container a{
-	font-size: 14px;
-    font-weight:bold;
-	text-align: center;
-	color: #424242;
-	height: 60px;
-    width: 80px;
-    padding-top: 22px;
-	overflow: hidden;
-	--border: 1px solid blue;
-}
-#head-nav-container a:hover{
-    color: gray;
-}
-#logo{
-    	background: #dddddd;
-    	float: left;
-    	font-family:Arial,Helvetica,sans-serif;
-		font-size: 18px;
-		color: #fbf7e4;
-		text-shadow: 0px 5px 10px rgba(0,0,0,0.50);
-    	padding-top: 18px;
-    	padding-right: 20px;
-}
-#center{
-    width: 70%;
-   
-    margin: 0 auto;
-}
-.bottom{
-    width: 100%;
-    height: 20px;
-    background: #424242;
-}
-ul{
-	list-style-type: none;
-}
-li{
-	display: inline;
+section.stretch{
 	float: left;
-}  
-.search, login{
-    float: right;
+    height: 1500px;
+	width: 100%;
 }
-.search{
-    margin: 15px 5px;   
 }
-/*=========================================================================*/
-#section         {
-	font-family: "Trebuchet MS","Myriad Pro",Arial,sans-serif;
-	color: #f3f3f3;
-    width: 70%;
-    min-height: 600px;
-    
-    margin:  100px auto;
-    padding: 40px auto;
-	background: #33332d;
-    border: 5px solid black;
-    border-radius: 10px;
+section.stretch p{
+	font-family: 'Amaranth', sans-serif;
+	font-size: 14px;
+	color: #969696;
+	text-align: center;
+	position: relative;
+	margin-top: 10px;
+}
+
+section.stretch p.bottom{
+	top: 100%;
 }
 #page{
-	text-align: center;
-	color: #f3f3f3;
-	padding: 40px;
-	 
+    position: relative;
+    width: 960px;
+	margin: 200px auto;   
 }
-#pic img{
-	 height: 400px;
-	 width: 700px;
-	 no-repeat center center fixed;
-	 margin-bottom: 50px;
-	 border: 3px solid black;
-	 border-radius: 10px;
+#page h1,h1{
+    padding: 0 20px;
+	font-family: 'Bree Serif', serif;
+	font-weight: 300;
+	font-size: 18px;
+	color: #424242;
+	margin-bottom: 10px;
 }
+/*=========================================================================*/
 #status {
 	margin-top: 10px;
 	background: #8e001c;
@@ -148,21 +48,23 @@ li{
 /***************************
  * FOOTER                  *
  ***************************/
-#footer{
-	
-    width:          100%;
-    color:          #f3f3f3;
-	background:     #33332d;
-    text-align:     center;
-    padding:        30px 0;
-	--border:         1px solid #aaaaaa;
-	font-family:Arial,Helvetica,sans-serif;
-	font-size: 14px;
-	text-transform: uppercase;
+#copyright {
+    width: 960px;
+	margin: 0 auto;
+    padding: 15px;
 }
-
-p.login.button,
-p.signin.button{
-	text-align: right;
-	margin: 5px 0;
+#footer {
+    float: left;
+    top: 100%;
+    background: #C7C7C7;
+	border-top: 1px solid #aaaaaa;
+	float: left;
+	width: 100%;
+    height: 50px;
+    text-align: center;
+    padding-top: 25px;
+    -webkit-box-shadow: inset 0px 2px 10px 0px rgba(117,117,117,1);
+    -moz-box-shadow: inset 0px 2px 10px 0px rgba(117,117,117,1);
+    box-shadow: inset 0px 2px 10px 0px rgba(117,117,117,1);
+    
 }

@@ -75,7 +75,6 @@
 				<div class="clear"></div>
 				<input type="checkbox" name="terms" value="agree" /> I accept the Terms of Service<br><br>
 			</div>
-			<div class="clear"></div>
 			<div class="register-footer">
 				<input type="reset" name="reset" value="Reset" class="reset" /> 
 				<input type="submit" name="submit" value="Resend Verification"	class="submit" />
@@ -106,4 +105,5 @@
 		</form>
 	</div>
 </div>
+<div class="clear"></div>
 <div class="error message"><%=status%></div>

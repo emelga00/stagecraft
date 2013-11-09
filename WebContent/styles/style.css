@@ -7,6 +7,7 @@
 /* Basic layout */
 body{
 	background-color: #ebebeb;
+	font-family: 'Amaranth', sans-serif;
 }
 section.stretch{
 	float: left;
@@ -29,7 +30,8 @@ section.stretch p.bottom{
 #page{
     position: relative;
     width: 960px;
-	margin: 200px auto;   
+    min-height: 500px;
+	margin: 160px auto;   
 }
 #page h1,h1{
     padding: 0 20px;
@@ -39,6 +41,35 @@ section.stretch p.bottom{
 	color: #424242;
 	margin-bottom: 10px;
 }
+profile .profile-content{
+	background: #f3f3f3;
+	border: 3px solid gray;
+	min-height: 400px;
+	position: absolute;
+}
+#profile-pic{
+	float: left;
+	width: 290px;
+	border-right: 1px solid gray;
+	margin: 10px;
+}
+#uPic{
+	width: 150px;
+	height: 100px;
+	padding: 40px;
+	border: 2px solid gray;
+}
+#profile-info{
+	float: right;
+	width: 500px;
+	margin: 10px;
+	padding-left: 50px;	
+}
+#profile-footer{
+	padding: 20px;
+	background: pink;
+}
+
 /*=========================================================================*/
 #status {
 	margin-top: 10px;

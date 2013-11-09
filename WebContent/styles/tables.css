@@ -5,26 +5,24 @@
 	font-weight: 400;
 	font-size: 14px;
 	color: #9d9e9e;
-	text-shadow: 1px 1px 0 rgba(256,256,256,1.0);
 	background: #fff;
 }
 .listTable tr{
-	font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+	font-family: 'Amaranth', sans-serif;
 	font-weight: 400;
 	font-size: 14px;
 	color: #9d9e9e;
-	text-shadow: 1px 1px 0 rgba(256,256,256,1.0);
 	background: #fff;
 	text-align: center;
-	
+	border: 2px solid gray;
 }
 .listTable th{
-	background: black;
-	color: white;
+	background: #424242;
+	color: #f3f3f3f;
 	padding: 10px 30px;
 }
 .listTable td{
 	padding: 10px;
-	color: black;
-	border: 2px solid;
+	color: #424242;
+	border: 2px solid gray;
 }

@@ -62,53 +62,48 @@
 				<h1>Register</h1>
 			</div>
 			<div class="register-content">
-				First Name <input type="text" name="fName" class="register-fname" value="<%=fName%>" size="30" />
-				<br> 
-				Last Name 
-				<input type="text" name="lName" class="register-lname" value="<%=lName%>" size="30" />
-				<br> 
-				Email 
-				<input type="text" name="email" class="register-email" value="<%=email%>" size="30" />
-				<br> 
-				Password 
-				<input type="password" name="pass1" class="register-password" size="30" /> 
-				<br> 
-				Confirm Password 
-				<input type="password" name="pass2" class="register-confpassword" size="30" />
-				<br>
-				<input type="checkbox" name="terms" value="agree" /> I accept the Terms of Service<br />
-				
+				<label>First Name:</label> 
+				<input type="text" name="fName" class="register-fname" value="<%=fName%>" size="35" />
+				<label>Last Name:</label> 
+				<input type="text" name="lName" class="register-lname" value="<%=lName%>" size="35" />
+				<label>Email: </label> 
+				<input type="text" name="email" class="register-email" value="<%=email%>" size="35" />
+				<label>Password: </label> 
+				<input type="password" name="pass1" class="register-password" size="35" /> 
+				<label>Confirm Password:</label> 
+				<input type="password" name="pass2" class="register-confpassword" size="35" /><br>
+				<div class="clear"></div>
+				<input type="checkbox" name="terms" value="agree" /> I accept the Terms of Service<br><br>
 			</div>
+			<div class="clear"></div>
 			<div class="register-footer">
 				<input type="reset" name="reset" value="Reset" class="reset" /> 
 				<input type="submit" name="submit" value="Resend Verification"	class="submit" />
 				<input type="submit" name="submit" value="Sign Up" class="submit" /> 
-				<div id="status"><%=status%></div>
 			</div>
 		</form>
 	</div>
 	<div id="login">
-		<form name="login-form" class="login-form" action="Authenticate"
+		<form name="login-form" class="form" action="Authenticate"
 			method="post">
-			<div class="login-header">
+			<div class="header">
 				<h1>Already a Member?</h1>
 			</div>
-			<div class="login-content">
+			<div class="content">
 				<% if(loginEmail!=""){
-					out.println("<input name='username' type='text' class='input username' value='"+loginEmail+"'/>");
+					out.println("<input name='username' type='text' class='input username' value='"+loginEmail+"' size='35'/>");
 				}else{
-					out.println("<input name='username' type='text' class='input username' placeholder='Username'/>");
+					out.println("<input name='username' type='text' class='input username' placeholder='Username' size='35'/>");
 				}
 				%>
 				<br>
-				<input name="password" type="password" class="input password"
-					placeholder="Password" /> <br>
+				<input name="password" type="password" class="password-text" placeholder="Password" size='35'/> <br>
 			</div>
-			<div class="login-footer">
+			<div class="footer">
 				<input type="submit" name="submit" value="Login" class="button" />
-				<input type="submit" name="submit" value="Forgot Password?"
-					class="password" />
+				<input type="submit" name="submit" value="Forgot Password?" class="password" />
 			</div>
 		</form>
 	</div>
 </div>
+<div class="error message"><%=status%></div>

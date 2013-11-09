@@ -23,6 +23,7 @@ String currentUsername = (String)session.getAttribute("currentUsername");
 	  	<link rel="stylesheet" href="<%=request.getContextPath()%>/styles/reset.css" type="text/css"></link>
 	  	<link rel="stylesheet" href="<%=request.getContextPath()%>/styles/forms.css" type="text/css"></link>
 	  	<link rel="stylesheet" href="<%=request.getContextPath()%>/styles/tables.css" type="text/css"></link>
+	  	<link rel="stylesheet" href="<%=request.getContextPath()%>/styles/notifications.css" type="text/css"></link>
 	  	<script src="http://code.jquery.com/jquery-latest.js"></script>
 		<script src="//tinymce.cachefly.net/4.0/tinymce.min.js"></script>
 			<script>
@@ -48,6 +49,7 @@ String currentUsername = (String)session.getAttribute("currentUsername");
         <script src="<%=request.getContextPath()%>/javascript/jquery.MetaData.js" type="text/javascript" language="javascript"></script>
         <script src="<%=request.getContextPath()%>/javascript/jquery.MultiFile.js" type="text/javascript" language="javascript"></script>
         <script src="<%=request.getContextPath()%>/javascript/jquery.blockUI.js" type="text/javascript" language="javascript"></script>
+        <script src="<%=request.getContextPath()%>/javascript/jquery.messages.js" type="text/javascript" language="javascript"></script>
     <%
       }
 	  %>
@@ -75,7 +77,8 @@ String currentUsername = (String)session.getAttribute("currentUsername");
                 <jsp:include page="<%=nextView%>"  />
             </div><!-- END content-->
         </div>
-		<div class="clear"></div>	       
+		<div class="clear"></div>
+			       
         <div id="footer">
 			<jsp:include page="/WEB-INF/includes/footer.jsp" />
 		</div><!-- END footer--> 

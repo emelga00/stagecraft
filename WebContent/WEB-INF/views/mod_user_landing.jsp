@@ -34,10 +34,12 @@
 %>
 
 
-<body>
 
-<!-- Start page content -->
-<h2 class="centerIt" >Moderator Console</h2>
+<div id="moderator">
+	<div id="mod-header">
+		<h1>Moderator Console</h1>
+	</div>
+	<div id="mod-content">
 <%
 	if(result.equals("")){
 out.println("<div class='centerIt' id='status'>"+status+"</div>");
@@ -139,7 +141,9 @@ out.println("<div class='centerIt' id='status'>"+result+"</div>");
 			</tr>
 		<%}} %>
 	</table>
+	</div>
+	<div id="mod-footer"></div>
 </div>
-
+</div>
 </body>
 </html>

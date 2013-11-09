@@ -18,55 +18,45 @@
 	
 	
 %>
-<div id="register">
-
-	<form name="registration" class="register-form"
-		action="User_PostModify" method="post">
-		<div class="register-header">
-			<h1>User Info</h1>
-		</div>
-		<div class="register-content">
-			First Name 
-			<input type="text" name="fName" class="uprofile-fName" value="<%=user.getFirst_Name()%>" size="30" <%=disabled%>/>
+<profile>
+	<div class="profile-header">
+		<h1>About</h1>
+	</div>
+	<div class="profile-content">
+		<div id="profile-pic">
+			<div id="uPic">USER Picture here!</div>
 			<br>
-			Last Name 
-			<input type="text" name="lName" class="uprofile-lName" value="<%=user.getLast_Name()%>" size="30" <%=disabled%>/>
+			USER STATS GO HERE<br>
+			Example:<br>
+			A Member Since: <%=user.getDate()%>
 			<br>
-			Email 
-			<input type="text" name="email" class="uprofile-email" value="<%=user.getCreds_Email()%>" size="30" <%=disabled%>/> 
-			<br>
-			Phone 
-			<input type="text" name="fName" class="uprofile-phone" value="<%=user.getPhone()%>" size="30" <%=disabled%>/>
-			<br>
-			Address 
-			<input type="text" name="lName" class="uprofile-address" value="<%=user.getAddress()%>" size="30" <%=disabled%>/>
-			<br>
-			City 
-			<input type="text" name="email" class="uprofile-city" value="<%=user.getCity()%>" size="30" <%=disabled%>/> 
-			<br>
-			State 
-			<input type="text" name="fName" class="uprofile-state" value="<%=user.getState()%>" size="30" <%=disabled%>/>
-			<br>
-			Zip Code 
-			<input type="text" name="lName" class="uprofile-zip" value="<%=user.getZIP()%>" size="30" <%=disabled%>/>
-			<br>
-			A Member Since 
-			<input type="text" name="email" class="uprofile-date" value="<%=user.getDate()%>" size="30" <%=disabled%>/> 
-			<br>
-			Role
-			<input type="text" name="email" class="uprofile-role" value="<%=user.getRole()%>" size="30" <%=disabled%>/> 
+			Role: <%=user.getRole()%>
 			<br>
 			
-
+		</div>
+		<div id="profile-info">
+			Name:    <%=user.getFirst_Name()%> <%=user.getLast_Name()%>
+			<br>
+			Email:   <%=user.getCreds_Email()%>
+			<br>
+			Phone:   <%=user.getPhone()%>
+			<br>
+			Address: <%=user.getAddress()%>
+			<br>
+			City:    <%=user.getCity()%>
+			<br>
+			State:   <%=user.getState()%>
+			<br>
+			Zipcode: <%=user.getZIP()%>
+			<br>
 		
 		</div>
-<% if(cUser){
-	out.println("<div class='register-footer'>");
-		out.println("<input type='submit' name='submit' value='Cancel' class='submit' />");
-		out.println("<input type='reset' name='reset' value='Reset' class='reset' /> ");
-			out.println("<input type='submit' name='submit' value='Submit' class='submit' />");
-
-	out.println("</div>");
-	}%>
-	</form>
-</div>
+		<div class="clear"></div>
+		<div class='button'>Update Profile</class></div>
+	</div>
+	<div class="clear"></div>
+	<div class="profile-footer">
+	 
+	</div>
+	<br><br>
+</profile>

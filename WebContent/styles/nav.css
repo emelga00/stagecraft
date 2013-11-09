@@ -42,13 +42,14 @@ img.logo{
 	width: 960px;
 	margin: 0 auto;
 }
-/* Sizes for the bigger menu */
+
+/*------------------- Sizes for the bigger menu ------------------------*/
 header.large{
 	height: 120px;
 }
 header.large img{
-	width: 479px;
-	height: 103px;
+	width: 400px;
+	height: 100px;
 }
 header.large li{
 	margin-top: 45px;

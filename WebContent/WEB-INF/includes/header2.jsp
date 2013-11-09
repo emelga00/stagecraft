@@ -8,30 +8,22 @@ if(homepage==""){
 	homepage="Home";
 }
 %>
-<div id="center">
-    <div id="logo"><a href="<%=homepage%>">Global Performance Space</a></div>
-    	<div id="head-nav-container">
-        	<ul id="header-nav" class="clearfix">
-				<li id="explore" class="header-nav"><a href="Explore">Explore</a></li>
-				<li id="create" class="header-nav"><a href="Create">Create</a></li>
-				<li id="videos" class="header-nav"><a href="#">Videos</a></li>
-            	<li id="wiki" class="header-nav"><a href="#">WIKI</a></li>
-            	
-            	<% if(currentRole.equals("admin")||currentRole.equals("moderator")){
-            	out.println("<li id='admin' class='header-nav'><a href='ViewUsers'>Admin</a></li>");
-            	}
-            		%>
-            	
-            	<% if(currentRole.equals("admin")||currentRole.equals("moderator")||currentRole.equals("user")){
-            	out.println("<li id='admin' class='header-nav'><a href='UserProfile'>"+currentUsername+"</a></li>");
-            	}            		%>	
-            	<li id="login" class="header-nav"><a href="Logout">Logout</a></li>
-			</ul>
-		</div>
-    <div class="search">
-        <form class="search-form">
-            <input type="search" name="search" placeholder="Search" autocomplete="off" tabindex="1">
-        </form>
-    </div>
-</div>
+<div id="nav">
+	<a href="Home"><img class="logo" src="<%=request.getContextPath()%>/images/logo.png" /></a>
+	<ul>
+		<li><a class="active" href="Explore">Explore</a></li>
+		<li><a href="Create">Create</a></li>
+		<li><a href="#">Videos</a></li>
+        <li><a href="#">WIKI</a></li>
+        	<ul>
+        		<% if(currentRole.equals("admin")||currentRole.equals("moderator")||currentRole.equals("user")){
+            	out.println("<li><a href='UserProfile'>"+currentUsername+"</a></li>");
+            	}%>		
+                <% if(currentRole.equals("admin")||currentRole.equals("moderator")){
+            	out.println("<li class='last'><a href='ViewUsers'>Tools</a></li>");
+            	}%>
+            	<li><a href="Logout">Logout</a></li>
+            </ul>
+	</ul>
+</div>    
    

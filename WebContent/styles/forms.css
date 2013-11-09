@@ -1,15 +1,28 @@
+label{
+    display: inline-block;
+    float: left;
+    clear: left;
+    width: 250px;
+    text-align: right;
+    padding-top: 5px;
+}
+
 input[type=checkbox] {
 	border: 0px;
 	padding: 0px;
 	margin: 0px;
+	display: inline-block;
+ 	float: left;
 }
 input[type=text], input[type=password] {
-	padding: 7px 15px;
+	display: inline-block;
+ 	float: left;
+	padding: 10px 20px;
 	margin-left: 10px;
 	margin-bottom: 14px;
 	font-weight: 400;
 	font-size: 14px;
-	color: #9d9e9e;
+	color: #424242;
 	text-shadow: 1px 1px 0 rgba(256,256,256,1.0);
 	background: #fff;
 	border: 1px solid #fff;
@@ -19,13 +32,18 @@ input[type=text], input[type=password] {
 	-webkit-box-shadow: inset 0 1px 3px rgba(0,0,0,0.50);
 }
 
+#plans, #videos, #pictures {
+  visibility: hidden;
+  width: 10px;
+  height: 0;
+}
 #login {
 	float: right;
 	width: 22%;
 	border-left: 1px solid #f3f3f3;
 	margin-left: 20px;
 }
-.login-form .login-header h2{
+.form .header h2{
 	font-family: 'Bree Serif', serif;
 	font-weight: 300;
 	font-size: 18px;
@@ -34,21 +52,21 @@ input[type=text], input[type=password] {
 	margin-bottom: 10px;
 }
 
-.login-form .login-footer {
+.form .footer {
 	padding-top: 30px;
 }
 #register {
 	float: left;
 	width: 75%;
 }
-.register-form {
+.form {
 	height: 500px;
 }
-.register-form .register-header {
+.form .header {
 	padding: 3px 30px 20px 30px;
 	text-align: center;
 }
-.register-form .register-header h1 {
+.form .header h1 {
 	font-family: 'Bree Serif', serif;
 	font-weight: 300;
 	font-size: 28px;
@@ -56,33 +74,37 @@ input[type=text], input[type=password] {
 	color: #f3f3f3;
 	margin-bottom: 10px;
 }
-.register-form .register-content {
+#register .form .content {
 	font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
 	font-weight: 400;
 	font-size: 14px;
 	padding: 0 100px 25px 30px;
 	text-align: right;
 }
-.register-form .register-content input{
+#register .form .content input{
 	width: 60%;
     clear: both;
 }
+.form .content input{
+    clear: both;
+}
 
-.register-content input:hover {
+.content input:hover {
 	background: #fbf7e4;
 	color: #414848;
 }
-.register-content input:focus {
+.content input:focus {
 	background: #fbf7e4;
 	color: #414848;
 	box-shadow: inset 0 1px 2px rgba(0,0,0,0.25);
 	-moz-box-shadow: inset 0 1px 2px rgba(0,0,0,0.25);
 	-webkit-box-shadow: inset 0 1px 2px rgba(0,0,0,0.25);
 }
-.register-form .register-footer {
+.form .footer {
+	margin: 0 auto;
 	padding: 20px;
 }
-.register-form .register-footer .reset, .register-form .register-footer .submit{
+.reset, .submit{
 	padding: 11px 25px;
 	font-family: 'Bree Serif', serif;
 	font-weight: 300;
@@ -97,8 +119,10 @@ input[type=text], input[type=password] {
 	-moz-box-shadow: inset 0 0 2px rgba(256,256,256,0.75);
 	-webkit-box-shadow: inset 0 0 2px rgba(256,256,256,0.75);
 	}
-.login-form .login-footer .button {
+#login .button, #footer .button{
 	float: right;
+}
+.button {
 	padding: 10px 20px;
 	font-family: 'Bree Serif', serif;
 	font-weight: 300;
@@ -113,7 +137,7 @@ input[type=text], input[type=password] {
 	-moz-box-shadow: inset 0 0 2px rgba(256,256,256,0.75);
 	-webkit-box-shadow: inset 0 0 2px rgba(256,256,256,0.75);
 }
-.login-form .login-footer .password{
+.password{
 	float: right;
 	display: block;
 	padding-top: 15px;
@@ -124,15 +148,15 @@ input[type=text], input[type=password] {
 	font-family: 'Bree Serif', serif;
 	font-weight: 300;
 	font-size: 16px;
-	color: #f3f3f3;
+	color: #424242;
 }
-.login-form .login-footer .password:hover{
+.form .footer .password:hover{
 	color: #8e001c;
 }
-.login-form .login-footer .button:hover, 
-.register-form .register-footer .reset:hover, 
-.register-form .register-footer .submit:hover 
-, .project submit:hover{
+.form .footer .button:hover, 
+.form .footer .reset:hover, 
+.form .footer .submit:hover, 
+.project .submit:hover{
 	background: #8e001c;
 	border: 1px solid rgba(256,256,256,0.75);
 	box-shadow: inset 0 1px 3px rgba(0,0,0,0.5);
@@ -153,33 +177,4 @@ input[type=text], input[type=password] {
 	background: #f3f3f3;
 	
 	border-radius: 5px;
-}
-.project input{
-	padding: 10px 20px;
-	margin-left: 10px;
-	font-weight: 400;
-	font-size: 14px;
-	color: #9d9e9e;
-	text-shadow: 1px 1px 0 rgba(256,256,256,1.0);
-	background: #fff;
-	border: 1px solid #fff;
-	border-radius: 5px;
-	box-shadow: inset 0 1px 3px rgba(0,0,0,0.50);
-	-moz-box-shadow: inset 0 1px 3px rgba(0,0,0,0.50);
-	-webkit-box-shadow: inset 0 1px 3px rgba(0,0,0,0.50);
-}
-.project submit{
-	padding: 10px 20px;
-	font-family: 'Bree Serif', serif;
-	font-weight: 300;
-	font-size: 18px;
-	color: #fbf7e4;
-	text-shadow: 0px 1px 0 rgba(0,0,0,0.25);
-	background: gray;
-	border: 1px solid #424242;
-	border-radius: 5px;
-	cursor: pointer;
-	box-shadow: inset 0 0 2px rgba(256,256,256,0.75);
-	-moz-box-shadow: inset 0 0 2px rgba(256,256,256,0.75);
-	-webkit-box-shadow: inset 0 0 2px rgba(256,256,256,0.75);
 }

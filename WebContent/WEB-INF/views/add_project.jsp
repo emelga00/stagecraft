@@ -2,17 +2,18 @@
     pageEncoding="ISO-8859-1" import="beans.*,data.*"%>
 <%@ taglib uri="http://ckeditor.com" prefix="ckeditor"%>   
 
-
+<div id="project-form">
 <form name="AddProject" class="project" action="Create" method="POST">
-  <fieldset>
-    <legend>Project Information</legend>
+  <div id="project-header" class="header">
+    <h1>Project Information</h1><br>
     <p>
+    </div>
       Project Title:*
       <br />
       <input type="text" name="title" size="50" Title="Please provide a title for this project. The title should be short but descriptive."/>
     </p>
-    <p>
-      Description:*
+    <br><br><br>
+    <p>Description:*
       <br />
       <textarea rows="15" cols="78" name="description" Title="This area is for the description of your project. Please describe your project, what it does, how it was used, etc."></textarea>
     </p>
@@ -55,3 +56,4 @@
   </div>
   
 </form>
+</div>

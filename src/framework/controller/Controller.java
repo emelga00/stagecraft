@@ -54,15 +54,8 @@ public class Controller extends HttpServlet {
 		requests.add(new RequestEntry("/User_Delete","Redirect",new User_Delete(),"protected", "admin"));
 		//--------------Submissions---------------------
 		requests.add(new RequestEntry("/ViewSubmissions", "Forward", new ViewSubmissions(), "public", ""));
-		
-		Foo(3);
 	}
-	
-	private void Foo(int i)
-	{
-	  System.out.print("hi");
-	}
-	
+
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		this.processRequest(request, response);
 	}

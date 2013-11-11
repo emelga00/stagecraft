@@ -9,19 +9,14 @@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	Project project = ProjectsDB.getProjByPID(projectID);
 	request.removeAttribute("projectID");
 	
-	ArrayList<Submission> vidSubmissions = new ArrayList<Submission>();
-	ArrayList<Submission> imgSubmissions = new ArrayList<Submission>();
-	ArrayList<Submission> planSubmissions = new ArrayList<Submission>();
+	ArrayList<?> vidSubmissions  = (ArrayList<?>) request.getAttribute("videos");
+	ArrayList<?> imgSubmissions  = (ArrayList<?>) request.getAttribute("images");
+	ArrayList<?> planSubmissions = (ArrayList<?>) request.getAttribute("plans");
 	
-	//pulls null
-	//vidSubmissions = (ArrayList<Submission>) session.getAttribute("videos");
-	//imgSubmissions = (ArrayList<Submission>) session.getAttribute("images");
-	//planSubmissions = (ArrayList<Submission>) session.getAttribute("plans");
-	
-	//cannot reach submissionDB
-	//vidSubmissions = SubmissionDB.getSubmissionsByTypeSortCategory("video", projID);
-	//vidSubmissions = SubmissionDB.getSubmissionsByTypeSortCategory("image", projID);
-	//vidSubmissions = SubmissionDB.getSubmissionsByTypeSortCategory("plan", projID);
+	/*cannot reach submissionDB
+	ArrayList<?> vidSubmissions = SubmissionDB.getSubmissionsByTypeSortCategory("video", projID);
+	ArrayList<?> imgSubmissions = SubmissionDB.getSubmissionsByTypeSortCategory("image", projID);
+	ArrayList<?> planSubmissions = SubmissionDB.getSubmissionsByTypeSortCategory("plan", projID);*/
 %>
 	<h1><%=project.getName()%> - Submissions </h1>
 	<table>

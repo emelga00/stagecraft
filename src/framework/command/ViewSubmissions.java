@@ -1,6 +1,4 @@
-package framework.command;
-
-import java.util.ArrayList;
+age framework.command;import java.util.ArrayList;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -18,17 +16,13 @@ public class ViewSubmissions implements Command
     int projID = Integer.parseInt(projectID);
     session.setAttribute("projectID", projectID);
     
-    ArrayList<Submission> vidSubmissions  = new ArrayList<Submission>();
-    ArrayList<Submission> imgSubmissions  = new ArrayList<Submission>();
-    ArrayList<Submission> planSubmissions = new ArrayList<Submission>();
+    ArrayList<Submission> vidSubmissions  = SubmissionDB.getSubmissionsByTypeSortCategory("video", projID);
+    ArrayList<Submission> imgSubmissions  = SubmissionDB.getSubmissionsByTypeSortCategory("image", projID);
+    ArrayList<Submission> planSubmissions = SubmissionDB.getSubmissionsByTypeSortCategory("plan" , projID);
     
-    vidSubmissions  = SubmissionDB.getSubmissionsByTypeSortCategory("video", projID);
-    imgSubmissions  = SubmissionDB.getSubmissionsByTypeSortCategory("image", projID);
-    planSubmissions = SubmissionDB.getSubmissionsByTypeSortCategory("plan" , projID);
-    
-    session.setAttribute("videos", vidSubmissions);
-    session.setAttribute("images", imgSubmissions);
-    session.setAttribute("plans" , planSubmissions);
+    request.setAttribute("videos", vidSubmissions);
+    request.setAttribute("images", imgSubmissions);
+    request.setAttribute("plans" , planSubmissions);
   
     return "/WEB-INF/views/view_submissions.jsp";
   }

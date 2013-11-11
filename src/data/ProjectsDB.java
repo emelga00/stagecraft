@@ -24,8 +24,10 @@ public class ProjectsDB {
   **********************************************************************/
   public static synchronized ArrayList<Project> getAllProjects()
   {
+    //array list to hold all projects
     ArrayList<Project> projects = new ArrayList<Project>();
     
+    //build the query
     StringBuilder query = new StringBuilder();
 
     query.append("SELECT p.projid, p.name, p.description, p.userID, ");
@@ -43,6 +45,7 @@ public class ProjectsDB {
       PreparedStatement statement = connection.prepareStatement(query.toString());      
       ResultSet resultSet         = statement.executeQuery();
 
+      //loop through the result set and add each project to the array list
       while(resultSet.next())
       {
         Project project = new Project();
@@ -61,11 +64,6 @@ public class ProjectsDB {
         project.setBannerPicID(resultSet.getInt(12));
         project.setBannerPicture(resultSet.getBytes(13));
 
-        if(project.getName() == null) 
-        {
-          project.setName("New Project");
-        }
-
         projects.add(project);  
       }
       
@@ -79,6 +77,7 @@ public class ProjectsDB {
       System.out.println("Query: " + query.toString());
     }
     
+    //return the projects
     return projects;
   }
 	
@@ -100,8 +99,10 @@ public class ProjectsDB {
   **********************************************************************/
   public static synchronized ArrayList<Project> getProjectsByAlpha(String projectName)
   {
+    //array list to hold projects that match the search string
     ArrayList<Project> projects = new ArrayList<Project>();
     
+    //build the query
     StringBuilder query = new StringBuilder();
     
     query.append("SELECT p.projid, p.name, p.description, p.userID, ");
@@ -119,10 +120,12 @@ public class ProjectsDB {
       Connection connection       = DBConnector.getConnection();
       PreparedStatement statement = connection.prepareStatement(query.toString());
       
+      //set the parameters for the query
       statement.setString(1, projectName+"%");
       
       ResultSet resultSet = statement.executeQuery();
 
+      //loop through the result set and add each project retrieved
       while(resultSet.next())
       {
         Project project = new Project();
@@ -141,13 +144,6 @@ public class ProjectsDB {
         project.setBannerPicID(resultSet.getInt(12));
         project.setBannerPicture(resultSet.getBytes(13));
 
-        //kill of any nulls in Name column
-        if(project.getName() == null) 
-        {
-          project.setName("New Project");
-        }
-
-        //add info columns
         projects.add(project);      
       }
       
@@ -161,6 +157,7 @@ public class ProjectsDB {
       System.out.println("Query: " + query.toString());
     }
     
+    //return the projects
     return projects;
   }
   
@@ -174,7 +171,7 @@ public class ProjectsDB {
   * that match the project name.                                        *
   *                                                                     *
   *     Required parameters                                             *
-  *     (String) projectName - the name of the project to search for    *
+  *     String projectName - the name of the project to search for    *
   *                                                                     *
   *     Return Value                                                    *
   *     ArrayList<Project> projects - Returns an arrayList of project   *

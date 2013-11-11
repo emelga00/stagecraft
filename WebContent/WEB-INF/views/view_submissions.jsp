@@ -13,9 +13,15 @@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	ArrayList<Submission> imgSubmissions = new ArrayList<Submission>();
 	ArrayList<Submission> planSubmissions = new ArrayList<Submission>();
 	
-	vidSubmissions = (ArrayList<Submission>) session.getAttribute("videos");
-	imgSubmissions = (ArrayList<Submission>) session.getAttribute("images");
-	planSubmissions = (ArrayList<Submission>) session.getAttribute("plans");
+	//pulls null
+	//vidSubmissions = (ArrayList<Submission>) session.getAttribute("videos");
+	//imgSubmissions = (ArrayList<Submission>) session.getAttribute("images");
+	//planSubmissions = (ArrayList<Submission>) session.getAttribute("plans");
+	
+	//cannot reach submissionDB
+	//vidSubmissions = SubmissionDB.getSubmissionsByTypeSortCategory("video", projID);
+	//vidSubmissions = SubmissionDB.getSubmissionsByTypeSortCategory("image", projID);
+	//vidSubmissions = SubmissionDB.getSubmissionsByTypeSortCategory("plan", projID);
 %>
 	<h1><%=project.getName()%> - Submissions </h1>
 	<table>

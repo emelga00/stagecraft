@@ -46,6 +46,7 @@ public class Controller extends HttpServlet {
 		//--------------Projects---------------------
 		requests.add(new RequestEntry("/Explore", "Forward", new Explore(), "public", ""));
 		requests.add(new RequestEntry("/Create","Forward",new Create(),"public", "")); //"user,admin"
+		requests.add(new RequestEntry("/Create_Post", "Forward", new Create_Post(), "public", ""));
 		requests.add(new RequestEntry("/ViewProject", "Forward", new ViewProject(), "public", ""));
 		//--------------Admin/Moderator Modify User---------------------
 		requests.add(new RequestEntry("/ViewUsers","Forward",new ViewUsers(),"protected", "admin,moderator"));
@@ -53,6 +54,13 @@ public class Controller extends HttpServlet {
 		requests.add(new RequestEntry("/User_Delete","Redirect",new User_Delete(),"protected", "admin"));
 		//--------------Submissions---------------------
 		requests.add(new RequestEntry("/ViewSubmissions", "Forward", new ViewSubmissions(), "public", ""));
+		
+		Foo(3);
+	}
+	
+	private void Foo(int i)
+	{
+	  System.out.print("hi");
 	}
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -104,15 +112,20 @@ public class Controller extends HttpServlet {
 		int index;
 		RequestEntry found=null;
 		
-		for(index=0;index<requests.size();index++){
+		for(index=0;index<requests.size();index++)
+		{
 			RequestEntry entry = requests.get(index);
-			if(urlMapping.equals(entry.getUrlMapping())){
+			
+			if(urlMapping.equals(entry.getUrlMapping()))
+			{
 				found = entry;
 				break;
 			}
 		}
+		
 		return found; 
 	}
+	
 	private boolean accessCheck(HttpServletRequest request,RequestEntry entry){
 		
 		boolean accessGranted=false;

@@ -3,7 +3,7 @@
 <%@ taglib uri="http://ckeditor.com" prefix="ckeditor"%>   
 
 <div id="project-form">
-<form name="AddProject" class="project" action="Create" method="POST">
+<form name="AddProject" class="project" action="Create_Post" method="POST">
   <div id="project-header" class="header">
     <h1>Project Information</h1><br>
     <p>

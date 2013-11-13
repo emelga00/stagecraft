@@ -9,7 +9,7 @@ import framework.controller.Command;
 
 public class UserProfile implements Command {
 	/***************************************************************************************
-	 * Class..............................................................ClientViewerList *
+	 * Class...................................................................UserProfile *
 	 * Author..........................................................................JLH *
 	 * ----------------------------------------------------------------------------------- *
 	 * This class provides next view destination for the controller -- List Clients page   *

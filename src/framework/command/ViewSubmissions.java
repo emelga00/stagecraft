@@ -1,8 +1,9 @@
-age framework.command;import java.util.ArrayList;
+package framework.command;
+
+import java.util.ArrayList;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-
 import framework.controller.Command;
 import data.*;
 import beans.*;

@@ -1,17 +1,10 @@
 package framework.command;
 
-import java.util.ArrayList;
-
-import javax.mail.Session;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-
 import data.UserDB;
-
 import beans.User;
-
-
 import framework.controller.Command;
 
 public class UserProfile implements Command {

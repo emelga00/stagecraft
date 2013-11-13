@@ -132,7 +132,9 @@ public class Cred_PostAdd implements Command {
 					session.setAttribute("status", status);
 					return "Login";
 				}
-				// ** Builds a Credential Bean
+				//This generates a random key. It then adds the key to the database and emails a copy of the key
+				//to the user. It makes it so that only someone with access to the user's email address can 
+				//reset the password.
 				String uuid = UUID.randomUUID().toString();
 				Credentials cred = new Credentials();
 				cred.setEmail(email);

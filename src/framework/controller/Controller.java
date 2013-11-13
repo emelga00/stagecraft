@@ -31,10 +31,6 @@ public class Controller extends HttpServlet {
 		requests.add(new RequestEntry("/SendForgotCred","Redirect",new SendForgotCred(),"public", ""));
 		requests.add(new RequestEntry("/Reset_Cred","Forward",new Reset_Cred(),"public", ""));
 		requests.add(new RequestEntry("/Reset_PostCred","Redirect",new Reset_PostCred(),"public", ""));
-		//--------------Role Menus--------------------------
-		requests.add(new RequestEntry("/AdminView","Forward",new AdminView(),"protected", "admin"));
-		requests.add(new RequestEntry("/ModUserView","Forward",new ModUserView(),"protected", "moderator"));
-		requests.add(new RequestEntry("/StandardUserView","Forward",new StandardUserView(),"public", ""));
 		//--------------Register User-------------------------
 		requests.add(new RequestEntry("/User_Add","Forward",new User_Add(),"public", ""));
 		requests.add(new RequestEntry("/User_PostAdd","Redirect",new User_PostAdd(),"public", ""));

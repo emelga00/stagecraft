@@ -54,7 +54,7 @@ page language="java" contentType="text/html; charset=ISO-8859-1"
 			  	<td><a href=<%=submission.getURL()%>>Click to View</a></td><%				    
 			  }%>
 				
-			<td><%=submission.getUserID()%></td><%
+			<td><%=submission.getUserName()%></td><%
 			
 			if(submission.getCategory()!=null)
 			  {%>
@@ -102,7 +102,9 @@ page language="java" contentType="text/html; charset=ISO-8859-1"
 		else
 		  {
 		    %><td><a href=<%=submission.getURL()%>></a></td><%
-		  }
+		  }%>
+			<td><%=submission.getUserName()%></td>
+		<%
 		if(submission.getCategory()!=null)
 		  {
 		    %><td><%=submission.getCategory()%></td><%
@@ -146,7 +148,9 @@ page language="java" contentType="text/html; charset=ISO-8859-1"
 		else
 		  {
 		    %><td><a href=<%=submission.getURL()%>></a></td><%
-		  }
+		  }%>
+		  	<td><%=submission.getUserName()%></td>
+		  <%
 		if(submission.getCategory()!=null)
 		  {
 		    %><td><%=submission.getCategory()%></td><%

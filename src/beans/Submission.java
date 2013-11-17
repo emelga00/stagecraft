@@ -10,6 +10,7 @@ public class Submission
   private String type;
   private String date;
   private String category;
+  private String userName; //used to get the user name from the user table and display in viewSubmissions
   
   public void setSubID(int subID){
     this.subID = subID;
@@ -58,5 +59,11 @@ public class Submission
   }
   public String getCategory(){
     return category;
+  }
+  public void setUserName(String name){
+    this.userName = name;
+  }
+  public String getUserName(){
+    return userName;
   }
 }

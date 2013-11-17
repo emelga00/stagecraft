@@ -1,5 +1,7 @@
 package framework.command;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.UUID;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -30,6 +32,7 @@ public class Cred_PostAdd implements Command {
 	String[] terms;
 	int checkEmail;
 	HttpSession session;
+	String cDate;
 	@Override
 	public String perform(HttpServletRequest request, HttpServletResponse response) {
 		/***********************************************************************
@@ -151,7 +154,8 @@ public class Cred_PostAdd implements Command {
 				if (results > 0) {
 					cred_ID = CredentialsDB.getCred_IDByBean(cred);
 					if (cred_ID != 0) {
-						results = UserDB.addUserFandL(fName, lName, cred_ID);
+						cDate = new SimpleDateFormat("MM-dd-yyyy").format(new Date());
+						results = UserDB.addUserFandL(fName, lName, cred_ID, cDate);
 						if (results > 0) {
 							user_ID = UserDB.getUserID(fName, lName, cred_ID);
 							CredentialsDB.addUserID(user_ID, cred_ID);

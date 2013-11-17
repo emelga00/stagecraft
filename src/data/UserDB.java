@@ -363,7 +363,7 @@ public class UserDB {
 		return status;
 	}
 	
-	public static synchronized int addUserFandL(String fName, String lName, int cred_ID){
+	public static synchronized int addUserFandL(String fName, String lName, int cred_ID, String cDate){
 		/***********************************************************************
 		 * Method......................................................addUser *
 		 * Author..........................................................JLH *
@@ -377,7 +377,7 @@ public class UserDB {
 		int status = 0;
 		Connection connection;
 
-		String preparedSQL = "INSERT INTO user (First_Name, Last_Name, Cred_ID) VALUES(?,?,?)";
+		String preparedSQL = "INSERT INTO user (First_Name, Last_Name, Cred_ID, Date) VALUES(?,?,?,?)";
 		PreparedStatement statement = null;	
 		try{
 			connection = DBConnector.getConnection();
@@ -385,6 +385,7 @@ public class UserDB {
 			statement.setString(1, fName);
 			statement.setString(2, lName);
 			statement.setInt(3, cred_ID);
+			statement.setString(4, cDate);
 			status = statement.executeUpdate();
 			statement.close();
 			connection.close();

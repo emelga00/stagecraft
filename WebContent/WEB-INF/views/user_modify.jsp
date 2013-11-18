@@ -13,17 +13,15 @@
 		<div class="register-header">
 			<h1>User Info</h1>
 		</div>
-		<div class="register-content">
-			First Name 
+		<div class="register-content" style="inline-block">
+		
+			<label>First Name</label> 
 			<input type="text" name="fName" class="modify-fName" value="<%=user.getFirst_Name()%>" size="30" disabled="disabled"/>
-			<br>
-			Last Name 
+			<label>Last Name</label> 
 			<input type="text" name="lName" class="modify-lName" value="<%=user.getLast_Name()%>" size="30" disabled="disabled"/>
-			<br>
-			Email 
+			<label>Email</label> 
 			<input type="text" name="email" class="modify-email" value="<%=user.getCreds_Email()%>" size="30" disabled="disabled"/> 
-			<br>
-			Role
+			<label>Role</label>
 			<%
 				if (currentRole.equals("admin")) {
 					if (user.getRole().equals("admin")) {
@@ -59,7 +57,8 @@
 					}
 				}
 			%>
-			Enabled?
+			<br />
+			<label>Enabled?</label>
 			<%
 				if (user.getValid()==0) {
 					out.println("<select name='enabled'>"
@@ -73,7 +72,7 @@
 							" </select> ");
 				}
 			%>
-			<br> <input type="hidden" name="userID" value="<%=user.getUser_ID()%>" />
+			<br> <input type="hidden" name="userID" value="<%=user.getUser_ID()%>" /><br><br>
 
 		</div>
 		<div class="register-footer">

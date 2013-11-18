@@ -336,12 +336,13 @@ public class ProjectsDB {
     {
       Connection connection       = DBConnector.getConnection();
       PreparedStatement statement = connection.prepareStatement(query.toString());
-      ResultSet resultSet         = statement.executeQuery();
-      
+
       statement.setString(1, proj.getName());
       statement.setString(2, proj.getDesc());
       statement.setInt(3, proj.getUserID());
-
+      
+      ResultSet resultSet         = statement.executeQuery();
+      
       while(resultSet.next())
       {
           project.setProjectID(resultSet.getInt(1));

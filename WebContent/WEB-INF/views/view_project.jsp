@@ -26,9 +26,7 @@
     Last Updated On: <%=project.getLastUpdatedDate() %> <br />
     Last Updated By: <%=project.getLastUpdatedBy() %> <br />
     Last Updated ID: <%=project.getLastUpdatedID() %> <br />
-    Organization ID: <%=project.getOrganizationID() %> <br />
-    Organization Name: <%=project.getOrganization() %> <br />
-    Banner Picture ID: <%=project.getBannerPicID() %> <br />
     Banner Picture: <%=project.getBannerPicture() %> <br />
+    Banner Picture Ext: <%=project.getBannerPicExt() %> <br />
     <%System.out.println("project id is "+project.getProjectID()); %>
     <a href="ViewSubmissions?projectID=<%=project.getProjectID()%>">View Submissions</a>

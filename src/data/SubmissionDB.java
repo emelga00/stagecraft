@@ -48,6 +48,40 @@ public class SubmissionDB
     
     return submissions;
   }
+  
+  public static synchronized int addSingleSubmission(Submission submission)
+  {    
+    String preparedSQL = "INSERT INTO submissions VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+    int status = 0;
+
+    try
+    {
+      Connection connection       = DBConnector.getConnection();
+      PreparedStatement statement = connection.prepareStatement(preparedSQL);
+      
+      statement.setInt   (1, submission.getSubID());
+      statement.setInt   (2, submission.getProjID());
+      statement.setInt   (3, submission.getUserID());
+      statement.setString(4, submission.getURL());    //A SUBMISSION SHOULD CONTAIN EITHER BE URL OR BLOB, NOT BOTH
+      statement.setBytes (5, submission.getBlob());
+      statement.setString(6, submission.getType());
+      statement.setString(7, submission.getDate());
+      statement.setString(8, submission.getCategory());
+      
+      status = statement.executeUpdate();
+
+      statement.close();
+      connection.close();
+    }
+    catch(SQLException ex)
+    {
+      System.out.println("Error: " +ex);
+      System.out.println("Query: " +preparedSQL.toString());
+    }
+    
+    return status;
+  }
+  
   public static synchronized int addSubmissions(ArrayList<Submission> submissions)
   {
     Submission submission = new Submission();

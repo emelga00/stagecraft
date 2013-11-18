@@ -32,11 +32,10 @@ public class ProjectsDB {
 
     query.append("SELECT p.projid, p.name, p.description, p.userID, ");
     query.append("(SELECT CONCAT_WS(' ', first_name, last_name) FROM user WHERE user_id = p.userID), ");
-    query.append("p.orgid, o.name, p.createddate, p.lastupdated, p.updateduserid, ");
+    query.append("p.createddate, p.lastupdated, p.updateduserid, ");
     query.append("(SELECT CONCAT_WS(' ', first_name, last_name) FROM user WHERE user_id = p.updateduserid), ");
-    query.append("p.bannerpicid, (SELECT s.blob FROM submission s WHERE p.bannerpicid = s.subid) ");
+    query.append("p.bannerpicture, p.bannerpictureextension ");
     query.append("FROM projects p ");
-    query.append("JOIN organizations o ON p.orgID = o.organizationid ");
     query.append("ORDER BY p.createddate, p.lastupdated ");
     
     try
@@ -55,14 +54,12 @@ public class ProjectsDB {
         project.setDesc(resultSet.getString(3));
         project.setUserID(resultSet.getInt(4));
         project.setSubmittedBy(resultSet.getString(5));
-        project.setOrganizationID(resultSet.getInt(6));
-        project.setOrganization(resultSet.getString(7));
-        project.setCreatedDate(resultSet.getString(8));
-        project.setLastUpdatedDate(resultSet.getString(9));
-        project.setLastUpdatedID(resultSet.getInt(10));
-        project.setLastUpdatedBy(resultSet.getString(11));
-        project.setBannerPicID(resultSet.getInt(12));
-        project.setBannerPicture(resultSet.getBytes(13));
+        project.setCreatedDate(resultSet.getString(6));
+        project.setLastUpdatedDate(resultSet.getString(7));
+        project.setLastUpdatedID(resultSet.getInt(8));
+        project.setLastUpdatedBy(resultSet.getString(9));
+        project.setBannerPicture(resultSet.getBytes(10));
+        project.setBannerPicExt(resultSet.getString(11));
 
         projects.add(project);  
       }
@@ -107,11 +104,10 @@ public class ProjectsDB {
     
     query.append("SELECT p.projid, p.name, p.description, p.userID, ");
     query.append("(SELECT CONCAT_WS(' ', first_name, last_name) FROM user WHERE user_id = p.userID), ");
-    query.append("p.orgid, o.name, p.createddate, p.lastupdated, p.updateduserid, ");
+    query.append("p.createddate, p.lastupdated, p.updateduserid, ");
     query.append("(SELECT CONCAT_WS(' ', first_name, last_name) FROM user WHERE user_id = p.updateduserid), ");
-    query.append("p.bannerpicid, (SELECT s.blob FROM submission s WHERE p.bannerpicid = s.subid) ");
+    query.append("p.bannerpicture, p.bannerpictureextension ");
     query.append("FROM projects p ");
-    query.append("JOIN organizations o ON p.orgID = o.organizationid ");
     query.append("WHERE p.name LIKE ? ");
     query.append("ORDER BY p.createddate, p.lastupdated ");
     
@@ -135,14 +131,12 @@ public class ProjectsDB {
         project.setDesc(resultSet.getString(3));
         project.setUserID(resultSet.getInt(4));
         project.setSubmittedBy(resultSet.getString(5));
-        project.setOrganizationID(resultSet.getInt(6));
-        project.setOrganization(resultSet.getString(7));
-        project.setCreatedDate(resultSet.getString(8));
-        project.setLastUpdatedDate(resultSet.getString(9));
-        project.setLastUpdatedID(resultSet.getInt(10));
-        project.setLastUpdatedBy(resultSet.getString(11));
-        project.setBannerPicID(resultSet.getInt(12));
-        project.setBannerPicture(resultSet.getBytes(13));
+        project.setCreatedDate(resultSet.getString(6));
+        project.setLastUpdatedDate(resultSet.getString(7));
+        project.setLastUpdatedID(resultSet.getInt(8));
+        project.setLastUpdatedBy(resultSet.getString(9));
+        project.setBannerPicture(resultSet.getBytes(10));
+        project.setBannerPicExt(resultSet.getString(11));
 
         projects.add(project);      
       }
@@ -185,11 +179,10 @@ public class ProjectsDB {
     
     query.append("SELECT p.projid, p.name, p.description, p.userID, ");
     query.append("(SELECT CONCAT_WS(' ', first_name, last_name) FROM user WHERE user_id = p.userID), ");
-    query.append("p.orgid, o.name, p.createddate, p.lastupdated, p.updateduserid, ");
+    query.append("p.createddate, p.lastupdated, p.updateduserid, ");
     query.append("(SELECT CONCAT_WS(' ', first_name, last_name) FROM user WHERE user_id = p.updateduserid), ");
-    query.append("p.bannerpicid, (SELECT s.blob FROM submission s WHERE p.bannerpicid = s.subid) ");
+    query.append("p.bannerpicture, p.bannerpictureextension ");
     query.append("FROM projects p ");
-    query.append("JOIN organizations o ON p.orgID = o.organizationid ");
     query.append("WHERE p.name = ? ");
     query.append("ORDER BY p.createddate, p.lastupdated ");
     
@@ -211,14 +204,12 @@ public class ProjectsDB {
         project.setDesc(resultSet.getString(3));
         project.setUserID(resultSet.getInt(4));
         project.setSubmittedBy(resultSet.getString(5));
-        project.setOrganizationID(resultSet.getInt(6));
-        project.setOrganization(resultSet.getString(7));
-        project.setCreatedDate(resultSet.getString(8));
-        project.setLastUpdatedDate(resultSet.getString(9));
-        project.setLastUpdatedID(resultSet.getInt(10));
-        project.setLastUpdatedBy(resultSet.getString(11));
-        project.setBannerPicID(resultSet.getInt(12));
-        project.setBannerPicture(resultSet.getBytes(13));
+        project.setCreatedDate(resultSet.getString(6));
+        project.setLastUpdatedDate(resultSet.getString(7));
+        project.setLastUpdatedID(resultSet.getInt(8));
+        project.setLastUpdatedBy(resultSet.getString(9));
+        project.setBannerPicture(resultSet.getBytes(10));
+        project.setBannerPicExt(resultSet.getString(11));
         
         //kill of any nulls in Name column
         if(project.getName() == null) 
@@ -264,11 +255,10 @@ public class ProjectsDB {
     
     query.append("SELECT p.projid, p.name, p.description, p.userID, ");
     query.append("(SELECT CONCAT_WS(' ', first_name, last_name) FROM user WHERE user_id = p.userID), ");
-    query.append("p.orgid, o.name, p.createddate, p.lastupdated, p.updateduserid, ");
+    query.append("p.createddate, p.lastupdated, p.updateduserid, ");
     query.append("(SELECT CONCAT_WS(' ', first_name, last_name) FROM user WHERE user_id = p.updateduserid), ");
-    query.append("p.bannerpicid, (SELECT s.blob FROM submission s WHERE p.bannerpicid = s.subid) ");
+    query.append("p.bannerpicture, p.bannerpictureextension ");
     query.append("FROM projects p ");
-    query.append("JOIN organizations o ON p.orgID = o.organizationid ");
     query.append("WHERE p.projid = ? ");
     query.append("ORDER BY p.createddate, p.lastupdated ");
     
@@ -283,19 +273,17 @@ public class ProjectsDB {
 
       while(resultSet.next())
       {
-        project.setProjectID(resultSet.getInt(1));
-        project.setName(resultSet.getString(2)); 
-        project.setDesc(resultSet.getString(3));
-        project.setUserID(resultSet.getInt(4));
-        project.setSubmittedBy(resultSet.getString(5));
-        project.setOrganizationID(resultSet.getInt(6));
-        project.setOrganization(resultSet.getString(7));
-        project.setCreatedDate(resultSet.getString(8));
-        project.setLastUpdatedDate(resultSet.getString(9));
-        project.setLastUpdatedID(resultSet.getInt(10));
-        project.setLastUpdatedBy(resultSet.getString(11));
-        project.setBannerPicID(resultSet.getInt(12));
-        project.setBannerPicture(resultSet.getBytes(13));
+          project.setProjectID(resultSet.getInt(1));
+          project.setName(resultSet.getString(2)); 
+          project.setDesc(resultSet.getString(3));
+          project.setUserID(resultSet.getInt(4));
+          project.setSubmittedBy(resultSet.getString(5));
+          project.setCreatedDate(resultSet.getString(6));
+          project.setLastUpdatedDate(resultSet.getString(7));
+          project.setLastUpdatedID(resultSet.getInt(8));
+          project.setLastUpdatedBy(resultSet.getString(9));
+          project.setBannerPicture(resultSet.getBytes(10));
+          project.setBannerPicExt(resultSet.getString(11));
         
         //kill of any nulls in Name column
         if(project.getName() == null) 
@@ -336,15 +324,14 @@ public class ProjectsDB {
     
     query.append("SELECT p.projid, p.name, p.description, p.userID, ");
     query.append("(SELECT CONCAT_WS(' ', first_name, last_name) FROM user WHERE user_id = p.userID), ");
-    query.append("p.orgid, o.name, p.createddate, p.lastupdated, p.updateduserid, ");
+    query.append("p.createddate, p.lastupdated, p.updateduserid, ");
     query.append("(SELECT CONCAT_WS(' ', first_name, last_name) FROM user WHERE user_id = p.updateduserid), ");
-    query.append("p.bannerpicid, (SELECT s.blob FROM submission s WHERE p.bannerpicid = s.subid) ");
+    query.append("p.bannerpicture, p.bannerpictureextension ");
     query.append("FROM projects p ");
-    query.append("JOIN organizations o ON p.orgID = o.organizationid ");
     query.append("WHERE p.name = ? ");
     query.append("AND p.description = ? ");
-    query.append("ORDER BY p.createddate, p.lastupdated ");
-    
+    query.append("AND p.userID = ? ");
+
     try
     {
       Connection connection       = DBConnector.getConnection();
@@ -353,22 +340,21 @@ public class ProjectsDB {
       
       statement.setString(1, proj.getName());
       statement.setString(2, proj.getDesc());
+      statement.setInt(3, proj.getUserID());
 
       while(resultSet.next())
       {
-        project.setProjectID(resultSet.getInt(1));
-        project.setName(resultSet.getString(2)); 
-        project.setDesc(resultSet.getString(3));
-        project.setUserID(resultSet.getInt(4));
-        project.setSubmittedBy(resultSet.getString(5));
-        project.setOrganizationID(resultSet.getInt(6));
-        project.setOrganization(resultSet.getString(7));
-        project.setCreatedDate(resultSet.getString(8));
-        project.setLastUpdatedDate(resultSet.getString(9));
-        project.setLastUpdatedID(resultSet.getInt(10));
-        project.setLastUpdatedBy(resultSet.getString(11));
-        project.setBannerPicID(resultSet.getInt(12));
-        project.setBannerPicture(resultSet.getBytes(13));
+          project.setProjectID(resultSet.getInt(1));
+          project.setName(resultSet.getString(2)); 
+          project.setDesc(resultSet.getString(3));
+          project.setUserID(resultSet.getInt(4));
+          project.setSubmittedBy(resultSet.getString(5));
+          project.setCreatedDate(resultSet.getString(6));
+          project.setLastUpdatedDate(resultSet.getString(7));
+          project.setLastUpdatedID(resultSet.getInt(8));
+          project.setLastUpdatedBy(resultSet.getString(9));
+          project.setBannerPicture(resultSet.getBytes(10));
+          project.setBannerPicExt(resultSet.getString(11));
       }
       
       resultSet.close();    
@@ -400,7 +386,7 @@ public class ProjectsDB {
     StringBuilder query = new StringBuilder();
     
     query.append("INSERT INTO projects ");
-    query.append("(name, createddate, description, userid, orgid, bannerpicid) ");
+    query.append("(name, createddate, description, userid, bannerpicture, bannerpictureextension) ");
     query.append("VALUES ");
     query.append("(?, ?, ?, ?, ?, ?) ");
     
@@ -415,8 +401,8 @@ public class ProjectsDB {
       statement.setString(2, new Date().toString());
       statement.setString(3, project.getDesc());
       statement.setInt(4, project.getUserID());
-      statement.setInt(5, project.getOrganizationID());
-      statement.setInt(6, project.getBannerPicID());
+      statement.setBytes(5, project.getBannerPicture());
+      statement.setString(6, project.getBannerPicExt());
 
       status = statement.executeUpdate();
       
@@ -449,8 +435,8 @@ public class ProjectsDB {
     StringBuilder query = new StringBuilder();
     
     query.append("UPDATE projects ");
-    query.append("SET name = ?, description = ?, bannerpicid = ?, ");
-    query.append("orgid = ?, lastupdated = ?, updateduserid = ? ");
+    query.append("SET name = ?, description = ?, bannerpicture = ?, ");
+    query.append("bannerpictureextension = ?, lastupdated = ?, updateduserid = ? ");
     query.append("WHERE projid = ? ");
     
     int status = 0;
@@ -462,8 +448,8 @@ public class ProjectsDB {
       
       statement.setString(1, project.getName());
       statement.setString(2, project.getDesc());
-      statement.setInt(3, project.getBannerPicID());
-      statement.setInt(4, project.getOrganizationID());      
+      statement.setBytes(3, project.getBannerPicture());  
+      statement.setString(4, project.getBannerPicExt());
       statement.setString(5, new Date().toString());
       statement.setInt(6, project.getLastUpdatedID());
 

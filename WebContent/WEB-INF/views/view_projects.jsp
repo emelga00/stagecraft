@@ -34,12 +34,10 @@
       Last Updated On: <%=project.getLastUpdatedDate() %> <br />
       Last Updated By: <%=project.getLastUpdatedBy() %> <br />
       Last Updated ID: <%=project.getLastUpdatedID() %> <br />
-      Organization ID: <%=project.getOrganizationID() %> <br />
-      Organization Name: <%=project.getOrganization() %> <br />
-      Banner Picture ID: <%=project.getBannerPicID() %> <br />
       Banner Picture: <%=project.getBannerPicture() %> <br />
+      Banner Extension: <%=project.getBannerPicExt() %> <br />
       <br />
-      <a href="ViewProject?projectID=<%=project.getProjectID()%>">View Project Page</a>
+      <a href="ViewProject?projectID=<%=project.getProjectID() %>">View Project Page</a>
       <br />
       <br />
       <hr />  
@@ -50,7 +48,7 @@
   else //no projects found, show a link to the create page
   {
 %>
-    <p>No projects were found. Why not <a href="Create">create</a> one?</p>
+    <p>No projects were found.</p>
 <%
   }
 %>

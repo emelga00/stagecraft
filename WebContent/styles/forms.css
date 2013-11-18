@@ -14,7 +14,8 @@ input[type=checkbox] {
 	display: inline-block;
  	float: left;
 }
-input[type=text], input[type=password] {
+
+input[type=text], input[type=password],select {
 	display: inline-block;
  	float: left;
 	padding: 10px 15px;

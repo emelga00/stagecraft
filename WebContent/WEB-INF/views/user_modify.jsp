@@ -25,19 +25,19 @@
 			<%
 				if (currentRole.equals("admin")) {
 					if (user.getRole().equals("admin")) {
-						out.println("<select name='role'>"
+						out.println("<select name='role' style='width:10em'>"
 								+ " <option value='user'>user</option>"
 								+ " <option value='moderator'>moderator</option>"
 								+ " <option value='admin' selected>admin</option>"
 								+ " </select> ");
 					} else if (user.getRole().equals("moderator")) {
-						out.println("<select name='role'>"
+						out.println("<select name='role' style='width:10em'>"
 								+ " <option value='user'>user</option>"
 								+ " <option value='moderator' selected>moderator</option>"
 								+ " <option value='admin'>admin</option>"
 								+ " </select> ");
 					} else if (user.getRole().equals("user")) {
-						out.println("<select name='role'>"
+						out.println("<select name='role' style='width:10em'>"
 								+ " <option value='user' selected>user</option>"
 								+ " <option value='moderator'>moderator</option>"
 								+ " <option value='admin'>admin</option>"
@@ -45,12 +45,12 @@
 					}
 				} else if (currentRole.equals("moderator")) {
 					if (user.getRole().equals("moderator")) {
-						out.println("<select name='role'>"
+						out.println("<select name='role' style='width:10em'>"
 								+ " <option value='user'>user</option>"
 								+ " <option value='moderator' selected>moderator</option>"
 								+ " </select> ");
 					}else if (user.getRole().equals("user")) {
-						out.println("<select name='role'>"
+						out.println("<select name='role' style='width:10em'>"
 								+ " <option value='user' selected>user</option>"
 								+ " <option value='moderator'>moderator</option>"
 								+ " </select> ");
@@ -61,19 +61,20 @@
 			<label>Enabled?</label>
 			<%
 				if (user.getValid()==0) {
-					out.println("<select name='enabled'>"
+					out.println("<select name='enabled' style='width:10em'>"
 							+ " <option value='yes' selected>enabled</option>"
 							+ " <option value='no'>disabled</option>" + 
 							" </select> ");
 				}else{
-					out.println("<select name='enabled'>"
+					out.println("<select name='enabled' style='width:10em'>"
 							+ " <option value='yes'>enabled</option>"
 							+ " <option value='no' selected>disabled</option>" + 
 							" </select> ");
 				}
 			%>
-			<br> <input type="hidden" name="userID" value="<%=user.getUser_ID()%>" /><br><br>
-
+			<br> <input type="hidden" name="userID" value="<%=user.getUser_ID()%>" />
+			<div class="clear"></div>
+			<br><br>
 		</div>
 		<div class="register-footer">
 			<input type="submit" name="submit" value="Cancel" class="submit" />

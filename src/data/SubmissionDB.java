@@ -8,8 +8,6 @@ public class SubmissionDB
 {
   public static synchronized ArrayList<Submission> getSubmissionsByTypeSortCategory(String type, int projID)
   {
-    System.out.println("In getSubmissionsByType method");
-    
     Submission submission = new Submission();
     ArrayList<Submission> submissions = new ArrayList<Submission>();
     
@@ -48,7 +46,48 @@ public class SubmissionDB
       System.out.println("Query: " +statement.toString());
     }
     
-    System.out.println("Returning Submissions");
     return submissions;
+  }
+  public static synchronized int addSubmissions(ArrayList<Submission> submissions)
+  {
+    Submission submission = new Submission();
+    
+    PreparedStatement statement = null;
+    Connection connection;
+    String preparedSQL = "INSERT INTO submissions VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+    int status = 0;
+    ResultSet rs = null;
+    
+    try
+    {
+      connection = DBConnector.getConnection();
+      for(int i = 0; i< submissions.size(); i++)
+        {
+          submission = submissions.get(i);
+          statement = connection.prepareStatement(preparedSQL);
+          
+          statement.setInt   (1, submission.getSubID());
+          statement.setInt   (2, submission.getProjID());
+          statement.setInt   (3, submission.getUserID());
+          statement.setString(4, submission.getURL());    //A SUBMISSION SHOULD CONTAIN EITHER BE URL OR BLOB, NOT BOTH
+          statement.setBytes (5, submission.getBlob());
+          statement.setString(6, submission.getType());
+          statement.setString(7, submission.getDate());
+          statement.setString(8, submission.getCategory());
+          
+          status += statement.executeUpdate();
+          rs = statement.executeQuery();
+        }
+      rs.close();
+      statement.close();
+      connection.close();
+    }
+    catch(SQLException ex)
+    {
+      System.out.println("Error: " +ex);
+      System.out.println("Query: " +statement.toString());
+    }
+    
+    return status;
   }
 }

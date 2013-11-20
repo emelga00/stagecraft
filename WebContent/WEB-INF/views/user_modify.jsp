@@ -8,19 +8,19 @@
 %>
 <div id="register">
 
-	<form name="registration" class="register-form"
+	<form name="registration" class="modify-form"
 		action="User_PostModify" method="post">
-		<div class="register-header">
+		<div class="modify-header">
 			<h1>User Info</h1>
 		</div>
-		<div class="register-content" style="inline-block">
+		<div class="modify-content" style="inline-block">
 		
 			<label>First Name</label> 
-			<input type="text" name="fName" class="modify-fName" value="<%=user.getFirst_Name()%>" size="30" disabled="disabled"/>
+			<input type="text" name="fName" class="modify-field" value="<%=user.getFirst_Name()%>" size="30" disabled="disabled"/>
 			<label>Last Name</label> 
-			<input type="text" name="lName" class="modify-lName" value="<%=user.getLast_Name()%>" size="30" disabled="disabled"/>
+			<input type="text" name="lName" class="modify-field" value="<%=user.getLast_Name()%>" size="30" disabled="disabled"/>
 			<label>Email</label> 
-			<input type="text" name="email" class="modify-email" value="<%=user.getCreds_Email()%>" size="30" disabled="disabled"/> 
+			<input type="text" name="email" class="modify-field" value="<%=user.getCreds_Email()%>" size="30" disabled="disabled"/> 
 			<label>Role</label>
 			<%
 				if (currentRole.equals("admin")) {
@@ -76,7 +76,7 @@
 			<div class="clear"></div>
 			<br><br>
 		</div>
-		<div class="register-footer">
+		<div class="modify-footer">
 			<input type="submit" name="submit" value="Cancel" class="submit" />
 			<input type="reset" name="reset" value="Reset" class="reset" /> <input
 				type="submit" name="submit" value="Submit" class="submit" />

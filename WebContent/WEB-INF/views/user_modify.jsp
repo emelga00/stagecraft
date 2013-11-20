@@ -6,14 +6,14 @@
 	User user = (User) session.getAttribute("user");
 	String currentRole = (String) session.getAttribute("currentRole");
 %>
-<div id="register">
+<div id="modify">
 
 	<form name="registration" class="modify-form"
 		action="User_PostModify" method="post">
 		<div class="modify-header">
 			<h1>User Info</h1>
 		</div>
-		<div class="modify-content" style="inline-block">
+		<div class="modify-content" >
 		
 			<label>First Name</label> 
 			<input type="text" name="fName" class="modify-field" value="<%=user.getFirst_Name()%>" size="30" disabled="disabled"/>

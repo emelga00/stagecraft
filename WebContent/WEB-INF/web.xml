@@ -47,6 +47,7 @@
     <url-pattern>/ViewSubmissions</url-pattern>
     <url-pattern>/Create_Post</url-pattern>
     <url-pattern>/Submission_Add</url-pattern>
+    <url-pattern>/UpdateUserProfile</url-pattern>
 
   </servlet-mapping>
 </web-app>

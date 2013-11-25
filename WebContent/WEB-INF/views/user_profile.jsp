@@ -4,16 +4,15 @@
 
 <%
 	User user = (User) session.getAttribute("userProfile");
+	session.removeAttribute("userProfile");
 	String currentUsername = (String) session.getAttribute("currentUsername");
 	int currentUserID = 0;
 	if(currentUsername !=null){
 	currentUserID = (Integer) session.getAttribute("currentUserID");
 	}
-	String disabled = "disabled='disabled'";
 	Boolean cUser = false;
 	if (user.getUser_ID()==currentUserID){
 		cUser=true;
-		disabled = "";
 	}
 	
 	
@@ -51,12 +50,14 @@
 			<br>
 		
 		</div>
-		<div class="clear"></div>
-		<div class='button'>Update Profile</class></div>
-	</div>
-	<div class="clear"></div>
+		
 	<div class="profile-footer">
-	 
+	 <div class="clear"></div>
+		<% if(cUser){
+	out.println("<div class='button'> <a href='UpdateUserProfile'>Update Profile</a></div>");
+		session.setAttribute("updatingUser",user);
+	}%>
+	</div>
 	</div>
 	<br><br>
 </profile>

@@ -119,7 +119,7 @@ public class Create_Post implements Command
     	request.setAttribute("projectID", newProject.getProjectID());
     	
     	//go to the add submission page
-    	return "Submission_Add";
+    	return "Create";
     }
   }
 }

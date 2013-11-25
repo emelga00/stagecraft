@@ -8,7 +8,7 @@
 	<ul>
 		<li><a class="active" href="Explore">Explore</a></li>
 		<li><a href="<%=gotoPage %>">Create</a></li>
-        <li><a href="http://70.178.114.2:5555/mediawiki">WIKI</a></li>
+        <li><a href="http://70.178.114.2:5555/mediawiki" target="_blank">WIKI</a></li>
         <li><a href="Login">Login</a></li>
 	</ul>
 </div>     

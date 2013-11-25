@@ -32,12 +32,9 @@ public class Controller extends HttpServlet {
 		requests.add(new RequestEntry("/Reset_Cred","Forward",new Reset_Cred(),"public", ""));
 		requests.add(new RequestEntry("/Reset_PostCred","Redirect",new Reset_PostCred(),"public", ""));
 		//--------------Register User-------------------------
-		requests.add(new RequestEntry("/User_Add","Forward",new User_Add(),"public", ""));
-		requests.add(new RequestEntry("/User_PostAdd","Redirect",new User_PostAdd(),"public", ""));
 		requests.add(new RequestEntry("/Credential_Add","Forward",new Credential_Add(),"public", ""));
 		requests.add(new RequestEntry("/Cred_PostAdd","Redirect",new Cred_PostAdd(),"public", ""));
 		//--------------User-------------------------
-		requests.add(new RequestEntry("/User_Modify","Forward",new User_Modify(),"protected", "user,moderator,admin"));
 		requests.add (new RequestEntry("/UserProfile","Forward",new UserProfile(),"public", ""));
 		//--------------Projects---------------------
 		requests.add(new RequestEntry("/Explore", "Forward", new Explore(), "public", ""));
@@ -46,7 +43,6 @@ public class Controller extends HttpServlet {
 		requests.add(new RequestEntry("/ViewProject", "Forward", new ViewProject(), "public", ""));
 		//--------------Admin/Moderator Modify User---------------------
 		requests.add(new RequestEntry("/ViewUsers","Forward",new ViewUsers(),"protected", "admin,moderator"));
-		requests.add(new RequestEntry("/User_PostModify","Redirect",new User_PostModify(),"protected", "admin,moderator"));
 		requests.add(new RequestEntry("/User_Delete","Redirect",new User_Delete(),"protected", "admin"));
 		//--------------Submissions---------------------
 		requests.add(new RequestEntry("/ViewSubmissions", "Forward", new ViewSubmissions(), "public", ""));

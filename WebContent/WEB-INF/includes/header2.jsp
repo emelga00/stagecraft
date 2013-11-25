@@ -16,7 +16,7 @@ if(session.getAttribute("currentUserID") == null)
 	<ul>
 		<li><a class="active" href="Explore">Explore</a></li>
 		<li><a href="<%=gotoPage %>">Create</a></li>
-        <li><a href="http://70.178.114.2:5555/mediawiki">WIKI</a></li>
+        <li><a href="http://70.178.114.2:5555/mediawiki" target="_blank">WIKI</a></li>
         	<ul>
         		<% if(currentRole.equals("admin")||currentRole.equals("moderator")||currentRole.equals("user")){
             	out.println("<li><a href='UserProfile'>"+currentUsername+"</a></li>");

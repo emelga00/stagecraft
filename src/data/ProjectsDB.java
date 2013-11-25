@@ -1,6 +1,7 @@
 package data;
 
 import java.sql.*; 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import beans.Project;
@@ -399,7 +400,7 @@ public class ProjectsDB {
       PreparedStatement statement = connection.prepareStatement(query.toString());
       
       statement.setString(1, project.getName());
-      statement.setString(2, new Date().toString());
+      statement.setString(2, new SimpleDateFormat("MM-dd-yyyy").format(new Date()));
       statement.setString(3, project.getDesc());
       statement.setInt(4, project.getUserID());
       statement.setBytes(5, project.getBannerPicture());

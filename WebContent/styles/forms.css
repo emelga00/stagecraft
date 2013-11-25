@@ -164,7 +164,18 @@ input[type=text], input[type=password],select {
 	-moz-box-shadow: inset 0 1px 3px rgba(0,0,0,0.5);
 	-webkit-box-shadow: inset 0 1px 3px rgba(0,0,0,0.5);
 }
-
+.modify-header{
+	margin: 0 400px;
+}
+.modify-content{
+	margin: 0 200px;
+}
+.modify-field{
+	border: 3px solid black;
+}
+.modify-footer{
+	margin: 0 300px;
+}
 .search-form
 {
 	margin: 0px;

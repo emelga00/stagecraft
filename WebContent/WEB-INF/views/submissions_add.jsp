@@ -33,8 +33,8 @@ $(function() {
 </script>
 <script type="text/javascript">
 $(function() {
-	var addDiv = $('#addImgInput');
-	var i = $('#addImgInput p').size() + 1;
+	var addDiv = $('#addFileInput');
+	var i = $('#addFileInput p').size() + 1;
 
 	$('#addNewFile').live('click', function() {
 		$('<p><input type="file" id="p_newFile" name="file_'+i+'" /><select name="newFileTypes_'+i+'"><option value="plan" >Plan </option><option value="video">Video</option><option value="image">Image</option></select><input type="text" id="p_new" size="20" name="newFileTag_'+i+'" value="" placeholder="tag: (\'set\',\'trailer\',\'costume\',...)" /><a href="#" id="remNewFile">Remove</a></p>').appendTo(addDiv);
@@ -70,10 +70,10 @@ $(function() {
 <a href="#" id="addNew">Add another URL</a>
 </p>
 </div>
-<div id="addImgInput">
+<div id="addFileInput">
 <h3>Add File(s)</h3>
 <p>
-<input type="file" name="img" placeholder="">
+<input type="file" name="img">
 <select name="fileTypes">
 	<option value="plan" >Plan </option>
 	<option value="video">Video</option>

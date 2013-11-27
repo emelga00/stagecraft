@@ -38,7 +38,7 @@
 <body>
 
 <!-- Start page content -->
-<h2 class="centerIt" >Moderator Console</h2>
+<h2 class="centerIt" >View Users Console</h2>
 <%
 	if(result.equals("")){
 out.println("<div class='centerIt' id='status'>"+status+"</div>");
@@ -47,8 +47,6 @@ else{
 out.println("<div class='centerIt' id='status'>"+result+"</div>");
 }
 %>
-<div class="centerIt" id="navLinks"><a class="jBtn" href="ClientAdminMenu">Back to the client admin menu</a><br /><br /></div>
-
 <div id="listHolder">
 	<table class="listTable">
 		<tr>

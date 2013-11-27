@@ -53,7 +53,9 @@
 	</div>
 	<div class="clear"></div>
 	<div class="profile-footer">
-		<% if(cUser){
+		<%
+		System.out.println(cUser);
+		if(cUser){
 	out.println("<a href='UpdateUserProfile'>Update Profile</a>");
 		session.setAttribute("updatingUser",user);
 	}%>

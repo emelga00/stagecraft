@@ -34,30 +34,29 @@
 			
 		</div>
 		<div id="profile-info">
-			Name:    <%=user.getFirst_Name()%> <%=user.getLast_Name()%>
-			<br>
-			Email:   <%=user.getCreds_Email()%>
-			<br>
-			Phone:   <%=user.getPhone()%>
-			<br>
-			Address: <%=user.getAddress()%>
-			<br>
-			City:    <%=user.getCity()%>
-			<br>
-			State:   <%=user.getState()%>
-			<br>
-			Zipcode: <%=user.getZIP()%>
+			<b>Name:</b>    <%=user.getFirst_Name()%> <%=user.getLast_Name()%>
+			<br><br>
+			<b>Email:</b>   <%=user.getCreds_Email()%>
+			<br><br>
+			<b>Phone:</b>   <%=user.getPhone()%>
+			<br><br>
+			<b>Address:</b> <%=user.getAddress()%>
+			<br><br>
+			<b>City:</b>    <%=user.getCity()%>
+			<br><br>
+			<b>State:</b>   <%=user.getState()%>
+			<br><br>
+			<b>Zipcode:</b> <%=user.getZIP()%>
 			<br>
 		
 		</div>
-		
+	</div>
+	<div class="clear"></div>
 	<div class="profile-footer">
-	 <div class="clear"></div>
 		<% if(cUser){
-	out.println("<div class='button'> <a href='UpdateUserProfile'>Update Profile</a></div>");
+	out.println("<a href='UpdateUserProfile'>Update Profile</a>");
 		session.setAttribute("updatingUser",user);
 	}%>
-	</div>
 	</div>
 	<br><br>
 </profile>

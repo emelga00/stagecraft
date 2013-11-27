@@ -105,5 +105,4 @@
 		</form>
 	</div>
 </div>
-<div class="clear"></div>
 <div class="error message"><%=status%></div>

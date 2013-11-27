@@ -37,21 +37,48 @@ section.stretch p.bottom{
     padding: 0 20px;
 	font-family: 'Bree Serif', serif;
 	font-weight: 300;
-	font-size: 18px;
+	font-size: 20px;
 	color: #424242;
 	margin-bottom: 10px;
 }
-profile .profile-content{
+profile{
 	background: #f3f3f3;
 	border: 3px solid gray;
 	min-height: 400px;
+	width: 960px;
 	position: absolute;
+}
+
+update-profile{
+	background: #f3f3f3;
+	border: 3px solid gray;
+	min-height: 400px;
+	width: 960px;
+	position: absolute;
+}
+.update {
+	padding: 10px 20px;
+	font-family: 'Bree Serif', serif;
+	font-weight: 300;
+	font-size: 18px;
+	color: #fbf7e4;
+	text-shadow: 0px 1px 0 rgba(0,0,0,0.25);
+	background: gray;
+	border: 1px solid #424242;
+	border-radius: 5px;
+	cursor: pointer;
+	box-shadow: inset 0 0 2px rgba(256,256,256,0.75);
+	-moz-box-shadow: inset 0 0 2px rgba(256,256,256,0.75);
+	-webkit-box-shadow: inset 0 0 2px rgba(256,256,256,0.75);
 }
 #profile-pic{
 	float: left;
 	width: 290px;
 	border-right: 1px solid gray;
 	margin: 10px;
+}
+#pic{
+	height: 300px;
 }
 #uPic{
 	width: 150px;
@@ -65,11 +92,15 @@ profile .profile-content{
 	margin: 10px;
 	padding-left: 50px;	
 }
-#profile-footer{
+.profile-footer{
 	padding: 20px;
-	background: pink;
+	position: relative;
+	background: #d3d3d3;
+	margin-bottom: -20px;
 }
-
+.update-profile-footer{
+	padding: 10px;
+}
 /*=========================================================================*/
 #status {
 	margin-top: 10px;
@@ -85,6 +116,7 @@ profile .profile-content{
     padding: 15px;
 }
 #footer {
+	margin-top: 100px;
     float: left;
     top: 100%;
     background: #C7C7C7;
@@ -97,5 +129,5 @@ profile .profile-content{
     -webkit-box-shadow: inset 0px 2px 10px 0px rgba(117,117,117,1);
     -moz-box-shadow: inset 0px 2px 10px 0px rgba(117,117,117,1);
     box-shadow: inset 0px 2px 10px 0px rgba(117,117,117,1);
-    
+    poistion: relative;
 }

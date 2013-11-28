@@ -56,6 +56,40 @@ public class CredentialsDB {
 				}	
 			return credentials;
 	}	
+	public static synchronized String getPword(String userName){
+		/***********************************************************************
+		 * Method.................................................getPword     *
+		 * Author......................................................JLH     *
+		 *---------------------------------------------------------------------*
+		 * This method getPass gets the users password for validation          *
+		 * 																	   *
+		 * Return Value 													   *
+		 * (String) correctPass:  Returns a String of the user's password	   *
+		 ***********************************************************************/
+			Connection connection;
+		 	String correctPass = "";
+		 	PreparedStatement statement=null;
+			String preparedSQL = "SELECT pass FROM Credential WHERE Email = ?";
+			
+		    try{
+		    	connection=DBConnector.getConnection();
+		    	statement = connection.prepareStatement(preparedSQL);
+		    	statement.setString(1, userName);
+				ResultSet rs = statement.executeQuery();
+				if(rs.next()){
+					correctPass = rs.getString(1);
+				}	
+				rs.close();		
+				statement.close();
+				connection.close();
+				
+			}catch (SQLException ex){
+					System.out.println("Error: " + ex);
+					System.out.println("Query: " + statement.toString());
+					
+				}	
+			return correctPass;
+	}	
 	public static synchronized int checkVerification(String userName){
 		/***********************************************************************
 		 * Method........................................checkVerification     *

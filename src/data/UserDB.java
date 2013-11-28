@@ -399,7 +399,8 @@ public class UserDB {
 	
 	
 	
-	public static synchronized int updateUser(User user){
+	public static synchronized int updateUser(String fName,String lName,String phone,String address,
+			String city,String state,String zip,int user_ID){
 		/***********************************************************************
 		 * Method.................................................updateClient *
 		 * Author..........................................................JLH *
@@ -413,21 +414,20 @@ public class UserDB {
 		int status = 0;
 		Connection connection;
 
-		String preparedSQL = "";
+		String preparedSQL = "Update user Set First_Name = ?, Last_Name = ?, Phone = ?, Address = ?," +
+				"City = ?, State = ?, ZIP = ? Where User_ID = ?";
 		PreparedStatement statement = null;	
 		try{
 			connection = DBConnector.getConnection();
 			statement = connection.prepareStatement(preparedSQL);
-			statement.setString(1, user.getFirst_Name());
-			statement.setString(2, user.getLast_Name());
-			statement.setString(3, user.getPhone());
-			statement.setString(4, user.getAddress());
-			statement.setString(5, user.getCity());
-			statement.setString(6, user.getState());
-			statement.setString(7, user.getZIP());
-			
-			statement.setString(8, user.getDate());
-			statement.setInt(9, user.getUser_ID());
+			statement.setString(1, fName);
+			statement.setString(2, lName);
+			statement.setString(3, phone);
+			statement.setString(4, address);
+			statement.setString(5, city);
+			statement.setString(6, state);
+			statement.setString(7, zip);
+			statement.setInt(8, user_ID);
 			status = statement.executeUpdate();
 			statement.close();
 			connection.close();

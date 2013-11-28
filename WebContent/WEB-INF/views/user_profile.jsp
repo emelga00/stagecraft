@@ -5,6 +5,7 @@
 <%
 	User user = (User) session.getAttribute("userProfile");
 	session.removeAttribute("userProfile");
+	session.removeAttribute("updatingUser");
 	String currentUsername = (String) session.getAttribute("currentUsername");
 	int currentUserID = 0;
 	if(currentUsername !=null){
@@ -51,12 +52,11 @@
 		
 		</div>
 	</div>
-	<div class="clear"></div>
-	<div class="profile-footer">
+	
+	<div class="modify-footer" style="margin-top: 300px;padding: 20px;">
 		<%
-		System.out.println(cUser);
 		if(cUser){
-	out.println("<a href='UpdateUserProfile'>Update Profile</a>");
+	out.println("<div class='button' style='text-align:center;'><a href='UpdateUserProfile'>Update Profile</a></div>");
 		session.setAttribute("updatingUser",user);
 	}%>
 	</div>

@@ -1,5 +1,7 @@
 package framework.command;
 
+import java.util.Arrays;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -21,6 +23,11 @@ public class Authenticate implements Command {
 	String nextView;
 	HttpSession session;
 	String button;
+	Boolean pword = false;
+	String realPass;
+	char[] enteredPass;
+	char[] correctPass;
+	Credentials currentUser = null;
 	@Override
 	public String perform(HttpServletRequest request, HttpServletResponse response) {
 		/***********************************************************************
@@ -53,6 +60,7 @@ public class Authenticate implements Command {
 		username = request.getParameter("username");
 		password = request.getParameter("password");
 		button = request.getParameter("submit");
+		realPass = CredentialsDB.getPword(username);
 		
 	}
 	private String authenticateUser(HttpServletRequest request) {
@@ -77,9 +85,20 @@ public class Authenticate implements Command {
 		nextView = "Login";
 		// ** Authenticates the user, determines whether the username
 		// and password are valid
-		Credentials currentUser = CredentialsDB.authenticate(username, password);
+		enteredPass = password.toCharArray();
+		correctPass = realPass.toCharArray();
+		if (enteredPass != null && correctPass != null){
+			pword = Arrays.equals(enteredPass,correctPass);
+		}
+		if(pword){
+		currentUser = CredentialsDB.authenticate(username, password);
+		}
+		else{
+			currentUser= null;
+		}
 		// ** Determines whether the user's email has been verified.
 		// Then it pulls role, email, and user ID data from Credential Bean
+		
 		if (currentUser != null) {
 			int currentValid = (int) currentUser.getValid();
 			if (currentValid == 0) {

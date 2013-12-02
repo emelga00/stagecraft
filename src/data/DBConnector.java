@@ -12,7 +12,7 @@ public class DBConnector {
 	 * This class provides the data access layer code for the Client table.  It provides   *
 	 * the following methods:															   *
 	 * 																					   *
-	 *		getConnection	    - Connects to the group 1 database                         *
+	 *		getConnection	    - Connects to the stagecraft database                         *
 	 *                                                                                     *
 	 ***************************************************************************************/
 	

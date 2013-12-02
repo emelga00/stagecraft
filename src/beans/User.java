@@ -1,9 +1,10 @@
 package beans;
 /***************
  *  Author: JLH
+ *  User Bean
  ***************/
 public class User {
-	//from userDB
+	
 	private int    user_ID;
 	private String first_Name;
 	private String last_Name;
@@ -14,7 +15,6 @@ public class User {
 	private String ZIP;
 	private String Date;
 	private String Role;
-	//from credentialDB
 	private int 	Valid;
 	private int    creds_Credential_ID;
 	private String creds_Email;
@@ -22,7 +22,6 @@ public class User {
 	private String creds_RegKey;
 	private String cred_Date;
 	
-	//from userDB
 	public int getUser_ID() {
 		return user_ID;
 	}
@@ -89,7 +88,6 @@ public class User {
 	public void setValid(int valid) {
 		Valid = valid;
 	}
-	//from credentialDB
 	public int getCreds_Credential_ID() {
 		return creds_Credential_ID;
 	}

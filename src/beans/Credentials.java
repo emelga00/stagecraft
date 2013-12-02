@@ -1,10 +1,10 @@
 /***************
  *  Author: JLH
+ *  Credentials Bean
  ***************/
 package beans;
 
 public class Credentials {
-	//from credentialDB
 	private int credID;
 	private String email;
 	private String pass;
@@ -13,7 +13,7 @@ public class Credentials {
 	private String regKey;
 	private int userID;
 	private String userName;
-	//from credentialDB
+	
 	public void setCredID(int CredID) {
 		this.credID = CredID;
 	}

@@ -3,8 +3,6 @@ package framework.command;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-
-import data.CredentialsDB;
 import data.UserDB;
 
 import framework.controller.Command;

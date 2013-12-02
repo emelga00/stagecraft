@@ -10,24 +10,20 @@ public class UserDB {
 	 * Class........................................................................UserDB *
 	 * Author..........................................................................JLH *
 	 * ----------------------------------------------------------------------------------- *
+	 * 																					   *
+	 * This Class contain all of the methods for interacting with the      				   *
+	 * user table in the database   								           			   *
 	 ***************************************************************************************/
 	
 	public static synchronized ArrayList<User> getUsers(){
 		/***********************************************************************
-		 * Method.............................................getClientByAlpha *
+		 * Method.....................................................getUsers *
 		 * Author..........................................................JLH *
 		 * --------------------------------------------------------------------*
-		 * This method retrieves a list of client beans based on companyName   *
-		 * If the companyName is an empty string the contents of the entire    *
-		 * table will be returned, otherwise the method will return all records*
-		 * that begin with the comapnyName string.(Use LIKE)                   *
-		 *                                                                     *
-		 *     Required parameters                                             *
-		 *     (String) companyInitial - the letter of the alphabet to find    *
-		 *                               matches for                           *
+		 * This method retrieves a list of all user beans                      *
+		 * 																	   *
 		 *     Return Value                                                    *
-		 *     ArrayList<Client> clientList - Returns an arralist of client    *
-		 *                                    beans                            *
+		 *     ArrayList<User> user - Returns an arraylist of user beans        *
 		 ***********************************************************************/
 			Connection connection;
 		 	User user = null;
@@ -66,13 +62,11 @@ public class UserDB {
 	
 	public static synchronized User getUserByUserID(int userID){
 		/***********************************************************************
-		 * Method...............................................getClientByUID *
+		 * Method..............................................getUserByUserID *
 		 * Author..........................................................JLH *
 		 * --------------------------------------------------------------------*
-		 * This method a Client Bean object based on the clientID              *
+		 * This method retrieves a User Bean object based on the userID        *
 		 *                                                                     *
-		 *     Required parameters                                             *
-		 *     (String) clientID - the id of the client to search for          *
 		 *     Return Value                                                    *
 		 *     (User) user - Returns a user bean object.                       *
 		 ***********************************************************************/
@@ -158,10 +152,10 @@ public class UserDB {
 			}
 	public static synchronized int getUserID(String fName, String lName, int cred_ID){
 		/***********************************************************************
-		 * Method...............................................getClientByUID *
+		 * Method....................................................getUserID *
 		 * Author..........................................................JLH *
 		 * --------------------------------------------------------------------*
-		 * This method a Client Bean object based on the clientID              *
+		 * This method retieves a user ID based on fName, lName and credID     *
 		 *                                                                     *
 		 *     Return Value                                                    *
 		 *     (int) user_ID - Returns a user's id number                      *

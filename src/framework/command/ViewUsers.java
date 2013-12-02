@@ -26,11 +26,7 @@ public class ViewUsers implements Command {
 	@Override
 	 public String perform(HttpServletRequest request,HttpServletResponse response) {
 
-		String letter ="";
-		if(request.getParameter("letter") != null) {
-	  		letter = request.getParameter("letter");
-	  	}
-	    ArrayList<User> users = UserDB.getUserByAlpha(letter);
+		ArrayList<User> users = UserDB.getUsers();
 
 	    request.setAttribute("userList", users);
 	    return "/WEB-INF/views/view_users.jsp";

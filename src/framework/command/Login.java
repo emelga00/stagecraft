@@ -4,6 +4,15 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import framework.controller.Command;
 
+/***************************************************************************************
+ * Class.........................................................................Login *
+ * Author..........................................................................JLH *
+ * ----------------------------------------------------------------------------------- *
+ * This class provides directs the nextview to the login.jsp.                          *
+ *                                                                                     *
+ *    perform - required method from Command interface                                 *
+ *                                                                                     *
+ ***************************************************************************************/
 public class Login implements Command{
 
 	@Override

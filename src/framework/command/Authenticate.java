@@ -83,8 +83,8 @@ public class Authenticate implements Command {
 			return "Forgot_Cred";
 		}
 		nextView = "Login";
-		// ** Authenticates the user, determines whether the username
-		// and password are valid
+		// ** Authenticates the user, determines whether the password
+		// is valid on an ASCii level
 		enteredPass = password.toCharArray();
 		correctPass = realPass.toCharArray();
 		if (enteredPass != null && correctPass != null){

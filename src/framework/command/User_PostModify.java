@@ -13,13 +13,15 @@ public class User_PostModify  implements Command{
 	 * Class...............................................................User_PostModify *
 	 * Author..........................................................................JLH *
 	 * ----------------------------------------------------------------------------------- *
-	 * This class processes Client bean from Client add form.                              *
+	 * This class is responsible for pulling data from user modify forms and altering the  *
+	 * database.                                                                           *
 	 * 																					   *
-	 * 		perform - required method from Command interface                               *
+	 * perform - required method from Command interface                                    *
 	 *                                                                                     *
 	 ***************************************************************************************/
 	@Override
 	public String perform(HttpServletRequest request, HttpServletResponse response) {
+		
 		HttpSession session = request.getSession();
 		String status = "User not updated!";
 		//** 1. Retrieve the Form Input (Name-Value Pairs) from the HTTP Request ***

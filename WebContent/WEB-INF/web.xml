@@ -23,14 +23,9 @@
     <url-pattern>/Login</url-pattern>
     <url-pattern>/Logout</url-pattern>
     <url-pattern>/Authenticate</url-pattern>
-    <url-pattern>/AdminView</url-pattern>
-    <url-pattern>/ModUserView</url-pattern>
-    <url-pattern>/StandardUserView</url-pattern>
     <url-pattern>/Credential_Add</url-pattern>
     <url-pattern>/Cred_PostAdd</url-pattern>
-    <url-pattern>/User_Add</url-pattern>
     <url-pattern>/User_Modify</url-pattern>
-    <url-pattern>/User_PostAdd</url-pattern>
     <url-pattern>/SendValidation</url-pattern>
     <url-pattern>/Forgot_Cred</url-pattern>
     <url-pattern>/SendForgotCred</url-pattern>
@@ -47,7 +42,6 @@
     <url-pattern>/ViewSubmissions</url-pattern>
     <url-pattern>/Create_Post</url-pattern>
     <url-pattern>/Submission_Add</url-pattern>
-    <url-pattern>/UpdateUserProfile</url-pattern>
     <url-pattern>/UserProfile_PostModify</url-pattern>
 
   </servlet-mapping>

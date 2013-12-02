@@ -12,7 +12,8 @@ public class UserProfile_PostModify  implements Command{
 	 * Class...............................................................User_PostModify *
 	 * Author..........................................................................JLH *
 	 * ----------------------------------------------------------------------------------- *
-	 * This class processes Client bean from Client add form.                              *
+	 * This class pulls in the data entered into the fields of the user's profile modify   *
+	 * form. It then interacts with the database and updates the fields.                   *
 	 * 																					   *
 	 * 		perform - required method from Command interface                               *
 	 *                                                                                     *

@@ -6,11 +6,18 @@ import javax.servlet.http.HttpSession;
 
 import framework.controller.Command;
 import data.UserDB;
-/******************
- * Author JLH
- ******************/
 
 
+/***************************************************************************************
+ * Class...................................................................User_Delete *
+ * Author..........................................................................JLH *
+ * ----------------------------------------------------------------------------------- *
+ * This class deletes all of the user's data from the user table and the credential    *
+ * table and then provides directs the nextview to the View_Users class.               *
+ *                                                                                     *
+ *    perform - required method from Command interface                                 *
+ *                                                                                     *
+ ***************************************************************************************/
 public class User_Delete implements Command {
 
 	@Override

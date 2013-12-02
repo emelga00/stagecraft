@@ -3,24 +3,28 @@
 	pageEncoding="ISO-8859-1" import="beans.*,data.*"%>
 
 <%
+/*****************
+ *  Author: JLH
+ *****************/
 	User user = (User) session.getAttribute("user");
 	String currentRole = (String) session.getAttribute("currentRole");
 %>
 <div id="modify">
 
-	<form name="registration" class="modify-form"
-		action="User_PostModify" method="post">
+	<form name="registration" class="modify-form" action="User_PostModify"
+		method="post">
 		<div class="modify-header">
 			<h1>User Info</h1>
 		</div>
-		<div class="modify-content" >
-		
-			<label>First Name</label> 
-			<input type="text" name="fName" class="modify-field" value="<%=user.getFirst_Name()%>" size="30" disabled="disabled"/>
-			<label>Last Name</label> 
-			<input type="text" name="lName" class="modify-field" value="<%=user.getLast_Name()%>" size="30" disabled="disabled"/>
-			<label>Email</label> 
-			<input type="text" name="email" class="modify-field" value="<%=user.getCreds_Email()%>" size="30" disabled="disabled"/> 
+		<div class="modify-content">
+
+			<label>First Name</label> <input type="text" name="fName"
+				class="modify-field" value="<%=user.getFirst_Name()%>" size="30"
+				disabled="disabled" /> <label>Last Name</label> <input type="text"
+				name="lName" class="modify-field" value="<%=user.getLast_Name()%>"
+				size="30" disabled="disabled" /> <label>Email</label> <input
+				type="text" name="email" class="modify-field"
+				value="<%=user.getCreds_Email()%>" size="30" disabled="disabled" />
 			<label>Role</label>
 			<%
 				if (currentRole.equals("admin")) {
@@ -49,7 +53,7 @@
 								+ " <option value='user'>user</option>"
 								+ " <option value='moderator' selected>moderator</option>"
 								+ " </select> ");
-					}else if (user.getRole().equals("user")) {
+					} else if (user.getRole().equals("user")) {
 						out.println("<select name='role' style='width:10em'>"
 								+ " <option value='user' selected>user</option>"
 								+ " <option value='moderator'>moderator</option>"
@@ -57,24 +61,25 @@
 					}
 				}
 			%>
-			<br />
-			<label>Enabled?</label>
+			<br /> <label>Enabled?</label>
 			<%
-				if (user.getValid()==0) {
+				if (user.getValid() == 0) {
 					out.println("<select name='enabled' style='width:10em'>"
 							+ " <option value='yes' selected>enabled</option>"
-							+ " <option value='no'>disabled</option>" + 
-							" </select> ");
-				}else{
+							+ " <option value='no'>disabled</option>"
+							+ " </select> ");
+				} else {
 					out.println("<select name='enabled' style='width:10em'>"
 							+ " <option value='yes'>enabled</option>"
-							+ " <option value='no' selected>disabled</option>" + 
-							" </select> ");
+							+ " <option value='no' selected>disabled</option>"
+							+ " </select> ");
 				}
 			%>
-			<br> <input type="hidden" name="userID" value="<%=user.getUser_ID()%>" />
+			<br>
+			<input type="hidden" name="userID" value="<%=user.getUser_ID()%>" />
 			<div class="clear"></div>
-			<br><br>
+			<br>
+			<br>
 		</div>
 		<div class="modify-footer">
 			<input type="submit" name="submit" value="Cancel" class="submit" />

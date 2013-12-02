@@ -14,11 +14,11 @@ import framework.controller.Command;
 
 public class ViewUsers implements Command {
 	/***************************************************************************************
-	 * Class..............................................................ClientViewerList *
+	 * Class.....................................................................ViewUsers *
 	 * Author..........................................................................JLH *
 	 * ----------------------------------------------------------------------------------- *
-	 * This class provides next view destination for the controller -- List Clients page   *
-	 *   and generates arraylist of client beans for display                               *
+	 * This class creates an ArrayList of users in the user DB and puts it in scope then   *
+	 * sends the nextview to the view_users.jsp                                            *
 	 *                                                                                     *
 	 *    perform - required method from Command interface                                 *
 	 *                                                                                     *

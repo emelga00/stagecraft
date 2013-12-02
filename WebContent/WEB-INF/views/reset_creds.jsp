@@ -1,6 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1"
-	import="java.util.ArrayList,beans.*,data.*"%>
+	pageEncoding="ISO-8859-1" import="java.util.ArrayList,beans.*,data.*"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -20,15 +19,16 @@
 	String status = (String) session.getAttribute("status");
 	if (userID != null || key != null) {
 		user_ID = Integer.parseInt(userID);
-		Credentials resetCreds = CredentialsDB.getCredentialByUserIDKey(user_ID,key);
-		if(resetCreds!=null){
-			if(status==null){
-				status="";
+		Credentials resetCreds = CredentialsDB
+				.getCredentialByUserIDKey(user_ID, key);
+		if (resetCreds != null) {
+			if (status == null) {
+				status = "";
 			}
 			session.removeAttribute("status");
 			email = (String) resetCreds.getEmail();
 		}
-		
+
 	}
 %>
 
@@ -51,9 +51,9 @@
 				<tr>
 
 					<td class="rightIt">Email Address</td>
-					<td><input type="text" name="email"
-						value="<%=email%>" disabled="disabled" /> <input
-						type="hidden" name="userID" value="<%=userID%>" /></td>
+					<td><input type="text" name="email" value="<%=email%>"
+						disabled="disabled" /> <input type="hidden" name="userID"
+						value="<%=userID%>" /></td>
 					<td></td>
 					<td></td>
 
@@ -76,7 +76,8 @@
 			</table>
 			<div class="formControls">
 				<input class="jBtn" type="reset" name="reset" value="Reset" />
-				&nbsp; <input class="jBtn" type="submit" name="submit" value="Reset Password" />
+				&nbsp; <input class="jBtn" type="submit" name="submit"
+					value="Reset Password" />
 			</div>
 		</form>
 	</div>

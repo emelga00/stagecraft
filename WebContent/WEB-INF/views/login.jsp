@@ -50,6 +50,13 @@
 		lName = "";
 	}
 %>
+<script>
+close = document.getElementById("close");
+close.addEventListener('click', function() {
+  note = document.getElementById("note");
+   note.style.display = 'none';
+}, false);
+</script>
 
 <div id="register-page">
 	<div id="register">
@@ -109,4 +116,4 @@
 		</form>
 	</div>
 </div>
-<div class="error message"><%=status%></div>
+<div id="note"><%=status%> <div id="close">[x]</div></div>

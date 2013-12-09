@@ -1,46 +1,40 @@
---.message{
---		background-size: 40px 40px;
---		background-image: linear-gradient(135deg, rgba(255, 255, 255, .05) 25%, transparent 25%,
---							transparent 50%, rgba(255, 255, 255, .05) 50%, rgba(255, 255, 255, .05) 75%,
---							transparent 75%, transparent);										
---		 box-shadow: inset 0 -1px 0 rgba(255,255,255,.4);
---		 width: 100%;
---		 border: 1px solid;
---		 color: #fff;
---		 padding: 15px;
---		 position: fixed;
---		 _position: absolute;
---		 text-shadow: 0 1px 0 rgba(0,0,0,.5);
---	 	 animation: animate-bg 5s linear infinite;
-		 bottom: auto;
+#note{
+position: fixed;
+    z-index: 101;
+    top: 0;
+    left: 0;
+    right: 0;
+    background: #8e001c;
+    color: #f3f3f3;
+    font-size: 18px;
+    font-family: 'Bree Serif', serif;
+    text-align: center;
+    line-height: 2.5;
+    overflow: hidden; 
+    -webkit-box-shadow: 0 0 5px black;
+    -moz-box-shadow:    0 0 5px black;
+    box-shadow:         0 0 5px black;
 }
-.info{
-		 background-color: #4ea5cd;
-		 border-color: #3b8eb5;
+@-webkit-keyframes slideDown {
+    0%, 100% { -webkit-transform: translateY(-50px); }
+    10%, 90% { -webkit-transform: translateY(0px); }
 }
-.error{
-		 background-color: #de4343;
-		 border-color: #c43d3d;
-}		 
-.warning{
-		 background-color: #eaaf51;
-		 border-color: #d99a36;
+@-moz-keyframes slideDown {
+    0%, 100% { -moz-transform: translateY(-50px); }
+    10%, 90% { -moz-transform: translateY(0px); }
 }
-.success{
-		 background-color: #61b832;
-		 border-color: #55a12c;
+#message .cssanimations .csstransforms{
+    -webkit-transform: translateY(-50px);
+    -webkit-animation: slideDown 2.5s 2.0s 2 ease forwards;
+    -moz-transform:    translateY(-50px);
+    -moz-animation:    slideDown 2.5s 2.0s 2 ease forwards;
 }
-.message h3{
-		 margin: 0 0 5px 0;													 
+#close{
+float:right; padding-right:130px;font-weight:bold;cursor:pointer;
 }
-.message p{
-		 margin: 0;													 
+#close  .cssanimations .csstransforms{
+  display: none;
 }
-@keyframes animate-bg {
-    from {
-        background-position: 0 0;
-    }
-    to {
-       background-position: -80px 0;
-    }
+#close{
+display:none;
 }

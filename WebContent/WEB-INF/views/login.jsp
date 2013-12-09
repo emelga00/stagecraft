@@ -116,4 +116,4 @@ close.addEventListener('click', function() {
 		</form>
 	</div>
 </div>
-<div id="note"><%=status%> <div id="close">[x]</div></div>
+<div id="note"><%=status%></div>
